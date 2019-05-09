@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms version="1.0">
+	<title>通行證會員</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.01</version>
+
+	<common>
+		<lock>鎖定</lock>
+		<unlock>解除鎖定</unlock>
+		<log>會員日志</log>
+		<delall>清空日志</delall>
+		<normal>否</normal>
+		<lockuser>鎖定的會員</lockuser>
+		<config>參數設置</config>
+		<configupok>參數設置成功！</configupok>
+		<protocalok>成功修改注冊協議</protocalok>
+		<protocal>注冊協議</protocal>
+		<regpp>注冊會員</regpp>
+		<reg>同意注冊協議並提交</reg>
+		<ppok>密碼更新成功！</ppok>
+		<getpass>忘記密碼？</getpass>
+		<getpasstitle>找回密碼</getpasstitle>
+		<login>登錄</login>
+		<logout>退出登錄</logout>
+		<center>用戶中心</center>
+		<myfriend>我的好友</myfriend>
+		<remsg>回複</remsg>
+		<closemsg>收起</closemsg>
+		<pubmsg>群發信息</pubmsg>
+		<msgok>成功發送信息到指定的用戶</msgok>
+		<ppmsg>會員留言</ppmsg>
+		<manage>管理員</manage>
+		<newpass1>輸入新的密碼</newpass1>
+		<newpass2>確認新密碼</newpass2>
+		<uppass>更新密碼</uppass>
+		<oldpass>輸入您的密碼</oldpass>
+	</common>
+	<list>
+		<id>ID</id>
+		<name>會員名</name>
+		<mail>郵件地址</mail>
+		<home>返回站點首頁</home>
+		<center>進入用戶中心</center>
+		<islock>是否鎖定</islock>
+		<friend>
+			<name>好友列表</name>
+			<add>添加好友</add>
+		</friend>
+		<pubmsg>發信息</pubmsg>
+		<pub>發送</pub>
+		<msguser>收信人 (用戶名之間用逗號分開，一次最多發給5人)</msguser>
+		<msgcontent>內容 (不能超過1000字)</msgcontent>
+		<msgcontent1>內容 (沒有長度限制)</msgcontent1>
+		<msgtitle>主題</msgtitle>
+		<letuser>來自</letuser>
+		<date>日期</date>
+		<view>標記為已讀</view>
+		<noview>標記為未讀</noview>
+		<username>用戶列表 (會員之間用逗號分開，給所有會員發信息就寫*)</username>
+	</list>
+	<label>
+		<reservename>保留用戶名 (用戶名之間用逗號分開)</reservename>
+		<template>通行證頁面模板</template>
+		<protocal>閱讀注冊協議</protocal>
+		<name>您的用戶名</name>
+		<aname>會員帳號</aname>
+		<pass1>您的密碼</pass1>
+		<pass2>重複輸入您的密碼</pass2>
+		<apass1>會員密碼</apass1>
+		<apass2>重複密碼</apass2>
+		<mail>常用郵件地址，以便和您聯系</mail>
+		<mail1>常用郵件地址，不能再做修改</mail1>
+		<amail>郵件地址</amail>
+		<mailis>不公開郵件地址</mailis>
+		<question>設置您的問題</question>
+		<answer>設置問題相關的答案，找回密碼的時候需要用到</answer>
+		<validity>記住密碼</validity>
+		<navigation>
+			<logout>用戶導航，登陸前 (系統路徑可由(king:page/)來代替，遠程用戶自動替換成遠程路徑)</logout>
+			<login>用戶導航，登陸後 (系統路徑可由(king:page/)來代替，效果同上)</login>
+			<user>登錄後的用戶菜單 (系統路徑可由(king:page/)來代替，效果同上)</user>
+			<memo>
+			<![CDATA[
+{language=zh-cn //指定語言包
+菜單名稱1|鏈接地址1
+菜單名稱2|鏈接地址2
+}
+以上舉例中 {language=XX 和 } 符號出現的時候，必須換行，支持多語言包
+]]>
+
+			</memo>
+		</navigation>
+	</label>
+	<tip>
+		<regok>注冊成功</regok>
+		<loginok>登錄成功</loginok>
+		<registration>您已經注冊過一次帳號了，請不要再次注冊</registration>
+		<lock>您嘗試登錄次數過多，已被系統鎖定</lock>
+		<uppass>密碼更新成功</uppass>
+		<getpass>成功設置了您的新密碼</getpass>
+		<upconfig>成功設置了您的用戶參數</upconfig>
+		<reconfig>返回到參數設置</reconfig>
+		<reuppass>返回到更新密碼</reuppass>
+	</tip>
+	<check>
+		<name>用戶名不能為空或過長</name>
+		<name1>用戶名不能含有非法參數</name1>
+		<name2>用戶名已存在或被保留</name2>
+		<name3>您的帳號已被刪除</name3>
+		<name4>帳戶不存在或被停用</name4>
+		<pwderr>用戶名或帳號有誤</pwderr>
+		<mail>請填寫您的郵件地址</mail>
+		<mail1>郵件格式不正確</mail1>
+		<mail2>郵件地址已存在</mail2>
+		<pwdcontrast>兩次輸入的密碼不一致</pwdcontrast>
+		<pwdsize>密碼長度不正確</pwdsize>
+		<mail1>郵件地址格式不正確</mail1>
+		<question>請設置您的問題</question>
+		<answer>請設置問題答案</answer>
+		<nouser>用戶名不能為空</nouser>
+		<msguser>您填寫了不存在的用戶或此用戶已被刪除</msguser>
+		<msguser1>一次最多給5位會員發送信息</msguser1>
+		<msgcontent>信息內容不能超過1000個字</msgcontent>
+		<msgcontent1>內容不能為空</msgcontent1>
+		<nomsgcontent>信息內容不能為空</nomsgcontent>
+		<msgtitle>標題不能為空或大于50字</msgtitle>
+		<username>收信人列表不能為空</username>
+		<is1>用戶名和密碼不一致</is1>
+		<is2>和您設置的答案不一致</is2>
+		<oldpass>您輸入的密碼不正確</oldpass>
+	</check>
+	<flo>
+		<select>請選擇一個會員</select>
+		<selectmsg>請選擇一個信息</selectmsg>
+		<lockok>成功鎖定您選擇的會員</lockok>
+		<unlockok>成功解除鎖定</unlockok>
+		<delok>成功刪除您選擇的會員</delok>
+		<delokmsg>成功刪除您選擇的信息</delokmsg>
+		<notuser>用戶不存在或被刪除</notuser>
+		<exists>此會員已在您的好友列表裏</exists>
+		<addfriendok>成功添加到您的好友列表裏</addfriendok>
+		<msgok>成功發出信息</msgok>
+		<msgnum>超出今日可發送短信息數量</msgnum>
+		<viewok>已設置標記為已讀</viewok>
+		<noviewok>已設置標記為未讀</noviewok>
+		<delall>成功清除會員日志</delall>
+	</flo>
+	<alert>
+	</alert>
+	<error>
+	</error>
+</kingcms>

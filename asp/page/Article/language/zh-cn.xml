@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>文章管理</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.1</version>
+
+	<common>
+		<root>文章根目录</root>
+		<listdir>目录列表</listdir>
+		<listart>文章列表</listart>
+		<addlist>添加列表</addlist>
+		<listids>选择文章所属栏目</listids>
+		<addart>添加文章</addart>
+		<moveto>移动到..</moveto>
+		<union>合并栏目</union>
+		<root>根目录</root>
+		<createall>生成列表及文章</createall>
+		<createlist>生成文章列表</createlist>
+		<createpage>生成文章</createpage>
+		<createnotfile>生成未生成文章</createnotfile>
+		<createalls>生成所有列表及文章</createalls>
+		<createlists>生成所有文章列表</createlists>
+		<createpages>生成所有文章</createpages>
+		<createmap>生成文章Sitemaps</createmap>
+		<pinyin>拼音</pinyin>
+		<attrib>列表属性</attrib>
+		<accord>同标题一致</accord>
+		<home>根列表</home>
+		<group>会员分组</group>
+		<gradeadd>添加会员组</gradeadd>
+		<grade>阅读权限</grade>
+		<tree>列表树</tree>
+		<search>搜索文章</search>
+		<show1>设置为显示</show1>
+		<show0>取消显示</show0>
+		<up1>设置为置顶</up1>
+		<up0>取消置顶</up0>
+		<commend1>设置为推荐</commend1>
+		<commend0>取消推荐</commend0>
+		<head1>设置为头条</head1>
+		<head0>取消头条</head0>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<listname>列表名称</listname>
+		<title>标题</title>
+		<group>分组名称</group>
+		<num>对应编号</num>
+		<user>用户组</user>
+		<alluser>所有会员</alluser>
+		<manage>操作</manage>
+		<count>文章数</count>
+		<file>文档</file>
+		<path>路径</path>
+		<move>移动</move>
+		<sublist>下属文章列表总数</sublist>
+		<listids>单选：所属主栏目；多选：所属副栏目</listids>
+		<grade>所属会员组</grade>
+		<grade0>开放</grade0>
+		<grade1>会员</grade1>
+	</list>
+	
+	<label>
+		<title>文章标题</title>
+		<listtitle>栏目标题</listtitle>
+		<author>作者</author>
+		<rn>每页显示</rn>
+		<authornone>不详</authornone>
+		<up>置顶</up>
+		<show>显示</show>
+		<head>头条</head>
+		<commend>推荐</commend>
+		<artdate>发布日期</artdate>
+		<space>搜索对象</space>
+		<num>组对应编号</num>
+		<groupname>会员组名称</groupname>
+		<groupuser>会员列表 (会员之间用英文逗号分开)</groupuser>
+		<snapimg>远程抓图</snapimg>
+		<uplist>更新列表</uplist>
+		<checktitle>检查标题是否重复</checktitle>
+		<content>文章内容</content>
+		<from>文章来源 (垂直线 | 右侧部分自动作为链接)</from>
+		<keyword>关键字 (不填写自动补充，Max=120)</keyword>
+		<description>简述 (不填写自动补充，Max=255)</description>
+		<listkeyword>栏目关键字</listkeyword>
+		<listdescription>栏目简述</listdescription>
+		<listcontent>栏目内容</listcontent>
+		<path>路径 (不支持特殊符号；不建议输入纯数字，以免覆盖列表)</path>
+		<img>缩略图 (若写远程路径，自动抓取图片保存到本地)</img>
+		<artinfo>文章属性</artinfo>
+		<suplist>上级列表</suplist>
+		<key>搜索关键字</key>
+		<grade>
+			<title>阅读权限</title>
+			<g0>任何人都可以访问</g0>
+			<g1>限站内会员访问</g1>
+		</grade>
+
+		<from1>
+			<net>来自网络</net>
+			<originality>原创</originality>
+		</from1>
+		<path>目录路径 (文章列表的目录)</path>
+		<list>所属列表</list>
+		<newlist>目标列表</newlist>
+		<listtemplate1>列表页外部模板</listtemplate1>
+		<listtemplate2>列表页内部模板 inside/article[list]</listtemplate2>
+		<pagetemplate1>内容页外部模板</pagetemplate1>
+		<pagetemplate2>内容页内部模板 inside/article[page]</pagetemplate2>
+		<pagelist>自动分页 (每页大致文字数)</pagelist>
+		<pagelistok>自动对文章进行分页</pagelistok>
+		<setimg>设置第一张图片为缩略图</setimg>
+		<sel>
+			<title>标题</title>
+			<author>作者</author>
+			<content>内容</content>
+		</sel>
+	</label>
+
+	<tip>
+		<noart>没有符合要求的内容，请重新搜索！</noart>
+		<search>找到相关文章约[***number***]篇，用时[**timer**]秒</search>
+	</tip>
+
+	<check>
+		<title>标题不能为空</title>
+		<title1>标题不能重复</title1>
+		<author>作者不能为空</author>
+		<content>内容不能为空</content>
+		<from>来源不能为空</from>
+		<path>路径不能为空</path>
+		<path1>目录路径格式错误</path1>
+		<path2>目录路径重复，请另取名</path2>
+		<listname>列表名不能为空</listname>
+		<listtitle>列表标题不能为空</listtitle>
+		<keyword>关键字总长度不能超过120个字符</keyword>
+		<path>路径格式不正确，或不能超过255个字符</path>
+		<path1>路径格式错误</path1>
+		<path2>路径重复，请另取名</path2>
+		<img>路径不能过长</img>
+		<description>简述不能超过255个字符</description>
+		<num>编号不能为空</num>
+		<num1>编号重复，请输入其他数字</num1>
+		<num2>编号必须为数字</num2>
+		<num3>编号必须大于1</num3>
+		<groupname>会员组名称不能为空</groupname>
+		<pagelistnumber>每页文字数必须为数字</pagelistnumber>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<deleteok>删除成功</deleteok>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<createok>成功生成</createok>
+		<moveok>成功移动指定的文章</moveok>
+		<createlistok>成功生成指定的栏目列表</createlistok>
+		<createlistok1>成功生成栏目列表</createlistok1>
+		<createpageok>成功生成指定的栏目列表及文章</createpageok>
+		<unionok>成功合并指定的栏目文章</unionok>
+		<createmap>成功生成文章Sitemaps</createmap>
+		<delgroup>成功删除指定的会员组</delgroup>
+		<notdel>请先删除下级列表！</notdel>
+		<show1>成功设置为显示</show1>
+		<show0>成功取消显示</show0>
+		<up1>成功设置为置顶</up1>
+		<up0>成功取消置顶</up0>
+		<commend1>成功设置为推荐</commend1>
+		<commend0>成功取消推荐</commend0>
+		<head1>成功设置为头条</head1>
+		<head0>成功取消头条</head0>
+	</flo>
+
+	<alert>
+		<saveok>保存成功，若添加新的列表，请按确定！</saveok>
+		<saveokart>保存成功，若添加新的文章，请按确定！</saveokart>
+		<saveokgroup>保存成功，若添加新的会员组，请按确定！</saveokgroup>
+	</alert>
+
+	<error>
+		<listid>请指定栏目ID</listid>
+		<notlist>没有列表，请先添加列表</notlist>
+		<notart>您正要访问的文章已被删除！</notart>
+		<nogroup>您所在的会员组无权访问此文章。</nogroup>
+	</error>
+
+</kingcms>

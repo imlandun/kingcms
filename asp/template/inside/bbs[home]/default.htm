@@ -1,0 +1,35 @@
+{bbslist}
+<div id="bbs">
+	<h4>{king:listname/}</h4>
+	<table cellspacing="1" width="100%" id="bbshome">
+		<tr>
+			<th width="6%"></th>
+			<th width="30%" class="k_c">论坛</th>
+			<th width="8%" class="k_c">主题</th>
+			<th width="8%" class="k_c">贴数</th>
+			<th width="8%" class="k_c">今日</th>
+			<th width="30%" class="k_c">最后发表</th>
+			<th width="10%" class="k_c">版主</th>
+		</tr>
+
+		{king:bbs type="home"}
+		<tr>
+			<td class="k_c">(king:icon/)</td>
+			<td class="k_l">
+				<strong>(king:bbsname/)</strong><br/>
+				(king:bbsdescription/)
+				(king:bbslogo/)
+			</td>
+			<td class="k_c">(king:topiccount/)</td>
+			<td class="k_c">(king:allcount/)</td>
+			<td class="k_c">(king:todaycount/)</td>
+			<td>
+				<a href="(king:topicpath/)">·(king:topictitle size="28"/)</a><br/>
+				<span class="k_fl">By: (king:lastuser/)</span><span class="k_fr">(king:lastdate mode="MM-dd hh:mm" /)</span>
+			</td>
+			<td class="k_c">(king:masters/)</td>
+		</tr>
+		{/king}
+	</table>
+</div>
+{/bbslist}

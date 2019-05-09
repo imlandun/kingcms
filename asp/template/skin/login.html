@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理登陆</title>
+<link rel="stylesheet" type="text/css" href="style/sys_base.css"/>
+<style type="text/css">
+body { background:#0b3768; }
+.sys_login { position:absolute; left:50%; top:50%; margin:-143px 0 0 -243px; width:486px; height:286px; background:url(images/login_bg.png) no-repeat;  }
+.sys_login_form { width:260px; height:160px; position:absolute; left:105px; top:48px; padding:30px 0 0 0; }
+.sys_login_form p { height:35px; line-height:35px; color:#104670; padding:0 0 10px 0; }
+.sys_login_form label { display:block; width:70px; height:22px; line-height:22px; text-align:right; float:left; overflow:hidden; }
+.sys_login_form input { background:#fff; padding:0 3px; width:160px; border:#5c7e9a solid 1px; height:22px; line-height:22px\9; }
+.sys_login_form input.login_btn { width:74px; height:29px; border:none; background:url(images/login_btn.png) no-repeat; cursor:pointer; }
+.sys_login_form input.reset { background-position:0 0; margin:0 10px 0 82px; }
+.sys_login_form input.submit { background-position:-77px 0; }
+.sys_copyright { position:absolute; left:0; bottom:10px; width:100%; text-align:center; line-height:30px; color:#fff; }
+.sys_copyright a { color:#fff; text-decoration:none; }
+.sys_copyright a:hover { text-decoration:none; }
+</style>
+<script type="application/javascript" src="js/jquery.min.js"></script>
+<script type="application/javascript" src="js/utils.js"></script>
+<script type="application/javascript" src="js/common.js"></script>
+</head>
+<body>
+<div class="sys_login">
+	<div class="sys_login_form">
+	<form action="#" method="post">
+    	<p><label>用户名：</label><input type="text" value="" /></p>
+    	<p><label>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label><input type="password" value="" /></p>
+        <p><input type="reset" value="" class="login_btn reset" /><input type="submit" value="" class="login_btn submit" />
+	</form>
+    </div>
+</div>
+<div class="sys_copyright"><a href="http://www.kingcms.com" target="_blank">Copyright &copy  KingCMS.com All Rights Reserved.</a></div>
+</body>
+</html>

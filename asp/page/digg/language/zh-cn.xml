@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>DIGG</title>
+	<author memo="模块作者">Sin.CS</author>
+	<source memo="作者来自哪里？">KingCMS.com</source>
+	<mail memo="作者常用邮箱，以便联系">KingCMS@Gmail.com</mail>
+	<version memo="程序版本，默认为1.0">1.0</version>
+
+
+	<error>
+		<no>您的提交太频繁了！</no>
+		<noplugin>提交错误：不存在的模块！</noplugin>
+	</error>
+
+</kingcms>

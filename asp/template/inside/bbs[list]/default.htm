@@ -1,0 +1,50 @@
+<div id="bbs">
+
+	<div id="bbsmenu">
+		<div id="bbsmenu_left">
+			{king:addtopic/}
+			{king:addvote/}
+			{king:besttopic/}
+		</div>
+		<div id="bbsmenu_right">
+			(版主: {king:masters/}) {KING:RSS/}
+		</div>
+	</div>
+
+	{king:pagelist/}
+	<div id="bbsbox">
+		<ul class="bbslisttitle">
+			<li class="bbstype"></li>
+			<li class="bbsicon"></li>
+			<li class="bbstitle">主题</li>
+			<li class="bbsnumber">回/看</li>
+			<li class="bbstopicuser">作者</li>
+			<li class="bbslastuser">最后回复</li>
+		</ul>
+		{king:bbs type="list" number="25" zebra="5"}
+			<ul class="bbslist_(king:zebra/)">
+				<li class="bbstype"><a href="(king:topicpath/)" target="_blank">(king:type/)</a></li>
+				<li class="bbsicon">(king:icon/)</li>
+				<li class="bbstitle">
+					(king:topicattrib/)
+					(king:topictype/)
+					<a href="(king:topicpath/)" title="(king:topictitle/)">(king:topictitle size="35"/)</a>
+					(king:topicnew/)
+					(king:topiclist/)
+				</li>
+				<li class="bbsnumber">(king:reply/)/(king:hit/)</li>
+				<li class="bbstopicuser">
+					<a href="(king:topicprofile/)" title="(king:topicuser/)">(king:topicuser size="6"/)</a>
+					<span class="k_fr">[(king:topicdate mode="MM-dd hh:mm"/)]</span>
+				</li>
+				<li class="bbslastuser">
+					<a href="(king:lastprofile/)" title="(king:lastuser/)">(king:lastuser size="6" /)</a>
+					<span class="k_fr">[(king:lastdate mode="MM-dd hh:mm"/)]</span>
+				</li>
+			</ul>
+		{/king}
+
+	</div>
+	{king:pagelist/}
+
+</div>

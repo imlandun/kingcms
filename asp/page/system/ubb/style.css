@@ -1,0 +1,16 @@
+﻿img{border:none;}
+#kingubb{display:block;clear:both;width:100%;}
+#kingubb span{display:block;float:left;padding-right:2px;}
+#kingubb span a:link,#kingubb span a:visited,#kingubb span a:active {clear:both;display:block;border:1px solid #FFF;}
+#kingubb span a:hover{border:1px solid #69F;}
+#kingubb span em {clear:both;display:block;position:absolute;padding:10px 0px 5px 10px;z-index:999;}
+#kingubb span em#KingCMS_Color{width:102px;display:block;background:#EEE;border:1px solid #DCD2C7;}
+#kingubb span em#KingCMS_Color a:link,#kingubb span em#KingCMS_Color a:visited,#kingubb span em#KingCMS_Color a:active
+	{clear:none;display:block;float:left;width:10px;height:10px;margin-right:5px;margin-bottom:5px;line-height:0px;font-size:0px;border:1px solid #FFF;}
+#kingubb span em#KingCMS_Color a:hover{border:1px solid #333;}
+
+#kingubb span em#KingCMS_Emo{width:170px;display:block;background:#EEE;border:1px solid #DCD2C7;}
+#kingubb span em#KingCMS_Emo a:link,#kingubb span em#KingCMS_Emo a:visited,#kingubb span em#KingCMS_Emo a:active
+	{clear:none;display:block;float:left;margin-right:5px;margin-bottom:5px;line-height:0px;font-size:0px;border:1px solid #FFF;}
+#kingubb span em#KingCMS_Emo a:hover{border:1px solid #333;}
+#kingubb span em#KingCMS_Emo a img{width:20px;height:20px;}

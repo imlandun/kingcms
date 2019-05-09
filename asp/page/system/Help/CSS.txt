@@ -1,0 +1,52 @@
+﻿[b]系统默认样式表结构[/b]
+***  ***  ***  ***  ***  ***  ***
+            k_inX样式
+***  ***  ***  ***  ***  ***  ***
+
+k_in1			输入框样式 width:50px; CSS文件中自己修改
+k_in2			width:100px
+k_in3			width:200px
+k_in4			width:400px
+k_in5			width:600px
+
+
+***  ***  ***  ***  ***  ***  ***
+  [添加/编辑]数据操作表单CSS构成
+***  ***  ***  ***  ***  ***  ***
+
+form.k_form			form框，也可以定义CSS样式
+form.k_form p			分开多个表单标签
+form.k_form p label		表单标签名称
+form.k_form p span label	重新设置label属性
+form.k_form p input		文本框，一般附带定义k_inX系列样式
+form.k_form p span.k_error	错误提示
+form.k_form div			提交按钮框
+form.k_form div input,.k_submit	提交按钮
+
+
+***  ***  ***  ***  ***  ***  ***
+     记录浏览页的表单CSS构成
+***  ***  ***  ***  ***  ***  ***
+
+form.k_form					form框，也可以定义CSS样式的
+form.k_form div.k_but				按钮框，包含操作按钮和分页
+form.k_form div.k_but span.k_menu		按钮框
+form.k_form div.k_but span.k_menu input		反选按钮
+form.k_form div.k_but span.k_menu select		下拉式操作菜单
+form.k_form div.k_but span.k_pagelist		分页框
+form.k_form div.k_but span.k_pagelist em		记录总数
+form.k_form div.k_but span.k_pagelist strong	当前页
+form.k_form div.k_but span.k_pagelist a		分页
+
+***  ***  ***  ***  ***  ***  ***
+       搜索页面的CSS构成
+***  ***  ***  ***  ***  ***  ***
+
+div.k_search			项目显示框
+div.k_search p			提示搜索数量和时间的框
+div.k_search dl			结果列表
+div.k_search dl dt		标题
+div.k_search dl dd		内容
+div.k_search dl dd a		有链接的项目
+div.k_search dl dd span		没有链接的项目
+div.k_search dl strong		突出显示搜索关键字

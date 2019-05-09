@@ -1,0 +1,1 @@
+﻿<%response.redirect "index.asp"%>

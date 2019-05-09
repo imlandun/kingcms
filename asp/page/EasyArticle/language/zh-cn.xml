@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>简易文章管理</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.02</version>
+
+	<common>
+		<list>列表</list>
+		<addlist>添加列表</addlist>
+		<addart>添加文章</addart>
+		<moveto>移动到..</moveto>
+		<createall>生成列表及文章</createall>
+		<createlist>生成文章列表</createlist>
+		<createpage>生成文章</createpage>
+		<createnotfile>生成未生成文章</createnotfile>
+		<createalls>生成所有列表及文章</createalls>
+		<createlists>生成所有文章列表</createlists>
+		<createpages>生成所有文章</createpages>
+		<createmap>生成文章Sitemaps</createmap>
+		<union>合并栏目</union>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<listname>列表名称</listname>
+		<title>标题</title>
+		<manage>操作</manage>
+		<count>文章数</count>
+		<file>文档</file>
+		<path>路径</path>
+		<move>移动</move>
+	</list>
+	
+	<label>
+		<title>文章标题</title>
+		<content>文章内容</content>
+		<from>文章来源 (垂直线 | 右侧部分自动作为链接)</from>
+		<from1>
+			<net>来自网络</net>
+			<originality>原创</originality>
+		</from1>
+		<key>搜索关键字</key>
+		<path>目录路径 (文章列表的目录)</path>
+		<list>文章所属列表</list>
+		<newlist>目标列表</newlist>
+		<listtemplate1>列表页外部模板</listtemplate1>
+		<listtemplate2>列表页内部模板 inside/article[list]</listtemplate2>
+		<pagetemplate1>内容页外部模板</pagetemplate1>
+		<pagetemplate2>内容页内部模板 inside/article[page]</pagetemplate2>
+		<sel>
+			<title>标题</title>
+			<content>内容</content>
+		</sel>
+		<space>搜索对象</space>
+		<rn>每页显示</rn>
+	</label>
+
+	<tip>
+		<noart>没有符合要求的内容，请重新搜索！</noart>
+		<search>找到相关文章约[***number***]篇，用时[**timer**]秒</search>
+	</tip>
+
+	<check>
+		<title>标题不能为空</title>
+		<content>内容不能为空</content>
+		<from>来源不能为空</from>
+		<path>路径不能为空</path>
+		<path1>目录路径格式错误</path1>
+		<path2>目录路径重复，请另取名</path2>
+		<listname>列表名不能为空</listname>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<deleteok>删除成功</deleteok>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<createok>成功生成</createok>
+		<moveok>成功移动指定的文章</moveok>
+		<createlistok>成功生成指定的栏目列表</createlistok>
+		<createpageok>成功生成指定的栏目列表及文章</createpageok>
+		<unionok>成功合并指定的栏目文章</unionok>
+		<createmaplist>成功生成文章Sitemaps总索引</createmaplist>
+		<createmappage>成功生成指定文章的Sitemaps列表</createmappage>
+	</flo>
+
+	<alert>
+		<saveok>保存成功，若添加新的列表，请按确定！</saveok>
+		<saveokart>保存成功，若添加新的文章，请按确定！</saveokart>
+	</alert>
+
+	<error>
+		<listid>请指定栏目ID</listid>
+		<notlist>没有列表，请先添加列表</notlist>
+	</error>
+
+</kingcms>

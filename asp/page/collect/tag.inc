@@ -1,0 +1,1 @@
+﻿case"collect" str=king_tag_collect(tag)

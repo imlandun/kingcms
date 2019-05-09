@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>评论管理</title>
+	<author memo="模块作者">Sin.CS</author>
+	<source memo="作者来自哪里？">KingCMS.com</source>
+	<mail memo="作者常用邮箱，以便联系">KingCMS@Gmail.com</mail>
+	<version memo="程序版本，默认为1.0">1.0</version>
+
+	<common>
+		<post>发表评论</post>
+		<guest>Guest</guest>
+		<notcomment>暂无评论</notcomment>
+		<isuser_1>不允许评论！</isuser_1>
+		<raw>刷新</raw>
+		<good>支持</good>
+		<bad>反对</bad>
+		<postnext>继续发表评论</postnext>
+		<home>评论首页</home>
+		<config>评论参数</config>
+		<today>24小时</today>
+		<t3>72小时</t3>
+		<view0>待验证</view0>
+		<view1>已验证</view1>
+		<quote>回复</quote>
+		<v0>取消验证</v0>
+		<v1>通过验证</v1>
+		<soip>查</soip>
+		<manage>管理</manage>
+	</common>
+
+	<list>
+		<manage>操作</manage>
+		<n0>评论总数量</n0>
+		<n1>待验证的评论</n1>
+		<pluginname>模块名称</pluginname>
+		<name>评论列表</name>
+	</list>
+	
+	<label>
+		<plugin>支持评论的模块</plugin>
+		<template>评论页外部模版</template>
+		<size>允许发表的评论长度</size>
+		<ktime>评论时间差</ktime>
+		<rtime>重复发帖的时候的评论时间差</rtime>
+		<isuser>评论权限</isuser>
+		<i0>开放评论</i0>
+		<i1>限会员发表评论</i1>
+		<i_1>关闭评论</i_1>
+		<isview>评论是否需要验证</isview>
+		<v0>需要验证</v0>
+		<v1>不需要验证</v1>
+		<template2>循环体模版</template2>
+	</label>
+
+	<check>
+		<content>超过评论长度限制！</content>
+		<dirty>不允许您发布，评论包含有敏感内容！</dirty>
+		<judge>您评论过于频繁，请稍后再评论！</judge>
+		<size1>评论长度必须为数字</size1>
+		<size2>评论长度不能为空</size2>
+		<ktime1>两次评论时间长度必须为数字</ktime1>
+		<ktime2>两次评论时间长度不能为空</ktime2>
+		<rtime1>重复评论时间长度必须为数字</rtime1>
+		<rtime2>重复评论时间长度不能为空</rtime2>
+		<template2>评论内容不能为空</template2>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<createok>评论生成完成！</createok>
+		<deleteok>指定的评论已被删除</deleteok>
+		<view0>指定的评论取消验证</view0>
+		<view1>指定的评论通过验证</view1>
+	</flo>
+
+	<alert>
+		<upok>评论信息更新成功</upok>
+		<postok>感谢您参与评论！</postok>
+	</alert>
+
+	<error>
+		<no>不支持评论！</no>
+	</error>
+
+</kingcms>

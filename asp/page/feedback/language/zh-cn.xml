@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>留言反馈</title>
+	<author memo="模块作者">Sin.CS</author>
+	<source memo="作者来自哪里？">KingCMS.com</source>
+	<mail memo="作者常用邮箱，以便联系">KingCMS@Gmail.com</mail>
+	<version memo="程序版本，默认为1.0">1.0</version>
+
+	<common>
+		<title>留言反馈</title>
+		<view>查看及回复留言</view>
+		<list>列表</list>
+		<add>添加</add>
+		<tag1>加注星标</tag1>
+		<tag0>删除星标</tag0>
+		<tag>已加星标</tag>
+		<template>指定模板</template>
+	</common>
+
+	<list>
+		<manage>操作</manage>
+		<title>主题</title>
+		<content>内容</content>
+		<name>姓名</name>
+		<mail>邮箱</mail>
+		<tel>固定电话</tel>
+		<phone>移动电话</phone>
+		<ip>IP地址</ip>
+		<date>时间日期</date>
+		<home>返回到网站首页</home>
+		<ok>感谢您的反馈！</ok>
+		<iplock>感谢您的大力支持，但您今日反馈的内容过多，请改日再来。</iplock>
+	</list>
+
+	<check>
+		<title>主题长度不正确(4-50)</title>
+		<content>内容长度不正确(10-1000)</content>
+		<name>请正确填写您的姓名(2-30)</name>
+		<mail>请正确填写您的邮箱地址，以便与您联络(6-100)</mail>
+		<tel>电话长度有误</tel>
+		<phone>手机长度有误</phone>
+	</check>
+	
+	<label>
+		<title>主题</title>
+		<content>留言内容 (不能超过1000字)</content>
+		<name>您的姓名</name>
+		<mail>您的常用邮箱</mail>
+		<tel>固定电话</tel>
+		<phone>移动电话</phone>
+		<template>选择模板</template>
+		<fbshow>留言审核</fbshow>
+		<isview>留言是否需要验证</isview>
+		<v0>需要验证</v0>
+		<v1>不需要验证</v1>
+	</label>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<tagok>成功设置标签</tagok>
+		<deleteok>成功删除指定的反馈信息，但不会删除星标的信息。</deleteok>
+		<template>成功更新模板。</template>
+		<fbshow>成功更新留言验证设置。</fbshow>
+	</flo>
+
+	<alert>
+		<saveok>保存成功</saveok>
+	</alert>
+
+</kingcms>

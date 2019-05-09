@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>Single Page</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<common>
+		<add>Add Page</add>
+		<createmap>Generate Page Sitemaps</createmap>
+	</common>
+	<list>
+		<id>ID</id>
+		<name>Page Name</name>
+		<manage>Operate</manage>
+		<path>Path</path>
+	</list>
+	<label>
+		<name>Page Name</name>
+		<title>Page Title (for the &amp;lt;title&amp;gt;)</title>
+		<description>Description</description>
+		<keyword>Key Word (Please seperate key words by ','.)</keyword>
+		<path>Path ( No support for characters like &amp;lt\:*?"|,;&amp;gt; ，Cannot start or end with '/'，format: dir1/dir2; leave it blank if it is the index page.)</path>
+		<content>Page Content</content>
+		<template1>Frame Template</template1>
+		<template2>Content Template</template2>
+	</label>
+	<check>
+		<name>Page name cannot be blank.</name>
+		<title>Page title cannot be blank.</title>
+		<path>Page path cannot be blank.</path>
+		<path1>Path format error.</path1>
+		<path2>Repeated page path, please enter another name.</path2>
+		<content>Page content cannot be empty.</content>
+		<keyword>Key word limitation - 50 characters.</keyword>
+		<description>Description limitation - 250 characters.</description>
+	</check>
+	<flo>
+		<select>Please select a category first.</select>
+		<createok>The specified category has been generated.</createok>
+		<createmapok>Page map has been generated.</createmapok>
+		<deleteok>The category has been deleted.</deleteok>
+		<invalid>The specified category has already been deleted.</invalid>
+	</flo>
+	<alert>
+		<saveok>Saved.Saved,if adding new Pages, please click Enter!</saveok>
+	</alert>
+</kingcms>

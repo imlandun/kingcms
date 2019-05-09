@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>管理员工具</title>
+	<author memo="模块作者">Sin.CS</author>
+	<source memo="作者来自哪里？">KingCMS.com</source>
+	<mail memo="作者常用邮箱，以便联系">KingCMS@Gmail.com</mail>
+	<version memo="程序版本，默认为1.0">1.0</version>
+	<access>
+		<tools>探针</tools>
+		<tools_sql>SQL操作</tools_sql>
+		<tools_backup>数据库备份</tools_backup>
+		<tools_include>收录情况</tools_include>
+	</access>
+
+	<common>
+		<info>探针</info>
+		<sql>操作SQL</sql>
+		<advsql>Sql高级操作</advsql>
+		<backup>数据库备份</backup>
+		<check>速度测试</check>
+		<included>收录情况</included>
+		<request>Request.ServerVariables 变量列表</request>
+		<object>操作系统自带的组件</object>
+		<objectup>上传组件</objectup>
+		<objectmail>邮件组件</objectmail>
+		<objectpic>图像组件</objectpic>
+		<dbname>数据库文件名</dbname>
+		<size>文件大小</size>
+		<date>创建日期</date>
+		<back>备份数据库</back>
+		<press>压缩数据库</press>
+		<reduct>还原数据库</reduct>
+		<alexa>Alexa分析</alexa>
+		<search>点击查询</search>
+	</common>
+
+	<list>
+		<address>服务器地址</address>
+	</list>
+	
+	<label>
+		<sql>输入要执行的SQL代码</sql>
+		<help>SQL参考</help>
+	</label>
+
+	<check>
+		<sql>sql执行失败！</sql>
+		<sqlok>成功执行您输入的sql命令！</sqlok>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<select1>还原操作只能选择一个数据库文件</select1>
+		<reductok>成功还原数据库</reductok>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<backok>成功备份数据库</backok>
+		<pressok>成功压缩指定的数据库</pressok>
+		<deleteok>成功删除指定的数据库文件</deleteok>
+	</flo>
+
+	<alert>
+		<saveok>保存成功</saveok>
+	</alert>
+
+	<error>
+		<included>无法读取规则文件included.inc</included>
+		<gethtm>读取失败</gethtm>
+	</error>
+
+</kingcms>

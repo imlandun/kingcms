@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title/>
+	<author/>
+	<source/>
+	<mail/>
+	<version/>
+
+	<common>
+		<root>根目录</root>
+		<listdir>目录列表</listdir>
+		<listart>项目列表</listart>
+		<addlist>添加列表</addlist>
+		<listids>选择项目所属栏目</listids>
+		<add>添加</add>
+		<moveto>移动到..</moveto>
+		<createall>生成列表及项目</createall>
+		<createlist>生成列表</createlist>
+		<createpage>生成项目</createpage>
+		<createnotfile>生成未生成项目</createnotfile>
+		<createalls>生成所有列表及项目</createalls>
+		<createlists>生成所有列表</createlists>
+		<createpages>生成所有项目</createpages>
+		<union>合并栏目</union>
+		<root>根目录</root>
+		<createmap>生成Sitemaps</createmap>
+		<pinyin>拼音</pinyin>
+		<attrib>列表属性</attrib>
+		<accord>同标题一致</accord>
+		<home>根列表</home>
+		<group>会员分组</group>
+		<gradeadd>添加会员组</gradeadd>
+		<grade>阅读权限</grade>
+		<tree>列表树</tree>
+		<search>搜索</search>
+		<show1>设置为显示</show1>
+		<show0>取消显示</show0>
+		<up1>设置为置顶</up1>
+		<up0>取消置顶</up0>
+		<commend1>设置为推荐</commend1>
+		<commend0>取消推荐</commend0>
+		<head1>设置为头条</head1>
+		<head0>取消头条</head0>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<listname>列表名称</listname>
+		<title>标题</title>
+		<group>分组名称</group>
+		<num>对应编号</num>
+		<user>用户组</user>
+		<alluser>所有会员</alluser>
+		<manage>操作</manage>
+		<count>项目数</count>
+		<file>文档</file>
+		<path>路径</path>
+		<move>移动</move>
+		<sublist>下属项目总数</sublist>
+		<listids>单选：所属主栏目；多选：所属副栏目</listids>
+		<grade>所属会员组</grade>
+		<grade0>开放</grade0>
+		<grade1>会员</grade1>
+	</list>
+	
+	<label>
+		<title>标题</title>
+		<listtitle>栏目标题</listtitle>
+		<rn>每页显示</rn>
+		<authornone>不详</authornone>
+		<up>置顶</up>
+		<show>显示</show>
+		<head>头条</head>
+		<commend>推荐</commend>
+		<space>搜索对象</space>
+		<num>组对应编号</num>
+		<groupname>会员组名称</groupname>
+		<groupuser>会员列表 (会员之间用英文逗号分开)</groupuser>
+		<snapimg>远程抓图</snapimg>
+		<uplist>更新列表</uplist>
+		<checktitle>检查标题是否重复</checktitle>
+		<keyword>关键字 (Max=120)</keyword>
+		<description>简述 (Max=255)</description>
+		<listkeyword>栏目关键字</listkeyword>
+		<listdescription>栏目简述</listdescription>
+		<listcontent>栏目内容</listcontent>
+		<info>属性</info>
+		<suplist>上级列表</suplist>
+		<key>搜索关键字</key>
+		<ktitle>标题</ktitle>
+		<kdescription>内容</kdescription>
+		<label/>
+		<grade>
+			<title>阅读权限</title>
+			<g0>任何人都可以访问</g0>
+			<g1>限站内会员访问</g1>
+		</grade>
+
+		<path>目录 (列表的目录)</path>
+		<fpath>路径</fpath>
+		<list>所属列表</list>
+		<newlist>目标列表</newlist>
+		<listtemplate1>列表页外部模板</listtemplate1>
+		<listtemplate2>列表页内部模板</listtemplate2>
+		<pagetemplate1>内容页外部模板</pagetemplate1>
+		<pagetemplate2>内容页内部模板</pagetemplate2>
+		<sel>
+			<title>标题</title>
+			<author>作者</author>
+			<content>内容</content>
+		</sel>
+	</label>
+
+	<tip>
+		<noart>没有符合要求的内容，请重新搜索！</noart>
+		<search>找到相关项目约[***number***]篇，用时[**timer**]秒</search>
+	</tip>
+
+	<check>
+		<title>标题不能为空</title>
+		<title1>标题不能重复</title1>
+		<path>路径不能为空</path>
+		<path1>目录路径格式错误</path1>
+		<path2>目录路径重复，请另取名</path2>
+		<listname>列表名不能为空</listname>
+		<listtitle>列表标题不能为空</listtitle>
+		<keyword>关键字总长度不能超过120个字符</keyword>
+		<path>路径格式不正确，或不能超过255个字符</path>
+		<path1>路径格式错误</path1>
+		<path2>路径重复，请另取名</path2>
+		<img>路径不能过长</img>
+		<description>简述不能超过255个字符</description>
+		<num>编号不能为空</num>
+		<num1>编号重复，请输入其他数字</num1>
+		<num2>编号必须为数字</num2>
+		<num3>编号必须大于1</num3>
+		<groupname>会员组名称不能为空</groupname>
+		<pagelistnumber>每页文字数必须为数字</pagelistnumber>
+		<check/>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<deleteok>删除成功</deleteok>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<createok>成功生成</createok>
+		<moveok>成功移动指定的项目</moveok>
+		<createlistok>成功生成指定的栏目列表</createlistok>
+		<createlistok1>成功生成栏目列表</createlistok1>
+		<createpageok>成功生成指定的栏目列表及项目</createpageok>
+		<unionok>成功合并指定的栏目项目</unionok>
+		<createmap>成功生成Sitemaps</createmap>
+		<delgroup>成功删除指定的会员组</delgroup>
+		<notdel>请先删除下级列表！</notdel>
+		<show1>成功设置为显示</show1>
+		<show0>成功取消显示</show0>
+		<up1>成功设置为置顶</up1>
+		<up0>成功取消置顶</up0>
+		<commend1>成功设置为推荐</commend1>
+		<commend0>成功取消推荐</commend0>
+		<head1>成功设置为头条</head1>
+		<head0>成功取消头条</head0>
+	</flo>
+
+	<alert>
+		<saveok>保存成功，若添加新的列表，请按确定！</saveok>
+		<saveokobj>保存成功，若添加新的项目，请按确定！</saveokobj>
+		<saveokgroup>保存成功，若添加新的会员组，请按确定！</saveokgroup>
+	</alert>
+
+	<error>
+		<listid>请指定栏目ID</listid>
+		<notlist>没有列表，请先添加列表</notlist>
+		<notart>您正要访问的文件已被删除！</notart>
+		<nogroup>您所在的会员组无权访问此文件。</nogroup>
+	</error>
+
+</kingcms>

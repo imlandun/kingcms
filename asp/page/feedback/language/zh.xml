@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<kingcms> 
+	<title>留言反饋</title> 
+	<author memo="模块作者">Sin.CS</author> 
+	<source memo="作者來自哪裡？">KingCMS.com</source> 
+	<mail memo="作者常用郵箱，以便聯繫">KingCMS@Gmail.com</mail> 
+	<version memo="程序版本，默認為1.0">1.0</version> 
+
+	<common> 
+		<title>留言反饋</title> 
+		<list>列表</list> 
+		<add>添加</add> 
+		<tag1>加註星標</tag1> 
+		<tag0>刪除星標</tag0> 
+		<tag>已加星標</tag> 
+		<template>指定模板</template> 
+	</common> 
+
+	<list> 
+		<manage>操作</manage> 
+		<title>主題</title> 
+		<content>內容</content> 
+		<name>姓名</name> 
+		<mail>郵箱</mail> 
+		<tel>固定電話</tel> 
+		<phone>移動電話</phone> 
+		<ip>IP地址</ip> 
+		<date>時間日期</date> 
+		<home>返回到網站首頁</home> 
+		<ok>感謝您的反饋！ </ok> 
+		<iplock>感謝您的大力支持，但您今日反饋的內容過多，請改日再來。 </iplock> 
+	</list> 
+
+	<check> 
+		<title>主題長度不正確(4-50)</title> 
+		<content>內容長度不正確(10-1000)</content> 
+		<name>請正確填寫您的姓名(2-30)</name> 
+		<mail>請正確填寫您的郵箱地址，以便與您聯絡(6-100)</mail> 
+		<tel>電話長度有誤</tel> 
+		<phone>手機長度有誤</phone> 
+	</check> 
+
+	<label> 
+		<title>主題</title> 
+		<content>留言內容(不能超過1000字)</content> 
+		<name>您的姓名</name> 
+		<mail>您的常用郵箱</mail> 
+		<tel>固定電話</tel> 
+		<phone>移動電話</phone> 
+		<template>選擇模板</template> 
+	</label> 
+
+	<flo> 
+		<select>請選擇一個項目</select> 
+		<invalid>請不要重複刪除已刪除的項目</invalid> 
+		<tagok>成功設置標籤</tagok> 
+		<deleteok>成功刪除指定的反饋信息，但不會刪除星標的信息。 </deleteok> 
+		<template>成功更新模板。 </template> 
+	</flo> 
+
+	<alert> 
+		<saveok>保存成功</saveok> 
+	</alert> 
+
+</kingcms>

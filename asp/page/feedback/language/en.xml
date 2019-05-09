@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>Guestbook</title>
+	<author memo="Author">Sin.CS</author>
+	<source memo="From">KingCMS.com</source>
+	<mail memo="Contact Author">KingCMS@Gmail.com</mail>
+	<version memo="Version">1.0</version>
+
+	<common>
+		<title>Guestbook</title>
+		<list>List</list>
+		<add>Add</add>
+		<tag1>Star it</tag1>
+		<tag0>Remove star</tag0>
+		<tag>Starred</tag>
+		<template>Template</template>
+	</common>
+
+	<list>
+		<manage>Manage</manage>
+		<title>Subject</title>
+		<content>Content</content>
+		<name>Name</name>
+		<mail>Email</mail>
+		<tel>Telephone</tel>
+		<phone>Mobile</phone>
+		<ip>IP address</ip>
+		<date>Date&Time</date>
+		<home>Return home</home>
+		<ok>Thanks for your feedback!</ok>
+		<iplock>Thanks for your support. However, you've posted too much today.</iplock>
+	</list>
+
+	<check>
+		<title>Subject length error(4-50)</title>
+		<content>Content length(10-1000)</content>
+		<name>Check your name again(2-30)</name>
+		<mail>Check your email address again(6-100)</mail>
+		<tel>Invalid telephone number</tel>
+		<phone>Invalid mobile number</phone>
+	</check>
+	
+	<label>
+		<title>Subject</title>
+		<content>Content (within 1000 characters)</content>
+		<name>Name</name>
+		<mail>Email Address</mail>
+		<tel>Telephone</tel>
+		<phone>Mobile</phone>
+		<template>Template</template>
+	</label>
+
+	<flo>
+		<select>Please select an item.</select>
+		<invalid>Please don't delete the same item.</invalid>
+		<tagok>Labelled</tagok>
+		<deleteok>Selected items deleted, except for starred ones.</deleteok>
+		<template>Template refreshed.</template>
+	</flo>
+
+	<alert>
+		<saveok>Saved.</saveok>
+	</alert>
+
+</kingcms>

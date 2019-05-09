@@ -1,0 +1,40 @@
+﻿<div class="content">{king:content /}</div>
+<div class="next">{king:pagelist/}</div>
+
+<div class="next">上一页：{king:lastpage/}</div>
+<div class="next">下一页：{king:nextpage/}</div>
+<div class="next">关键字：{king:keywords url="(king:page/)article/search.asp?query="/}</div>
+
+<div class="info">
+	<span>[来源：{king:from/}]</span>
+	<span>[作者：{king:author/}]</span>
+	<span>[日期：{king:date mode="yy-MM-dd"/}]</span>
+	<span>[热度：{king:hit/}]</span>
+</div>
+
+<div class="box">
+	<div class="left related">
+		<h3 class="title1"><strong>相关文章</strong></h3>
+		<p class="li">
+			{king:article number="6" type="related"}
+			<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM.dd"/)</i></span>
+			{/king}
+		</p>
+	</div>
+
+	<div class="right news">
+		<h3 class="title1"><strong>最新文章</strong></h3>
+		<p class="li">
+			{king:article number="6" listid="current"}
+			<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM.dd"/)</i></span>
+			{/king}
+		</p>
+	</div>
+</div>
+
+<div class="box">
+	<h3 class="title1"><strong>评论</strong></h3>
+	{king:comment/}
+
+	{king:comment#post/}
+</div>

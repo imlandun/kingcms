@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>Article Settings</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.02</version>
+
+	<common>
+		<list>List</list>
+		<addlist>AddtoList</addlist>
+		<addart>Add Article</addart>
+		<moveto>Move to</moveto>
+		<createlist>Generate article-list only</createlist>
+		<createall>Generate articles and list</createall>
+		<union>Merge Category</union>
+		<createmaplist>Generate General Sitemaps Index</createmaplist>
+		<createmappage>Generate Sitemaps Index</createmappage>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<listname>List name</listname>
+		<title>Title</title>
+		<manage>Manage</manage>
+		<count>Articles</count>
+		<file>Files</file>
+		<path>Path</path>
+		<move>Moveto</move>
+	</list>
+	
+	<label>
+		<title>Article Title</title>
+		<content>Content</content>
+		<from>From (Everything behind '|' will be taken as linkage.)</from>
+		<from1>
+			<net>web collection</net>
+			<originality>Self-sharing</originality>
+		</from1>
+		<path>Path (Directory of article list page)</path>
+		<list>List category</list>
+		<newlist>New list</newlist>
+		<listtemplate1>Frame template for list pages</listtemplate1>
+		<listtemplate2>Content template for list pages inside/article[list]</listtemplate2>
+		<pagetemplate1>Frame template for content pages</pagetemplate1>
+		<pagetemplate2>Content template for content pages inside/article[page]</pagetemplate2>
+	</label>
+
+	<check>
+		<title>Title cannot be blank.</title>
+		<content>Content cannot be blank.</content>
+		<from>Origin cannot be blank.</from>
+		<path>Path cannot be blank.</path>
+		<path1>Directory format error.</path1>
+		<path2>Directory path exists, please try again.</path2>
+		<listname>List name cannot be empty.</listname>
+	</check>
+
+	<flo>
+		<select>Please select a item.</select>
+		<deleteok>Deleted.</deleteok>
+		<invalid>Item has already been deleted.</invalid>
+		<createok>Generated.</createok>
+		<moveok>The specified article has been moved.</moveok>
+		<createlistok>The specified list has been generated.</createlistok>
+		<createpageok>The specified list and article have been generated.</createpageok>
+		<unionok>Merge completed.</unionok>
+		<createmaplist>General index of sitemaps generated.</createmaplist>
+		<createmappage>Specific Sitemaps generated.</createmappage>
+	</flo>
+
+	<alert>
+		<saveok>Saved.Saved,if adding new Lists, please click Enter!</saveok>
+		<saveokart>Saved.Saved,if adding new Articles, please click Enter!</saveokart>
+	</alert>
+
+	<error>
+		<listid>Please specify category ID.</listid>
+		<notlist>Please add a list first.</notlist>
+	</error>
+
+</kingcms>

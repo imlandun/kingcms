@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<config>
+		<title>参数设置</title>
+		<setxml>XML设置</setxml>
+		<rest>其他</rest>
+		<check>
+			<rssnumber>列表数必须为数字</rssnumber>
+			<rssnumber>更新周期必须为数字</rssnumber>
+			<sitemapnumber>取值范围不正确</sitemapnumber>
+		</check>
+	</config>
+	
+	<parameters memo="参数">
+		<systemname>系统名称</systemname>
+		<system>系统参数</system>
+		<server>服务器变量</server>
+		<systemver>当前版本</systemver>
+		<dbver>数据库版本</dbver>
+		<newversion>最新版本</newversion>
+		<newversionerr>读取失败</newversionerr>
+		<downnew>去下载最新版</downnew>
+		<inst>安装目录</inst>
+		<osite>官方网站</osite>
+		<love>收藏</love>
+		<mailto>发邮件到</mailto>
+		<instdate>安装日期</instdate>
+		<update>在线升级</update>
+		<notup>没有找到升级文件，请稍后再试！</notup>
+		<upok>成功升级到最新版！</upok>
+		<dbtype>
+			<title>当前数据库类型</title>
+			<type0>ACCESS</type0>
+			<type1>SQL Server</type1>
+		</dbtype>
+	</parameters>
+	<diymenu>
+		<title>自定义菜单</title>
+		<memo><![CDATA[
+一级栏目名称1|链接地址1
+    二级栏目名称1|链接地址2
+    二级栏目名称2|链接地址3
+一级栏目名称2|链接地址4
+    二级栏目名称3|链接地址5
+    二级栏目名称4|链接地址6
+    二级栏目名称5|链接地址6
+
+注意：二级栏目前面需要写空格即可
+]]>
+		</memo>
+	</diymenu>
+	<common>
+		<mainhome>主页</mainhome>
+		<menunav>菜单导航</menunav>
+		<manageHome>后台管理首页</manageHome>
+		<home>前台浏览网站</home>
+		<upok>更新成功!</upok>
+		<back>返回</back>
+		<add>添加</add>
+		<list>列表</list>
+		<save>保存</save>
+		<back>返回上一页</back>
+		<reset>重置</reset>
+		<edit>编辑</edit>
+		<up>更新</up>
+		<upfile>上传</upfile>
+		<brow>浏览</brow>
+		<rselect>反选</rselect>
+		<aselect>全选</aselect>
+		<nselect>取消</nselect>
+		<delete>删除</delete>
+		<dict>禁用</dict>
+		<close>关闭</close>
+		<create>生成</create>
+		<createall>生成所有</createall>
+		<search>搜索</search>
+		<redraw>刷新屏幕</redraw>
+		<help>帮助</help>
+		<login>登录</login>
+		<post>发送</post>
+		<submit>提交</submit>
+		<manage>管理</manage>
+		<install>安装</install>
+		<about>关于</about>
+		<insert>插入</insert>
+		<createfolder>新建目录</createfolder>
+		<createhome>更新首页</createhome>
+		<tag>标签</tag>
+	</common>
+	<check>
+		<number>必须为数字</number>
+		<none>不能为空</none>
+	</check>
+	<manage>
+		<title>管理中心</title>
+		<sitename>网站名称</sitename>
+		<siteurl>域名 (格式:http://www.kingcms.com)</siteurl>
+		<keywords>关键字组 (关键字之间用英文逗号分开)</keywords>
+		<lockip>限制访问的IP地址 (IP之间用英文逗号分开，可以封锁IP段)</lockip>
+		<sitemap>Google站点地图 (请填写sitemaps文件名称,留空则不生成地图文件)</sitemap>
+		<rssnumber>RSS最新列表显示数 (最大值100)</rssnumber>
+		<mapnumber>Google站点地图列表长度 (最大值50000)</mapnumber>
+		<rssupdate>RSS更新周期 (单位：分钟)</rssupdate>
+		<rsspath>RSS文件名</rsspath>
+		<robot>爬虫 (格式:换行分开，爬虫名|包含代码)</robot>
+		<sitemail>管理员信箱</sitemail>
+		<dirty>脏话过滤，禁止发言的文字(用英文逗号分开)</dirty>
+	</manage>
+	<create>
+		<title>网站生成管理</title>
+		<kplugin>请选择要生成的模块</kplugin>
+		<klist>请选择要生成的栏目</klist>
+		<list>生成列表页</list>
+		<list1>生成所有列表页</list1>
+		<page>生成内容页</page>
+		<page1>生成所有内容页</page1>
+	</create>
+	<progress>
+		<create>生成进度</create>
+		<loading>正在加载进程...</loading>
+		<createlist>正在生成栏目列表页...</createlist>
+		<createpage>正在生成栏目内容页...</createpage>
+		<moreinfo>详细信息</moreinfo>
+		<usetime>已用时间</usetime>
+		<createtime>生成用时</createtime>
+		<alltime>总共用时</alltime>
+		<ok>完成全部生成过程!</ok>
+		<not>无</not>
+	</progress>
+	<plugin>
+		<title>模块管理</title>
+		<install>安装</install>
+		<memo>模块(只填写模块目录后保存即认,用换行分开多个模块)</memo>
+		<check>
+			<notfolder>您指定的模块目录不存在</notfolder>
+			<errorsystem>不能将system目录写入模块列表里</errorsystem>
+			<errorrepeat>模块目录不能重复</errorrepeat>
+		</check>
+		<clear>彻底删除模块及文件？</clear>
+		<list>
+			<name>模块名称</name>
+			<author>作者</author>
+			<source>来源</source>
+			<mail>邮箱</mail>
+			<version>版本</version>
+			<folder>模块目录</folder>
+			<about>相关</about>
+		</list>
+		<tip>
+			<install>成功安装指定的模块</install>
+			<goinstall>第一次安装必须访问才可正常使用模块</goinstall>
+			<welcome>点击这里进行访问</welcome>
+			<delete>成功删除指定的模块</delete>
+		</tip>
+		<flo>
+			<select>请选择一个模块</select>
+			<delete>成功删除指定的模块</delete>
+			<dict>成功禁用指定的模块</dict>
+			<install>成功安装指定的模块</install>
+		</flo>
+	</plugin>
+	<language>语言包</language>
+	<editor>编辑器</editor>
+	<account>
+		<title>帐户管理</title>
+		<my>我的帐户</my>
+		<oldpass>原密码</oldpass>
+		<newpass>新密码 若不修改密码,请留空</newpass>
+		<confirmedpass>确认新密码</confirmedpass>
+		<diymenu>定制菜单 (若留空，则调用默认自定义菜单)</diymenu>
+		<check>
+			<pwdsize>管理员密码长度不正确</pwdsize>
+			<pwderror>您的原密码不正确</pwderror>
+			<contrast>两次输入的新密码不正确</contrast>
+		</check>
+	</account>
+	<admin>
+		<title>管理员设置</title>
+		<add>新增管理员</add>
+		<level>
+			<super>系统管理员</super>
+			<editor>普通管理员</editor>
+		</level>
+		<label>
+			<name>管理员名称 (2-12)</name>
+			<pass>管理员密码 (6-30)</pass>
+			<pass1>确认密码</pass1>
+			<language>语言</language>
+			<editor>编辑器</editor>
+			<level>级别设置</level>
+		</label>
+		<list>
+			<name>管理员名称</name>
+			<level>级别</level>
+			<date>最后一次登录时间</date>
+			<count>登录次数</count>
+		</list>
+		<check>
+			<name>管理员名称长度为2-12个字符</name>
+			<name1>您输入的管理员名称已经存在</name1>
+			<contrast>两次输入的密码不一致</contrast>
+		</check>
+		<flo>
+			<select>请选择一个管理员</select>
+			<deleteok>成功删除您选择的管理员</deleteok>
+			<deletefail>操作失败！不能删除自己</deletefail>
+		</flo>
+	</admin>
+	<login>
+		<out>退出登录</out>
+	</login>
+	<template>
+		<searchtemplate>搜索页模版</searchtemplate>
+		<check>
+			<size>模板名称过长(包括扩展名50字内)，请先修改模板文件名</size>
+		</check>
+	</template>
+	<log>
+		<title>访问日志</title>
+		<l1>成功登录</l1>
+		<l2>登录失败</l2>
+		<l3>退出登录</l3>
+		<l4>成功注册帐号</l4>
+		<l5>发送短信息</l5>
+		<delete>删除过期日志</delete>
+		<list>
+			<id>ID</id>
+			<name>输入的帐号</name>
+			<num>动作</num>
+			<ip>IP地址</ip>
+			<date>日期时间</date>
+		</list>
+		<flo>
+			<select>请选择日志后再操作</select>
+			<logdeleteok>成功删除过期日志</logdeleteok>
+			<deleteok>已删除指定的日志</deleteok>
+		</flo>
+	</log>
+	<rss>
+		<title>RSS管理</title>
+		<list>
+			<order>ID</order>
+			<title>标题</title>
+			<link>链接地址</link>
+			<date>日期时间</date>
+		</list>
+		<flo>
+			<delete>成功删除所选RSS！</delete>
+			<createok>成功生成RSS！</createok>
+			<createmapok>成功生成Google站点地图</createmapok>
+			<select>请选择一个RSS</select>
+		</flo>
+	</rss>
+	<bot>
+		<title>爬虫管理</title>
+		<list>
+			<id>ID</id>
+			<name>爬虫名称</name>
+			<number>爬虫来访次数</number>
+			<date>第一次访问于</date>
+			<lastdate>最后一次访问于</lastdate>
+		</list>
+		<flo>
+			<delete>成功删除所选爬虫！</delete>
+		</flo>
+	</bot>
+	<brow>
+		<title>文件浏览器</title>
+		<name>文件名</name>
+		<size>大小</size>
+		<imgsize>尺寸</imgsize>
+		<type>类型</type>
+		<date>修改日期</date>
+		<datecreated>创建日期</datecreated>
+		<fdname>新文件夹名称 (不能包含特殊字符)</fdname>
+	</brow>
+	<pinyin>读取拼音数据库的时候出现了意外错误。</pinyin>
+	<confirm>
+		<logout>确定要退出吗？</logout>
+		<reset>确定要重置吗？</reset>
+		<back>确定要返回吗？</back>
+		<delete>确定要删除吗？</delete>
+		<clear>确定要清空吗？</clear>
+		<close>确定要关闭对话框吗？</close>
+	</confirm>
+	<error>
+		<title>错误!</title>
+		<invalid>您输入的参数有误！</invalid>
+		<rsnot>页面正在制作中，给您带来的不便敬请谅解！</rsnot>
+		<lockip>
+			<![CDATA[很抱歉！<br/>您的IP或您所在的IP段因做过多的非法操作，而被锁定，您将无法正常享受我站提供的部分服务。]]></lockip>
+		<savefile><![CDATA[
+			<p>写文档的时候出现错误,错误原因可能为</p>
+			<ul>
+				<li>服务器不支持 <strong>创建文件/写入数据</strong> 权限</li>
+				<li>服务器不支持 <strong>创建文件夹/附加数据</strong> 权限</li>
+			</ul>
+			]]>
+		</savefile>
+		<foldernone>无权限遍历目录或指定的目录可能不存在.</foldernone>
+		<createfolder>无法创建您指定的目录</createfolder>
+		<deletefile>删除指定的文件的时候出现了意外错误</deletefile>
+		<savetofile>写文件的时候出现了意外错误</savetofile>
+		<jurisdiction>您无权访问该页</jurisdiction>
+		<url>URL参数不符合要求!</url>
+
+		<db><![CDATA[<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />数据库链接出错！]]></db>
+		<plugin>还没有安装此模块，请先安装</plugin>
+		<upfile>
+			<err0>上传失败,您的文件超出了服务器设置的上传限制</err0>
+			<err1>上传失败,有文件超过大小</err1>
+			<err2>上传失败,有文件类型不正确</err2>
+			<err3>上传失败,有文件超过大小,类型不正确</err3>
+			<err4>上传失败,异常退出</err4>
+		</upfile>
+
+		<pp>您的帐户被删除或不存在</pp>
+		<notcookies>会话已结束，请重新登录</notcookies>
+		<server>通行证服务器故障或延时！</server>
+
+		<brow>您正要访问的文件已被删除！</brow>
+
+		<virtualdirectory>KingCMS不支持安装在虚拟目录，请改变当前设置！</virtualdirectory>
+
+	</error>
+</kingcms>

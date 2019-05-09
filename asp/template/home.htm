@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{king:keywords code="htmlencode" /}" />
+<meta name="description" content="{king:description code="htmlencode"/}" />
+<title>{king:title/}</title>
+<link href="images/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="top">
+	<a href="/" class="left">
+		<img src="images/logo.png" alt="{king:sitename code="htmlencode"/}" />
+	</a>
+
+	<div class="right">
+
+		<div class="box">
+			约有<strong>{king:ad name="vernumber" type="js"/}</strong>个网站正在使用KingCMS 5.0
+		</div>
+
+		<p>
+			<span>
+				<a href="/News/">更新</a>
+				<a href="/Download/">下载</a>
+				<a href="/License/">许可</a>
+			</span>
+
+			<span>
+				<a href="/Help/">帮助</a>
+				<a href="/Glossary/">术语</a>
+			</span>
+
+			<span>
+				<a href="/Enterprises/">企业网站解决方案</a>
+			</span>
+
+			<span>
+				<a href="/Service/">服务&报价</a>
+			</span>
+
+			<span>
+				<a href="http://club.adsenser.org/forum-38-1.html" class="s" target="_blank">讨论交流</a>
+			</span>
+		</p>
+
+	</div>
+</div>
+
+<div id="main">
+	<!-- 左侧大框 -->
+	<div class="left mainleft">
+
+		<!-- banner -->
+		<div class="box banner1">
+			<a href="http://www.kingcms.com/"><img src="images/opensource.png" alt="[简约] 的操作界面；&#13;[灵活] 的页面设计；&#13;[无限] 的扩展能力；&#13;&#13;完善的Vbscript开发类；&#13;成熟的完全模块化框架。&#13;&#13;这正是您所看到的KingCMS！"/></a>
+		</div>
+
+		<!-- 模板、模块 -->
+		<div class="box">
+
+			<!-- template -->
+			<div class="left template">
+
+				<h3 class="title1"><strong>网站模板及下载</strong><a href="/Download/Templates/"><img src="images/more.gif"/></a></h3>
+
+				<div class="box">
+					{king:download type="cold" listid="1" number="3"}
+					<span>
+						<a href="(king:path/)"><img src="(king:image width="90" height="120"/)" alt="(king:title code="htmlencode"/)" /></a>
+						<a href="(king:path/)">(king:title size="12"/)</a>
+					</span>
+					{/king}
+				</div>
+
+			</div>
+
+			<!-- news -->
+			<div class="right news">
+				<h3 class="title1"><strong>最新更新</strong><a href="/News/"><img src="images/more.gif"/></a></h3>
+				<p class="li">
+					{king:article type="new" number="6"}
+					<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM.dd"/)</i></span>
+					{/king}
+				</p>
+
+			</div>
+
+		</div>
+
+		<!-- 演示、有偿服务 -->
+
+		<div class="box">
+
+			<!-- 演示 -->
+			<div class="left template">
+				<h3 class="title1"><strong>企业网站演示</strong><a href="/demo/company/"><img src="images/more.gif"/></a></h3>
+
+				<div class="box">
+					{king:download type="cold" number="3" listid="5"}
+					<span>
+						<a href="(king:path/)"><img src="(king:image width="90" height="120"/)" alt="(king:title code="htmlencode"/)" /></a>
+						<a href="(king:path/)">(king:title size="16"/)</a>
+					</span>
+					{/king}
+				</div>
+
+
+			</div>
+
+			<!-- 有偿服务 -->
+			<div class="right service">
+				<h3 class="title1"><strong>服务&报价</strong><a href="/Service/"><img src="images/more.gif"/></a></h3>
+				<p class="li">
+					{king:article number="3" listid="7"}
+					<span><a href="(king:path/)">(king:title size="36"/)</a><br/>
+					
+					<em>(king:description size="48"/)</em></span>
+					{/king}
+				</p>
+
+			</div>
+
+		</div>
+
+		<!-- templates tags -->
+		<div class="box banner2">
+			<a href="/Glossary/BiaoQian/"><img src="images/templatetags.png" alt="灵活、人性化的XML式循环标签"/></a>
+		</div>
+
+		<!-- 帮助和FAQ -->
+		<div class="box">
+
+			<!-- 帮助 -->
+			<div class="left help">
+				<h3 class="title1"><strong>使用帮助</strong><a href="/Help/"><img src="images/more.gif"/></a></h3>
+				
+
+				<!-- help system -->
+				<div class="box">
+
+					<div class="left">
+						<a href="/Help/system/"><img alt="系统帮助" src="images/helpsystem.gif"/></a>
+					</div>
+
+					<div class="right">
+						<p class="li">
+							{king:article type="new" number="3" listid="1"}
+							<span><a href="(king:path/)">(king:title size="24"/)</a><i>(king:author/)</i></span>
+							{/king}
+						</p>
+					</div>
+
+				</div>
+
+				<!-- help oo -->
+				<div class="box">
+
+					<div class="left">
+						<a href="/Help/OO/"><img src="images/helpoopublic.gif"/></a>
+					</div>
+
+					<div class="right">
+						<p class="li">
+							{king:article type="new" number="3" listid="3"}
+							<span><a href="(king:path/)">(king:title size="24"/)</a><i>(king:author/)</i></span>
+							{/king}
+						</p>
+					</div>
+
+				</div>
+
+				<!-- help ad -->
+				<div class="box">
+
+					<div class="left">
+						<a href="/Help/Ad/"><img src="images/helpadmanage.gif"/></a>
+					</div>
+
+					<div class="right">
+						<p class="li">
+							{king:article type="new" number="3" listid="4"}
+							<span><a href="(king:path/)">(king:title size="24"/)</a><i>(king:author/)</i></span>
+							{/king}
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- 常见问题 -->
+			<div class="right faq">
+				<h3 class="title1"><strong>常见问题</strong><a href="/Faq/"><img src="images/more.gif"/></a></h3>
+
+				<p class="li">
+					{king:article number="3" listid="5"}
+					<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM/dd"/)</i></span>
+					{/king}
+				</p>
+
+				<p class="li">
+					{king:article number="3" next="3" listid="5"}
+					<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM/dd"/)</i></span>
+					{/king}
+				</p>
+
+				<p class="li">
+					{king:article number="3" next="6" listid="5"}
+					<span><a href="(king:path/)">(king:title size="36"/)</a><i>(king:date mode="MM/dd"/)</i></span>
+					{/king}
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- 右侧大框 -->
+	<div class="right mainright">
+
+		<!-- 下载 -->
+		{king:ad name="download" type="ssi"/}
+
+
+		<!-- 许可协议 -->
+		<div class="box license">
+			<h3 class="title1"><strong>许可协议</strong><a href="/License/"><img src="images/more.gif"/></a></h3>
+			<p class="p">
+				<strong>免费! </strong>可以用在商业用途网站。包括个人及企业网站，而无需支付使用费用，仅需保留KingCMS支持信息链接即可。<br/>详细协议请阅读许可协议文档。
+			</p>
+
+			<p class="title3"><span><a href="http://www.kingcms.com/KingCMS 5.0 许可协议.doc" target="_blank">下载完整许可协议文档(Word格式)</a></span></p>
+			<p class="title4"><span><a href="/License/">进入许可协议页面</a></span></p>
+		</div>
+
+		<!-- 术语 -->
+		<div class="box detail">
+			<h3 class="title1"><strong>术语详解</strong><a href="/Glossary/"><img src="images/more.gif"/></a></h3>
+			<p>
+				{king:article type="cold" number="15" listid="6"}
+				<a href="(king:path/)" class="s(king:commend/)">(king:title/)</a>
+				{/king}
+			</p>
+		</div>
+
+		<!-- 合作伙伴 -->
+		<div class="box link">
+			<h3 class="title1"><strong>合作伙伴</strong></h3>
+			<p>
+				{king:link type="new" number="999" listname="合作伙伴"}
+				<a href="(king:urlpath/)" target="_blank" title="(king:title code="htmlencode" /)"><img src="(king:image/)"/></a>
+				{/king}
+			</p>
+		</div>
+
+		<!-- 友情链接 -->
+		<div class="box link">
+			<h3 class="title1"><strong>友情链接</strong></h3>
+			<p class="link">
+				{king:link number="999" listname="友情链接"}
+				<span class="s(king:commend/)"><a href="(king:urlpath/)" target="_blank" title="(king:description code="htmlencode" /)">(king:title/)</a><i>(king:urlpath/)</i></span>
+				{/king}
+			</p>
+		</div>
+
+	</div>
+
+</div>
+
+<div id="bottom">
+	<div class="left">&copy; 2004-2008  <a href="http://www.KingCMS.com/">KingCMS.com</a> All rights reserved. {king:cms/} <a id="beian" href="http://www.miibeian.gov.cn/" target="_blank">京ICP备05005221号</a></div>
+	<div class="right">
+		<a href="/About/">关于KingCMS</a> | 
+		<a href="/Contact/">联系方式</a> | 
+		<a href="/Payment/">付款方式</a> | 
+		<a href="/Disclaimer/">免责条款</a>
+	</div>
+</div>
+
+</body>
+</html>
+
+{king:onepage#update time="1" listid="9,8,1"/}
+{king:ad#update time="1"/}

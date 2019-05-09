@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<about>KingCMS函数解析,版权所有!</about>
+	<version>2.01</version>
+	<author>Sin.CS</author>
+
+	<全局变量>
+		<king>New KingCMS</king>
+		<action>操作动作</action>
+		<tnow>当前时间,完整格式</tnow>
+		<conn>数据链接</conn>
+		<const>
+			<king_system value= "../../page/">前台系统路径</king_system>
+		</const>
+	</全局变量>
+
+	<class name="kingcms">
+
+		<property>
+			<get>
+				<systemver>系统版本</systemver>
+				<systemname>系统名称</systemname>
+				<dbver>数据库版本</dbver>
+				<sitename>网站名称</sitename>
+				<siteurl>网址</siteurl>
+				<ischeck>表单验证是否通过</ischeck>
+				<ismethod>判断有没有数据提交</ismethod>
+				<id>管理员ID</id>
+				<name>管理员名称</name>
+				<language>管理员当前界面语言</language>
+				<writeol>输出let ol过程中存储的值</writeol>
+				<clearol>清零let ol过程中存储的值</clearol>
+				<invalue>输出let value过程中存储的值</invalue>
+				<mapname>站点地图路径，参数设置里有设置</mapname>
+
+				<inst>系统安装目录既admin上一级目录 根目录输出/</inst>
+				<system>前台系统文件夹名称 默认page</system>
+				<path>模块目录，系统目录为system 单页面目录为 onepage</path>
+				<page>前台系统的绝对路径，既为inst+system+‘/’ 结果为：/page/</page>
+
+				<plugin>模块列表</plugin>
+				<stemplate>搜索页模版</stemplate>
+
+			</get>
+			<let>
+				<ol l1="输出值">前台系统输出的值</ol>
+				<value l1="输出值">存储标签参数</value>
+			</let>
+		</property>
+
+		<sub>
+			<head l1="访问权限" l2="浏览器标题">访问权限验证及起始HTML内容输出</head>
+			<pphead l1="访问权限 0允许任何人 1限会员">会员权限验证</pphead>
+			<error l1="错误提示内容">错误输出</error>
+			<diymenu>后台菜单</diymenu>
+			<form_html l1="label标签里的内容" l2="表单内容，包括验证">结构化后台输出表单代码</form_html>
+			<form_but l1="save等按钮代号">按钮</form_but>
+			<form_input l1="formname" l2="label" l3="value" l4="check">input表单</form_input>
+			<form_eval l1="formname" l2="value">给表单赋值</form_eval>
+			<form_area l1="formname" l2="label" l3="value" l4="check">textarea表单</form_area>
+			<form_hidden l1="formname" l2="value">隐藏域</form_hidden>
+			<form_tmp l1="formname" l2="label" l3="value" l4="selected">读取模板目录</form_tmp>
+			<form_brow l1="文本框name" l2="显示的文件类型，用/分开，必须指定">服务器端文件浏览器，并插入选择的文件地址到l1指定的文本框中</form_brow>
+			<form_select l1="formname" l2="label" l3="value" l4="selected">下拉式选择框</form_select>
+			<form_radio l1="formname" l2="label" l3="value" l4="checked">单选按钮</form_radio>
+			<checkplugin l1="模块名称">测试模块是否可以正常使用</checkplugin>
+			<updown l1="fromname,idname,ordername" l2="id值" l3="where循环条件">上移下移</updown>
+			<aja l1="标题" l2="内容">ajax调用的临时内容框，大小为：680x450</aja>
+			<flo l1="内容" l2="0关闭 1刷新 2无">ajax调用的临时会话框，长度为：360</flo>
+			<txt>输出文本</txt>
+			<outhtm l1="外部模板名称" l2="内部模板名称" l3="标签参数值">根据l3的值来替换内外部模板中的标签</outhtm>
+			<nocache>取消缓存</nocache>
+			<updown l1="数据表,order字段,id字段" l2="id" l3="where限制">记录集上移下移,这个数据操作不要移到record类去</updown>
+			<createmap>生成Sitemap总索引</createmap>
+			<letrss value="l1-l9,l0，依次代表为：title,link,description,text,image,keywords,category,author,source,pubDate">更新rss文档</letrss>
+			<createrss>生成rss文档</createrss>
+			<createhome>事实更新页面，比如网站首页</createhome>
+		</sub>
+
+		<function>
+			<lang l1="节点">调用语言，会被缓存</lang>
+			<xmlang l1="文档" l2="节点">调用指定文档、指定节点的语言，不被缓存</xmlang>
+			<check>
+				<title>表单验证</title>
+				<use>
+				<![CDATA[
+使用方法:check("表单名称1|错误输出代码1|验证代号1|扩展;表单名称2|错误代码2|验证代号2")
+验证代号对应
+0	不能为空
+1	必须为 A-Za-z
+2	必须为 0-9
+3	必须为 a-z0-9A-Z
+4	必须为 E-mail
+5	必须为 URL
+6	长度必须为x-y(包括x和y,如果x=y,则为x)
+7	必须相等的两个字符串
+8	自定义正则验证
+9	检查是否已经存在项目.
+10	原始密码是否相同
+11	判断是否有非法字符，包括片假名
+12	比较表单提交过来的值和预设的值是否相等
+13	1:true false|13|tip;若为false 这发出提示
+14	判断是否为(日期时间)类型
+15	不能包含特殊符号，判断文件路径用
+16	限制输入值的取值范围
+17	日期验证，不带时间
+]]>
+				</use>
+			</check>
+			<getfolder l1="目录地址" l2="文档类型;*全部,dir目录,file文件,扩展名" l3="htm循环输出内容" l4="默认选择值">列出指定目录下面的文档</getfolder>
+			<formatsize l1="文件大小,单位:字节">文件字节转换,转换为GB,MB和KB,根据数据大小来智能选择</formatsize>
+			<onlyfilename l1="完整文件名">返回文件名</onlyfilename>
+			<extension l1="完整文件名或路径">返回文件扩展名</extension>
+			<isobj l1="对象名称">判断是否支持对象</isobj>
+			<instre l1="数组" l2="被比较参数">比较l2是否包含在l1集中</instre>
+			<replacee l1="内容" l2="要替换的内容" l3="替换的内容">替换，功能相似于replace，支持正则</replacee>
+			<isexist l1="文件夹或文件路径">判断文件或文件夹是否存在</isexist>
+			<readfile l1="文件路径">读取文件</readfile>
+			<savetofile l1="文件路径" l2="文本内容">写文本文件</savetofile>
+			<deletefile l="文件路径">删除文件</deletefile>
+			<createfolder l="目录路径">创建目录</createfolder>
+			<deletefolder l="目录路径">删除目录</deletefolder>
+			<sect l1="被截取的内容" l2="截取开始" l3="结束部分" l4="过滤">截取符合要求的段落,支持正则</sect>
+			<match l1="内容" l2="正则表达式">返回符合正则部分的内容</match>
+			<clshtml l="内容">清理html代码及换行/tab/空格</clshtml>
+			<clsre l="内容" l2="条件(正则)">清理符合条件的代码,支持正则表达式和换行</clsre>
+			<editor l1="name对象" l2="label值" l3="值,不需要htmlencode" l4="CheckForm">在线HTML编辑器</editor>
+			<readtemplate l1="模板" l2="内部模板">读取模板</readtemplate>
+			<formatpath l1="内容">格式化HTML文档的路径为绝对路径</formatpath>
+			<create l1="内容" l2="标签及内容">外部标签替换</create>
+			<createhtm l1="内容" l2="标签及内容">内部标签替换</createhtm>
+			<cls l1="内容">清理多于的空格/换行/Tab</cls>
+			<upfile l1="name值" l2="原附件路径及名称" l3="上传类型 0任何、1图片、自定义" l4="上传大小限制">上传文件</upfile>
+			<imgsize l1="图片路径">返回图像文件的尺寸，返回值形式为 200x300</imgsize>
+			<jpeg l1="原始路径" l2="输出路径" l3="宽度" l4="高度">图片裁剪</jpeg>
+			<watermark l1="图片文档路径">图片水印</watermark>
+			<lefte l1="内容" l2="从左侧截取">左侧截取,同lene,但中文算两个</lefte>
+			<lene l1="内容">长度,中文算两个</lene>
+			<doublee l1="X">单数字X改为双字，既0X形式</doublee>
+			<copyfolder l1="原始路径" l2="新路径">拷贝文件夹</copyfolder>
+			<copyfile l1="原始路径" l2="新路径">拷贝文件</copyfile>
+			<press l1="数据库路径">数据库压缩</press>
+			<checkcolumn l="表名称">判断数据库表是否存在</checkcolumn>
+			<newid l1="表名" l2="字段名">获得刚刚提交的ID</newid>
+			<neworder l1="表名" l2="字段名">最大的order值+1</neworder>
+			<snap l1="html内容">自动分析html内容，并把图片保存到本地服务器</snap>
+			<remote2local l1="远程目标文件地址" l2="本地存储路径">远程文件存储到本地服务器</remote2local>
+			<ubbshow l1="文本框name" l2="内容" l3="cols既为长度" l4="rows" l5="模式 1完整 0简化" >显示UBB按钮</ubbshow>
+			<ubbencode l1="内容" l2="是否允许解析表情，1允许 0不" l3="是否允许解析UBB" l4="是否允许插入多媒体">编译UBB代码</ubbencode>
+			<zoomimg l1="html代码" l2="图片最大长度">缩小图片</zoomimg>
+			<getvalue l1="invalue完整值" l2="提取参数">分解invalue中的内容，提取对应于l2的值</getvalue>
+			<getlabel l1="tag完整内容" l2="参数，0代表 }HTML{ 中间循环部分的内容">分解tag参数</getlabel>
+			<getdblabel l1="tag完整内容" l2="参数，0代表 }HTML{ 中间循环部分的内容">分解tag参数，功能同getlabel，这是解析双层标签的</getdblabel>
+			<getlist l1="内容" l2="标签" l3="0：html循环部分 1：完整的标签  输入值：输入值对应的值">返回列表页标签中的参数</getlist>
+			<key l1="输入内容" l2="关键字 若为空值，返回关键字列表；若有值，则更新网站关键字列表">更新、获取关键字</key>
+			<likey l1="字段" l2="关键字列表，关键字之间用逗号分开">返回为 [l1] like [l2]形式</likey>
+			<paging l1="HTML内容" l2="每页长度">自动分页，插入分页代码并返回</paging>
+			<lefthtml l1="HTML内容" l2="截取长度">截取html代码的指定长度</lefthtml>
+			<filecate l1="扩展名">转换文件扩展名，以便调用ico图片</filecate>
+			<isfile l1="路径">判断是否为文件路径，若是文件，则返回true</isfile>
+			<mod2 l1="数字" l2="数字">l1整除于l2，则输出1，否则输出0</mod2>
+			<pagebreak l1="内容">格式化分页代码，以兼容老版的分页</pagebreak>
+			<errtag l1="标签">输出出错的标签</errtag>
+			<dirty l1="内容">脏话过滤，有脏话就输出False</dirty>
+			<getsql l1="表名称" l2="字段名称">获取指定的表的字段值</getsql>
+		</function>
+	</class>
+
+	<class name="record">
+		<property>
+			<get>
+				<pid>当前页</pid>
+				<rn>每页显示内容</rn>
+				<length>记录集长度</length>
+				<pagecount>总页数</pagecount>
+				<count>记录总数</count>
+				<data l1="" l2="">记录存储为二维数组调用</data>
+				<plist>分页列表</plist>
+				<prn>预设值的每页显示数</prn>
+			</get>
+			<let>
+				<purl l1="url地址">初始化列表页URL模板</purl>
+				<but l1="输入值">初始化操作按钮</but>
+				<action l1="输入值">初始化表单提交页</action>
+				<js l1="js参数">设置javascript列表页函数ll()</js>
+				<value l1="要传递的参数">额外提交的参数，必须在sect前面用</value>
+			</let>
+		</property>
+		<sub>
+			<create l1="SQL">创建adodb.recordset对象并加载数据</create>
+		</sub>
+		<function>
+			<open>列表文档开始</open>
+			<close>列表文档结束</close>
+			<sect l1="create:生成|clear:清理">下拉菜单</sect>
+		</function>
+	</class>
+
+
+	<function>
+		<pagelist l1="url,$来代表pid参数" l2="pid，当前页" l3="总页数" l4="总记录数">分页</pagelist>
+		<safe l1="内容">sql操作前的数据格式化</safe>
+		<killjapan l1="内容">ACCESS不支持的16鬼子假名改为16进制,mssql不需要</killjapan>
+		<validate l1="要检查的内容" l2="对象">
+			<title>检查数据类型</title>
+			<use>
+			<![CDATA[
+0	英文/数字及字符[,/-_]
+1	英文
+2	数字
+3	英文/数字级字符-_
+4	邮箱地址
+5	http,https,ftp地址
+6	整数,带格式化,如:100,000
+7	http,https,ftp开头的图片路径,不支持中文
+8	文件名格式,不支持中文
+9	日期时间验证
+10	IP地址验证
+11	版本匹配
+12	日期验证，不带时间
+else	自定义正则表达式来验证
+]]>
+			</use>
+		</validate>
+		<form l1="name">获得表单值</form>
+		<quest l1="UrlParam" l2="限定参数">
+			<title>获得url参数</title>
+			<use>
+			<![CDATA[
+0	不限制
+1	英文
+2	数字
+3	英文/数字级字符-_
+4	获取并过滤搜索关键字
+else	自定义正则表达式来验证
+]]>
+			</use>
+		
+		</quest>
+		<out l1="输出项目">测试时用</out>
+		<salt l1="长度">随机数</salt>
+		<formatdate l1="日期" l2="方式，0:长日期;1:长日期双;2:根据config.asp中的king_datetype参数;自定义;">格式化日期为长日期格式</formatdate>
+		<htmlencode l1="内容">区别于server.HTMLENCODE，少了对空格和中文的转换,多一个&amp;的转换</htmlencode>
+		<htmldecode l1="内容">htmlencode的反函数</htmldecode>
+		<formencode l1="内容">等效于server.htmlencode，不同的是对空值进行了判断</formencode>
+		<xmlencode l1="内容">转换xml不支持的内容</xmlencode>
+		<encode l1="内容">|:;转换成字符</encode>
+		<decode l1="内容">字符转换成|:;</decode>
+		<htmlcode l1="内容">换行转换为br等</htmlcode>
+		<html2ubb l1="内容">HTML代码转换成UBB，转换非UBB代码的论坛的时候用上</html2ubb>
+	</function>
+
+	<sub>
+		<Il I1="内容">输出内容,同response.write</Il>
+		<removeutf8bom l1="相对路径">清理UTF-8文件中的BOM</removeutf8bom>
+	</sub>
+
+	<javascript file="admin/system/images/fun.js">
+		<cklist l1="id">list列表</cklist>
+		<jumpmenu obj="this"></jumpmenu>
+		<menu>下拉菜单</menu>
+		<trhover>双击表格的时候，背景变色</trhover>
+		<isexist l1="True存在；False不存在" l2="链接地址" l3="对象ID">判断文件是否存在，当然js没有这个功能，只是表现形式而已</isexist>
+		<updown l1="操作链接路径，但不要指定action值" l2="可以不指定，指定则跳转到action=这个值的页面">上移下移</updown>
+		<edit l1="编辑链接">编辑</edit>
+		<gethtm url="执行路径" id="表现到" is="是否直接执行"></gethtm>
+		<posthtm url="执行路径" id="表现到" verbs="提交值" is="是否直接执行">post方式提交数据</posthtm>
+		<display id="指定对象">visibility=hidden</display>
+		<updown l1="提交参数，不包括action值" l2="返回url，默认为index.asp">上移下移</updown>
+	</javascript>
+</kingcms>

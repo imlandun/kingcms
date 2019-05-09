@@ -1,0 +1,21 @@
+{king:pagelist/}
+<div class="piclist">
+	{king:download type="list" number="30" zebra="2"}
+	<div class="z(king:zebra/)">
+
+		<div class="left">
+			<a href="(king:path/)"><img src="(king:image width="90" height="120"/)"/></a>
+		</div>
+
+		<div class="right">
+			<span>作品名称：<a href="(king:path/)">(king:title size="22"/)</a></span>
+			<span>设计制作：(king:author/)</span>
+			<span>系统版本：(king:downloadversion/)</span>
+			<span>演示地址：<a href="(king:demopath/)" target="_blank">(king:demopath/)</a></span>
+			<span>所属栏目：<a href="(king:listpath/)">(king:listname/)</a></span>
+		</div>
+
+	</div>
+	{/king}
+</div>
+{king:pagelist/}

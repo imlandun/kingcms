@@ -1,0 +1,29 @@
+{king:easyarticle type="new" number="10"}			EasyArticle 标签开始
+<a href="(king:path/)">(king:title size="24"/)</a>		HTML循环输出部分
+{/king}								结束标签
+
+[b]标签参数解析[/b]
+type		调用文章类型
+……new	最新文章
+……related	相关文章
+
+number 	循环调用文章的数量，必须为数字
+
+zebra 斑马线，必须为数字，如zebra="2"，当第2、4、8等整除于zebra参数值的时候，输出1，其他输出0
+
+order 排序，默认值为desc，要按id顺序输出，则设置值为asc(跟以前版本正好相反)；限在type="list"的时候有效
+
+listid 指定栏目调用，和老版本的union一样，支持多栏目同时调用，用英文逗号分开
+
+listname 指定栏目名称调用，多个栏目名称之间用英文逗号分开
+
+[b]循环体内标签[/b]
+artid		文章id
+listid	列表id
+listname	列表名称
+listpath	列表路径
+path		文章路径
+title		文章标题
+from		来源
+description	简述
+date		文章发布日期

@@ -1,0 +1,1 @@
+﻿var datediff=getdom('/page/system/now.asp?datetime=2008%2D1%2D24+12%3A14%3A38');if(datediff>6){getdom('/page/movie/create.asp');};

@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<config>
+		<title>Settings</title>
+		<setxml>XML Settings</setxml>
+		<rest>Other Settings</rest>
+		<check>
+			<rssnumber>Numeric Numbers Only</rssnumber>
+			<rssnumber>Numbers required for Refresh-period</rssnumber>
+		</check>
+	</config>
+	
+	<parameters memo="参数">
+		<systemname>System Name</systemname>
+		<system>System Parameters</system>
+		<server>Server Settings</server>
+		<systemver>Current Version</systemver>
+		<dbver>Database Version</dbver>
+		<newversion>Latest Version</newversion>
+		<newversionerr>Loading Error</newversionerr>
+		<downnew>Please Download the Latest Version</downnew>
+		<inst>Installing Directory</inst>
+		<osite>Official Site</osite>
+		<love>Addto Favorite</love>
+		<mailto>Mail to</mailto>
+		<instdate>Installing Date</instdate>
+		<update>Online Upgrade</update>
+		<notup>not found escalation document, please try again later!</notup>
+		<upok>successful upgrade to the latest version!</upok>
+		<dbtype>
+			<title>Database Type</title>
+			<type0>ACCESS</type0>
+			<type1>SQL Server</type1>
+		</dbtype>
+	</parameters>
+	<diymenu>
+		<title>Self-defining Menu</title>
+		<memo>
+		<![CDATA[
+{
+    Menu Class01|Link Address01
+    [
+        ( Menu Class02|Link Address02)
+        ( Menu Class03|Link Address03)
+    ]
+}
+Line-breaking is needed when {[]} symbol show up; {}groups can be duplicated.
+
+
+Menu Class01 | Link Address01
+     Two columns a name | Link Address02
+     Name two columns 2 | Link Address03
+Menu Class02 | Link Address04
+     Two columns names 3 | Link Address05
+     Two columns names 4 | Link Address06
+     Two columns names 5 | Link Address07
+
+Note: the need to write two columns in front of the blank can be.
+
+]]>
+		</memo>
+	</diymenu>
+	<common>
+		<upok>Updated!</upok>
+		<back>Return</back>
+		<add>Add</add>
+		<list>List</list>
+		<save>Save</save>
+		<back>Back</back>
+		<reset>Reset</reset>
+		<edit>Edit</edit>
+		<up>Refresh</up>
+		<upfile>Upfile</upfile>
+		<brow>Browse</brow>
+		<rselect>Reverse</rselect>
+		<aselect>All</aselect>
+		<nselect>None</nselect>
+		<delete>Delete</delete>
+		<close>Close</close>
+		<create>Generate</create>
+		<search>Search</search>
+		<redraw>Refresh Screen</redraw>
+		<help>Help</help>
+		<login>Login</login>
+		<post>Post</post>
+		<submit>Submit</submit>
+		<manage>Manage</manage>
+		<install>Install</install>
+		<about>About</about>
+		<insert>Insert</insert>
+		<createfolder>New directory </createfolder>
+	</common>
+	<manage>
+		<title>Manage Center</title>
+		<sitename>Site Name</sitename>
+		<siteurl>Url (e.g.:http://www.kingcms.com)</siteurl>
+		<keywords>Keyword Group (Seperate the keywords using Punctuation Mark of ',' )</keywords>
+		<lockip>Confined IP Address (Seperate the IPs using Punctuation Mark of ','; Ip section can be locked as well.)</lockip>
+		<sitemap>Google Sitemap (Please fill-in sitemaps name; leave it blank if you don't need one.)</sitemap>
+		<rssnumber>RSS Listing (Maximum 100)</rssnumber>
+		<rssupdate>RSS Refresh Period (Unit：Minute)</rssupdate>
+		<rsspath>RSS File Name</rsspath>
+		<robot>Web Spiders (Layout:One spider for one line;Spider Name|Code)</robot>
+		<sitemail>Admin Email</sitemail>
+	</manage>
+	<create>
+		<title>生成中心</title>
+		<sitename>网站名称</sitename>
+		<siteurl>域名 (格式:http://www.kingcms.com)</siteurl>
+		<keywords>关键字组 (关键字之间用英文逗号分开)</keywords>
+		<lockip>限制访问的IP地址 (IP之间用英文逗号分开，可以封锁IP段)</lockip>
+		<sitemap>Google站点地图 (请填写sitemaps文件名称,留空则不生成地图文件)</sitemap>
+		<rssnumber>RSS最新列表显示数 (最大值100)</rssnumber>
+		<mapnumber>Google站点地图列表长度 (最大值50000)</mapnumber>
+		<rssupdate>RSS更新周期 (单位：分钟)</rssupdate>
+		<rsspath>RSS文件名</rsspath>
+		<robot>爬虫 (格式:换行分开，爬虫名|包含代码)</robot>
+		<sitemail>管理员信箱</sitemail>
+		<dirty>脏话过滤，禁止发言的文字(用英文逗号分开)</dirty>
+	</create>
+	<plugin>
+		<title>Plugin Management</title>
+		<install>Install</install>
+		<memo>Plugin(Fillin the plugin directory only and save;using ','to seperate multiple plugins.)</memo>
+		<check>
+			<notfolder>The specified plugin folder doesn't exist.</notfolder>
+			<errorsystem>System folder can't be listed in the plugin.</errorsystem>
+			<errorrepeat>Plugin folder can't be repeated.</errorrepeat>
+		</check>
+		<list>
+			<name>Plugin Name</name>
+			<author>Author</author>
+			<source>Source</source>
+			<mail>Mail</mail>
+			<version>Version</version>
+			<is>Status</is>
+			<folder>Plugin Folder</folder>
+		</list>
+		<tip>
+			<install>The specified plugin has been installed.</install>
+			<goinstall>A first loading is required before plugin function.</goinstall>
+			<welcome>Click to loading.</welcome>
+			<delete>The specified plugin has been deleted.</delete>
+		</tip>
+		<is>
+			<true>Installed</true>
+			<false>Ready for install</false>
+		</is>
+	</plugin>
+	<language>Language Pack</language>
+	<editor>Editor</editor>
+	<account>
+		<title>Account Management</title>
+		<my>My Account</my>
+		<oldpass>Old Password</oldpass>
+		<newpass>New Password Leave it blank if no need for modification.</newpass>
+		<confirmedpass>Confirm the Password</confirmedpass>
+		<diymenu>Custom menu (if left unchecked, since the definition of the menu called default)</diymenu>
+s		<check>
+			<pwdsize>Incorrect Password Length for Admin</pwdsize>
+			<pwderror>Your password is incorrect.</pwderror>
+			<contrast>The entered 2 passwords doesn't cohere.</contrast>
+		</check>
+	</account>
+	<admin>
+		<title>Admin Settings</title>
+		<add>Add Admin</add>
+		<level>
+			<super>Super Admin</super>
+			<editor>Editor</editor>
+		</level>
+		<label>
+			<name>Admin Name (2-12)</name>
+			<pass>Password (6-30)</pass>
+			<pass1>Confirm password</pass1>
+			<language>Language</language>
+			<editor>Editor</editor>
+			<level>Level</level>
+		</label>
+		<list>
+			<name>Admin Name</name>
+			<level>Level</level>
+			<date>Last Login</date>
+			<count>Login Count</count>
+		</list>
+		<check>
+			<name>Length of username is between 2-12 characters.</name>
+			<name1>You've entered an existing username.</name1>
+			<contrast>The entered 2 passwords doesn't cohere.</contrast>
+		</check>
+		<flo>
+			<select>Please select an account.</select>
+			<deleteok>The admin account has been deleted.</deleteok>
+			<deletefail>Invalid: you can't delete yourself.</deletefail>
+		</flo>
+	</admin>
+	<login>
+		<out>Logout</out>
+	</login>
+	<template>
+		<check>
+			<size>Template name too long(50characters including the extension)，please rename the template</size>
+		</check>
+
+	</template>
+	<log>
+		<title>Visiting Log</title>
+		<l1>Login Success</l1>
+		<l2>Login Failure</l2>
+		<l3>Logout</l3>
+		<l4>Accounts Created</l4>
+		<l5>Send Messages</l5>
+		<delete>Delete overdue logs</delete>
+		<list>
+			<id>ID</id>
+			<name>Account Entered</name>
+			<num>Action</num>
+			<ip>IP Address</ip>
+			<date>Date  Time</date>
+		</list>
+		<flo>
+			<select>Please select the Logs first.</select>
+			<logdeleteok>Overdue logs deleted.</logdeleteok>
+			<deleteok>Specified logs deleted.</deleteok>
+		</flo>
+	</log>
+	<rss>
+		<title>RSS Management</title>
+		<list>
+			<order>ID</order>
+			<title>Title</title>
+			<link>Link</link>
+			<date>Date/time</date>
+		</list>
+		<flo>
+			<delete>RSS feed deleted!</delete>
+			<createok>RSS has been generated.</createok>
+			<select>Please select an RSS.</select>
+		</flo>
+	</rss>
+	<bot>
+		<title>Webspider Management</title>
+		<list>
+			<id>ID</id>
+			<name>Spider Name</name>
+			<number>Visit Count</number>
+			<date>First visit at</date>
+			<lastdate>Last visit at</lastdate>
+		</list>
+		<flo>
+			<delete>Specified Spider deleted!</delete>
+		</flo>
+	</bot>
+	<brow> 
+		<title>File Browser</title> 
+		<name>File Name</name> 
+		<imgsize>Image Size</imgsize>
+		<size>Size of</size> 
+		<type>Type</type> 
+		<date>Revised date</date> 
+		<datecreated>Creation Date</datecreated> 
+	</brow>
+	<confirm>
+		<logout>Confirm Logout?</logout>
+		<reset>Confirm Reset?</reset>
+		<back>Confirm go back?</back>
+		<delete>Confirm delete?</delete>
+		<clear>Confirm delete all?</clear>
+		<close>Confirm close?</close>
+	</confirm>
+	<error>
+		<title>Error!</title>
+		<invalid>Invalid Parameters!</invalid>
+		<rsnot>Page Under Constructure! Sorry for the inconvenience!</rsnot>
+		<lockip>
+			<![CDATA[Sorry!<br/>Your Ip address or Ip section has been lock down due to invalid operation; part of the web service is confined.]]></lockip>
+		<savefile><![CDATA[
+			<p>Error at writing files; possible causes are</p>
+			<ul>
+				<li>server doesn't support <strong>file creating/writing</strong> function.</li>
+				<li>server doesn't support <strong>folder creating/file attaching</strong> function.</li>
+			</ul>
+			]]>
+		</savefile>
+		<foldernone>Folder doesn't exist or no right for folder searching.</foldernone>
+		<createfolder>Your specified folder can't be created.</createfolder>
+		<deletefile>Unexpected error occurred when deleting the file.</deletefile>
+		<savetofile>Unexpected error occurred when writing the file.</savetofile>
+		<jurisdiction>Unauthorized visiting</jurisdiction>
+		<url>URL parameters error!</url>
+
+		<db><![CDATA[
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>Error Code</title>
+			<h3>Cannot find database; possible causes are:</h3>
+			<ol>
+				<li>Database busy, please try later.</li>
+				<li>Database error, please contact server management.</li>
+				<li>Database collapsed, please restore it.</li>
+			</ol>
+			]]>
+		</db>
+		<plugin>Please install the plugin first.</plugin>
+		<upfile>
+			<err0>Uploading failed, your documents beyond the server set up to upload limit </err0>
+			<err1>Uploading failed due to oversized files.</err1>
+			<err2>Uploading failed due to invalid file types.</err2>
+			<err3>Uploading failed due to oversized files, or invalid file types.</err3>
+			<err4>Uploading failed; unexpected program failure.</err4>
+		</upfile>
+
+		<pp>Your account has been deleted or doen't exist.</pp>
+		<notcookies>Session ended, please login again.</notcookies>
+		<server>Passport server error or delay.</server>
+
+		<brow>You going to visit the document has been deleted!</brow>
+
+	</error>
+</kingcms>

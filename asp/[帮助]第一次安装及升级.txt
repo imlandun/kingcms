@@ -1,0 +1,25 @@
+[第一次安装]
+数据库安装及程序初始化:	admin/system/INSTALL.asp
+注意：不支持虚拟目录下安装KingCMS。
+
+
+[登录账号及密码]
+管理员：admin
+密  码：admin888
+
+
+[如何升级到最新版]
+在线升级仅为更新核心系统文件，即更新升级system目录下面的文档为最新版。
+模块是需要手动上传覆盖对应目录，如要更新Article文章模块，则需要把最新版文件下载解压后，把admin和page目录下面的article文件夹里的文件FTP或用WEBFTP模块来上传覆盖即可。
+
+
+[在线升级失败时候的解决方法]
+因某种原因，会出现在线升级失败之情况，需要手工升级，需要上传覆盖的文件如下：
+admin/system/login.asp
+admin/system/manage.asp
+admin/system/images/style.css
+admin/system/images/fun.js
+page/system/fun.asp
+page/system/inc/fun.js
+page/system/language/*.xml
+除此之外可能还牵扯到一些文件的更新，若在 [记录]更新了什么.txt 文件里没有特别的声明，则更新以上即可。

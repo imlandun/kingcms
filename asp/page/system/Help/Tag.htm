@@ -1,0 +1,40 @@
+[b]系统默认的标签[/b]
+{king:sitename/}	网站名称
+{king:siteurl/}		网站地址
+{king:now/}		服务器当前时间
+{king:cms/}		输出KingCMS支持信息，未[url=http://www.kingcms.com/buy/]购买授权[/url]的网站，必须输出此信息。
+{king:title/}		标题
+{king:keywords/}	关键字，可以用{king:keyword/}
+{king:description/}	描述
+{king:inst/}		安装路径，如果是根目录安装，输出：/
+{king:page/}		前台路径，如：/page/
+{king:guide name="当前位置"/}		当前导航位置;name值可以替代网站名称，输出指定的名称。
+{king:rnd/}		16位随机数
+{king:rnd4/}		4位随机数
+{king:rnd8/}		8位随机数
+{king:sql cmd="select systemname from kingsystem;"/} SQL索引调用数据库中的任何一位置上的数据或任何一组数据。1)当用/}来闭合的时候，只输出第一个数据；2)当{king:sql}...{/king}的时候，循环输出数据，数量由sql语句中的top来指定，每次读取的数据不能超过1000条，举例见下面。
+
+[b]系统默认的属性[/b]
+[color=red]size[/color] 长度属性，即限定输出长度，如：{king:title size="10"/}，则只输出前10个字节，即中文输出5个字，英文输出10个字。
+[color=red]left[/color] HTML代码长度属性，和size属性相似，但是用来限定html代码用的。
+[color=red]mode[/color] 时间类型，用法：{king:date mode="yyyy-MM-dd hh:mm:ss"/}
+    mode属性值中的yyyy，MM各代表年度和月份，有下面几种属性：完整年度：yyyy；简写年度：yy；完整月份：MM；简写月份：M；日和时间参数同月份。
+[color=red]code[/color] 代码格式化，如：{king:title code="htmlencode"/}，即替换输出值中的双引号。值参数有：
+    javascript或js 转换成javascript中可以调用的代码
+		xmlencode或xml 转换成xml文档兼容的代码
+		urlencode或url 转换成标准的url链接代码
+		htmlencode或html 转换成html标签属性可用的代码
+[color=red]url[/color] 关键字链接参数，如：{king:keywords url="/page/article/search.asp?query="/}，在url值紧跟着的是对应的链接。
+[color=red]width和height[/color] 包含image的字符的标签专有属性，即设置图片的长宽，需要有aspjpeg组件支持。如：
+  {king:image width="100" height="80" /} ，即输出对原图进行裁剪后的缩略图的地址。
+
+[b]{king:sql/}举例[/b]
+[color=red]1)当/}闭合的时候[/color]
+{king:sql cmd="select sum(*) from kingart;"/}
+即返回所有的文章数
+[color=red]2)当{king:sql}...{/king}循环体的时候[/color]
+{king:sql cmd="select top 10 arttitle,artpath,artdate from kingart order by artid desc;"}
+	<p>arttitle对应：(king:#0/)</p>
+	<p>artpath 对应：(king:#1/)</p>
+	<p>artdate 对应：(king:#2/)</p>
+{/king}

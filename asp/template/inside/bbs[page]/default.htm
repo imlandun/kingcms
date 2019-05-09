@@ -1,0 +1,95 @@
+<div id="bbs">
+	<div id="masterlist"></div>
+
+	<div id="bbsmenu">
+		<div id="bbsmenu_left">
+			{king:addtopic/}
+			{king:addvote/}
+			{king:replytopic/}
+		</div>
+		<div id="bbsmenu_right">
+			(版主: {king:masters/}) {king:#bottom/}
+		</div>
+	</div>
+		
+	<div id="bbstitlemanage">
+		<h1 id="bbstitle">标题：{king:title size="30"/}</h1>
+		<div id="bbsmanage">{king:manage/} <span> {king:ad name="BbsGGAD"/}</span></div>
+	</div>
+
+	{king:vote/}
+
+	<div id="topicbox">
+	{king:bbs type="list" number="10" zebra="2" }
+		<div class="topic_(king:zebra/)">
+			<dl>
+				<dt>(king:date mode="MM-dd hh:mm"/)</dt>
+				<dd class="ohidden">(king:useragent/)</dd>
+			</dl>
+			
+			<dl>
+				<dt>
+					<strong><a href="(king:userprofile/)">(king:username/)</a></strong> 
+					(king:userlevel/)<br/>
+					头衔 (king:usertitle/)
+					(king:userlevelimage/)<br/>
+					<span class="userpic">(king:userphoto/)</span>
+					<!--
+					这是注视部分，下面的就根据自己的需要显示了
+					UID (king:userid/)<br/>
+					精华 (king:counttopicbest/)<br/>
+					积分 (king:usermark/)<br/>
+					威望 (king:userprestige/)<br/>
+					帖子 (king:counttopic/)<br/>
+					删除 (king:counttopicdel/)<br/>
+					特长 (king:userskill/)<br/>
+					性别 (king:usersex/)
+					-->
+					注册 (king:joindate mode="yy-MM-dd"/)<br/>
+					来自 (king:userfrom/)<br/>
+				</dt>
+				<dd>
+					<h5>(king:title/)</h5>
+					(king:content/)
+					(king:ad name="BbsGGADtop"/)
+					(king:lastdate/)
+					<span class="sign">(king:usersign/)</span>
+				</dd>
+			</dl>
+
+			<dl>
+				<dt>
+					<span class="k_fl">(king:userip/)</span> <span class="k_fr">(king:floor/)</span>
+				</dt>
+				<dd>
+					<span class="k_fl">(king:profile/)(king:pm/)(king:site/)(king:icq/)(king:qq/)(king:yahoo/) </span>
+					<span class="k_fr">(king:edit/)(king:del/)(king:report/)(king:quote/) (king:#top/)</span>
+				</dd>
+			</dl>
+
+		</div>
+	{/king}
+
+	</div>
+
+	{king:pagelist/}
+
+</div>
+
+<form enctype="multipart/form-data" name="form1" method="post" class="k_form" action="{king:page/}post.asp?action=board" class="k_form">
+	<table border="0" bgcolor="#E5E5E5" cellspacing="1" cellpadding="0" class="topic_p">
+		<tr><th width="170">标题</th><td width="550"><input type="text" name="bbstitle" class="k_input_max" value="Re:{king:title/}" maxlength="250" /></td></tr>	
+		<tr><th width="170"><input type="checkbox" value="1" name="isface" checked="checked" /> 使用表情识别<br />
+			<input type="checkbox" value="1" name="isubb" checked="checked" /> 使用UBB代码<br />
+			<input type="checkbox" value="1" name="issign" checked="checked" /> 使用个人签名</th><td><textarea rows="8" cols="50" name="bbscontent" class="k_text_max k_fl"></textarea>
+			<span class="k_fl">{king:ad name="PubGGAD"/}</span></td></tr>
+	</table>
+	<div id="k_active">
+		<input type="hidden" name="king" value="kingcms" />
+		<input type="hidden" name="menuid" value="{king:menuid/}" />
+		<input type="hidden" name="retopic" value="{king:topicid/}" />
+		<input type="submit" name="submit" value="发布" />
+		<input name="submit" type="reset" value="重置" />
+	</div>
+</form>
+

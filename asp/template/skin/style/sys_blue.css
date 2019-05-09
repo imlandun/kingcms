@@ -1,0 +1,35 @@
+body { background:#198bc9; overflow-x:hidden; }
+/*header*/
+.sys_wrapper { background:#198bc9; width:100%; min-width:900px; margin:0 auto; overflow:hidden; }
+.sys_header { height:51px; background:url(../images/header_bg.gif) left top repeat-x;  min-width:900px; }
+.sys_header_main { height:51px; background:url(../images/manage_top_bg.png) no-repeat;  }
+.sys_info { float:right; height:51px; line-height:51px; padding:0 20px 0 0; color:#f8f8f8; }
+.sys_info a { color:#fff; margin:0 10px; }
+
+/*navigation*/
+.sys_navigation { height:27px; min-width:760px; line-height:27px; background:url(../images/navigation_bg.gif) left -27px repeat-x; margin:0 6px; border-radius:5px 5px 0 0; overflow:hidden; }
+.sys_navigation a { color:#3b90b7; text-decoration:none; float:left; }
+.sys_navigation a:hover { color:#900; }
+.sys_navigation .sp { width:8px; margin:0 10px; display:inline-block; *dislay:inline; *zoom:1; height:27px; background:url(../images/navigation_bg.gif) 0 -55px no-repeat; float:left; }
+.sys_navigation ul li { float:left; padding:0 10px; }
+
+.fp_title { width:230px; float:left; padding:0 10px; font-weight:bold; color:#3b90b7; }
+.fp_left { width:245px; float:left; }
+.fp_nav { float:right;  text-align:right; padding:0 10px; overflow:hidden; }
+.fp_nav a { float:left; }
+/*container*/
+.sys_container { position:relative; background:url(../images/sider_bg.gif) 0 top repeat-y; border:#229cda solid 1px; border-bottom:#02567e solid 2px; margin:0 5px; overflow:hidden; }
+/*sider*/
+.sys_sider { position:absolute; left:0; top:0px; width:240px;}
+.sys_sider ul li { height:30px; line-height:30px; background:url(../images/sider_li_bg.gif) left top repeat-x; padding:0 10px; }
+.sys_sider ul li a { padding:0 0 0 20px; color:#666; display:block; height:30px; line-height:30px; background:url(../images/sider_arrow.png) 5px 10px no-repeat; }
+.sys_sider ul li a:hover { color:#900; }
+/*content*/
+.sys_content { margin:0 0 0 240px; background:#fff; width:100%; min-height:600px; height:auto !important; height:600px; border-left:#0575aa solid 2px;  min-width:400px; _width:400px;  }
+.sys_main { padding:0 260px 40px 20px; }
+/*footer*/
+.sys_footer { height:150px; height:25px; line-height:25px; text-align:center; color:#fff; padding:20px 0; }
+.sys_footer a { color:#fff; }
+.k_menu input, input.k_button,
+.k_form div input { height:27px; background:url(../images/navigation_bg.gif) left -28px repeat-x; border:#afcfdd solid 1px; }
+iframe { border:#ccc solid 1px; }

@@ -1,0 +1,1 @@
+﻿case"digg" str=king_tag_digg(tag,invalue)

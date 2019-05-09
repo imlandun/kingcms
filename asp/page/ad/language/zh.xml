@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>廣告系統</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<common>
+		<add>添加廣告</add>
+		<list>列表</list>
+	</common>
+	<list>
+		<id>ID</id>
+		<name>廣告名稱</name>
+		<tag>標簽</tag>
+		<size>尺寸</size>
+		<date>添加日期</date>
+		<manage>操作</manage>
+		<file>文檔</file>
+	</list>
+	<label>
+		<name>廣告名稱</name>
+		<title>廣告介紹 (此項目不會顯示，介紹之用)</title>
+		<text>廣告內容 (支持KingCMS標簽)</text>
+		<size>
+			<title>尺寸</title>
+			<width>寬度 (用IFRAME形式調用的時候用的上)</width>
+			<height>高度 (用處同上)</height>
+		</size>
+	</label>
+	<check>
+		<name>廣告名稱不能為空</name>
+		<name1>廣告名稱只能由英文字母和數字構成</name1>
+		<name2>廣告名稱不能重複</name2>
+		<title>廣告介紹不能為空</title>
+		<text>廣告內容不能為空</text>
+		<width>長度必須為數字</width>
+		<height>寬度必須為數字</height>
+	</check>
+	<flo>
+		<select>請選擇一個廣告</select>
+		<createok>成功生成指定的廣告</createok>
+		<invalid>指定的廣告已經刪除，請不要重複刪除</invalid>
+		<deleteok>成功刪除指定的廣告</deleteok>
+	</flo>
+	<alert>
+		<saveok>保存成功,若添加新廣告，請按確定！</saveok>
+	</alert>
+</kingcms>

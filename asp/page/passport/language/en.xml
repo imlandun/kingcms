@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms version="1.0">
+	<title>Passport User</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.01</version>
+
+	<common>
+		<lock>Lock</lock>
+		<unlock>Unlock</unlock>
+		<log>User Log</log>
+		<delall>Clear Log</delall>
+		<normal>No</normal>
+		<lockuser>Locked Users</lockuser>
+		<config>Settings</config>
+		<configupok>Modification applied！</configupok>
+		<protocalok>Signin agreement modified.</protocalok>
+		<protocal>Signin Agreement</protocal>
+		<regpp>Signin</regpp>
+		<reg>Agree</reg>
+		<ppok>Password Modified！</ppok>
+		<getpass>Forget password？</getpass>
+		<getpasstitle>Retrieve password.</getpasstitle>
+		<login>Login</login>
+		<logout>Logout</logout>
+		<center>User Center</center>
+		<myfriend>My Pal</myfriend>
+		<remsg>Reply</remsg>
+		<closemsg>Close Msg</closemsg>
+		<pubmsg>Public Msg</pubmsg>
+		<msgok>Message has been sent.</msgok>
+		<ppmsg>Leave a message</ppmsg>
+		<manage>Admin</manage>
+		<newpass1>New Password</newpass1>
+		<newpass2>Confirm Password</newpass2>
+		<uppass>Password updated.</uppass>
+		<oldpass>Enter your password</oldpass>
+	</common>
+	<list>
+		<id>ID</id>
+		<name>User Name</name>
+		<mail>Email</mail>
+		<home>Return to Home</home>
+		<center>Enter User Center</center>
+		<islock>Status</islock>
+		<friend>
+			<name>Friends List</name>
+			<add>Add Friend</add>
+		</friend>
+		<pubmsg>Send Message</pubmsg>
+		<pub>Send</pub>
+		<msguser>Receiver (Seperated by ','，maximum 5 receivers at a time.)</msguser>
+		<msgcontent>Content (Limitation: 1000 characters)</msgcontent>
+		<msgcontent1>Content (No length limitation)</msgcontent1>
+		<msgtitle>Subject</msgtitle>
+		<letuser>From</letuser>
+		<date>Date</date>
+		<view>Mark as 'Read'</view>
+		<noview>Mark as 'Unread'</noview>
+		<username>User List (Seperate by ','，'*' indicating all users.)</username>
+	</list>
+	<label>
+		<reservename>Reserve Username (Seperate users by ',')</reservename>
+		<template>Passport Template</template>
+		<protocal>Read the Signup Agreement</protocal>
+		<name>Name</name>
+		<aname>Account</aname>
+		<pass1>Password</pass1>
+		<pass2>Password Again</pass2>
+		<apass1>User Password</apass1>
+		<apass2>Password Again</apass2>
+		<mail>Email Address, for later contact</mail>
+		<mail1>Email Address, cannot be modified</mail1>
+		<amail>Email Address</amail>
+		<mailis>Keep my mail as private</mailis>
+		<question>Password Question</question>
+		<answer>Password Answer, for retreiving your password.</answer>
+		<validity>Remember Password</validity>
+		<navigation>
+			<logout>Navigation Bar, before login (System path can be replaced by(king:page/); remote path will be dealt automatically.)</logout>
+			<login>Navigation Bar, after login (System path can be replaced by(king:page/); remote path will be dealt automatically.)</login>
+			<user>User Menu, after login (System path can be replaced by(king:page/); remote path will be dealt automatically.)</user>
+			<memo>
+			<![CDATA[
+{language=zh-cn //Specify the language pack
+Menu Name1|Link1
+Menu Name2|Link2
+}
+In the above example, when '{language=XX' and '}' show up, a line-breaking is needed. Multiple language pack supported.
+]]>
+
+			</memo>
+		</navigation>
+	</label>
+	<tip>
+		<regok>Registration Done</regok>
+		<loginok>Login Ok</loginok>
+		<registration>Your account has been created.</registration>
+		<lock>Your account has been locked, due to too many login failure.</lock>
+		<uppass>Password changed.</uppass>
+		<getpass>Your password has been modified.</getpass>
+		<upconfig>Your user settings have been modified.</upconfig>
+		<reconfig>Back to Setting menu</reconfig>
+		<reuppass>Back to password setting</reuppass>
+	</tip>
+	<check>
+		<name>Username cannot be empty or overlengthed.</name>
+		<name1>Username cannot include invalid characters.</name1>
+		<name2>Username exists or be reserved.</name2>
+		<name3>Your account has been deleted.</name3>
+		<name4>Account suspended or not exists.</name4>
+		<pwderr>Invalid username or account.</pwderr>
+		<mail>Pleasae fillin your email address.</mail>
+		<mail1>Invalid email address.</mail1>
+		<mail2>Email address already exists.</mail2>
+		<pwdcontrast>The passwords you entered are not the same.</pwdcontrast>
+		<pwdsize>Invalid password length.</pwdsize>
+		<mail1>Invalid email address.</mail1>
+		<question>Please fillin the password question.</question>
+		<answer>Please fillin the password answer.</answer>
+		<nouser>Username cannot be empty.</nouser>
+		<msguser>The username you entered doesn't exist or has been deleted.</msguser>
+		<msguser1>You can only send 5 msgs at a time.</msguser1>
+		<msgcontent>Content limitation: 1000 characters.</msgcontent>
+		<msgcontent1>Content cannot be empty.</msgcontent1>
+		<nomsgcontent>Content cannot be empty.</nomsgcontent>
+		<msgtitle>Title must be within 0-50 characters.</msgtitle>
+		<username>Receiver list cannot be empty.</username>
+		<is1>Username doesn't cohere with password.</is1>
+		<is2>Invalid password answer.</is2>
+		<oldpass>Invalid password.</oldpass>
+	</check>
+	<flo>
+		<select>Please select a user.</select>
+		<selectmsg>Please select a message.</selectmsg>
+		<lockok>The selected user has been locked.</lockok>
+		<unlockok>The selected user has been unlocked.</unlockok>
+		<delok>The selected user has been deleted.</delok>
+		<delokmsg>Selected message deleted.</delokmsg>
+		<notuser>User doesn't exist or has been deleted.</notuser>
+		<exists>The user has already been added to your friend list.</exists>
+		<addfriendok>User has been added to your friend list.</addfriendok>
+		<msgok>Message sent.</msgok>
+		<msgnum>The maximum number of outgoing message has been reached.</msgnum>
+		<viewok>Successfully marked as 'Read'</viewok>
+		<noviewok>Successfully marked as 'Unread'</noviewok>
+		<delall>User log cleared.</delall>
+	</flo>
+	<alert>
+	</alert>
+	<error>
+	</error>
+</kingcms>

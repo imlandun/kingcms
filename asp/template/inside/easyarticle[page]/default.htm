@@ -1,0 +1,23 @@
+<link href="inside/easyarticle[page]/style.css" rel="stylesheet" type="text/css" />
+
+<h1>{king:title/}</h1>
+<div id="artinfo">
+	<span>[{king:sitename/}]</span>
+	<span>[{king:from/}]</span>
+	<span>[{king:date mode="yyyy-MM-dd"/}]</span>
+</div>
+
+<div id="artcontent">{king:content/}</div>
+{king:pagelist/}
+
+<div><strong>最新文章</strong>
+{king:easyarticle  type="new"}
+<p><a href="(king:path/)">(king:title/)</a></p>
+{/king}
+</div>
+
+<div><strong>相关文章</strong>
+{king:easyarticle type="related"}
+<p><a href="(king:path/)">(king:title/)</a></p>
+{/king}
+</div>

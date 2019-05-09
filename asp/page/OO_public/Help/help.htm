@@ -1,0 +1,80 @@
+﻿{king:oo模块表名 type="new" number="10"} oo模块 标签开始
+<a href="(king:path/)">(king:title size="24"/)</a> HTML循环输出部分
+{/king} 结束标签
+标签参数解析
+*type 调用文章类型
+    new  最新文章
+    related 相关文章
+	chill冷门
+    hot 热门
+    head 头条
+    commend 推荐
+    list 列表(只能在文章列表页的模板里调用)
+    sql 直接输入sql调用oo模块文章，但必须要和sql属性配套使用，举例见下面
+
+*number 循环调用oo模块文章的数量，必须为数字
+
+*zebra 斑马线，必须为数字，如zebra="2"，当第2、4、8等整除于zebra参数值的时候，输出1，其他输出0
+
+*order 排序，默认值为desc，要按id顺序输出，则设置值为asc(跟以前版本正好相反)；限在type="list"的时候有效
+
+*listid 指定栏目调用，和老版本的union一样，支持多栏目同时调用，用英文逗号分开；listid有两个特定的值：sub和current，sub是调用当前栏目下面栏目的oo模块文章，current是调用当前栏目下面的oo模块文章
+*listname 指定栏目名称调用，多个栏目名称之间用英文逗号分开
+一个标签中，只能用一个listid或listname，两个标签不能同时使用。
+
+*keywords 关键字属性，调用和keywords属性里指定的关键字一致的oo模块文章
+
+循环体内标签
+系统字段：
+id ooid
+listid 列表id
+listname 列表名称
+listpath 列表路径
+path oo模块路径
+title oo模块标题
+description 简述
+keywords 关键字
+date oo模块发布日期
+你自己定义好的字段：
+
+用法举例：
+{king:oo}
+<a href="(king:path/)" type="hot">(king:title size="30" /)</a>
+{/king}
+
+内容页面标签
+系统字段：
+id ooid
+listid 列表id
+title oo标题
+keywords 关键字
+description 简述
+path oo路径
+guide 导航
+pagelist 文章分页
+nextpage 下一页
+lastpage 上一页
+hit 点击次数调用及页面访问统计
+date 日期
+你自己定义好的字段：
+
+
+type="sql"用法
+这个需要你懂得oo模块的数据结构及sql命令才可以正常使用。
+{king:oo模块名 type="sql" sql="where kshow=0 order by kid desc;"}
+<a href="(king:path/)">(king:title/)</a>
+{/king}
+需要注意的是，当type="sql"的时候，必须有sql属性去设置sql代码，不然将调用最初加入的文章。
+上面的例子中调用的是最新加入的草稿文章
+
+oo模块表名List 文章列表调用
+{king:oo模块表名List listid="1,2"}
+列表id：(king:listid/)
+列表名称：(king:listname/)
+列表地址：(king:listpath/)
+{/king}
+listid的值有3种类型
+1、sub 既调用当前栏目的下一级栏目列表
+2、current 既调用当前栏目同一级别的栏目列表
+3、数字 指定栏目id调用，多个栏目同时调用则用逗号分开
+当listid取值有问题或没有对应列表的时候，则调用跟列表 

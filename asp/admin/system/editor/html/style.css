@@ -1,0 +1,6 @@
+﻿#editor_html {border:none;padding:5px;background:#E5E5E5;border:1px solid #C3C3C3;display:block;width:770px;}
+#editor_html textarea {width:765px;}
+#editor_html img {margin:0px;}
+#k_color {visibility:hidden;position:absolute;margin:3px 0px 0px 500px;z-index:1000;font-weight:normal;text-align:left;white-space:normal;width:229px;height:145px;}
+#k_color img {display:block;}
+#txt{width:750px;}

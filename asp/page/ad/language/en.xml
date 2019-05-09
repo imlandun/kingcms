@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>Ads Management</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<common>
+		<add>Add Advertisment</add>
+		<list>List</list>
+	</common>
+	<list>
+		<id>ID</id>
+		<name>Ads Name</name>
+		<tag>Tag</tag>
+		<size>Size</size>
+		<date>Date</date>
+		<manage>Operate</manage>
+		<file>Document</file>
+	</list>
+	<label>
+		<name>Ads Name</name>
+		<title>Ads Intro (None-display, only for refenrence.)</title>
+		<text>Ads Content (KingCMS Labels supported)</text>
+		<size>
+			<title>Size</title>
+			<width>Width (for IFRAME settings)</width>
+			<height>Height (same as above)</height>
+		</size>
+	</label>
+	<check>
+		<name>Ads name cannot be blank.</name>
+		<name1>Ads name must be composed by letters and numbers.</name1>
+		<name2>Ads name cannot be repeated.</name2>
+		<title>Ads intro cannot be blank.</title>
+		<text>Ads content cannot be blank.</text>
+		<width>Length should be numbers.</width>
+		<height>Width should be mumbers.</height>
+	</check>
+	<flo>
+		<select>Please select ads item first.</select>
+		<createok>The specified ads has been generated.</createok>
+		<invalid>The specified ads has been deleted; cannot be deleted again.</invalid>
+		<deleteok>The specified ads has been deleted.</deleteok>
+	</flo>
+	<alert>
+		<saveok>Saved,if adding new ads, please click Enter!</saveok>
+	</alert>
+</kingcms>

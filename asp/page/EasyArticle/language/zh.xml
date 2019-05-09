@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>文章管理</title>
+	<author>Sin.CS</author>
+	<source>KingCMS.com</source>
+	<mail>KingCMS@Gmail.com</mail>
+	<version>1.02</version>
+
+	<common>
+		<list>列表</list>
+		<addlist>添加列表</addlist>
+		<addart>添加文章</addart>
+		<moveto>移動到..</moveto>
+		<createlist>只生成文章列表</createlist>
+		<createall>生成列表及文章</createall>
+		<union>合並欄目</union>
+		<createmaplist>生成文章Sitemaps總索引</createmaplist>
+		<createmappage>生成文章Sitemaps列表</createmappage>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<listname>列表名稱</listname>
+		<title>標題</title>
+		<manage>操作</manage>
+		<count>文章數</count>
+		<file>文檔</file>
+		<path>路徑</path>
+		<move>移動</move>
+	</list>
+	
+	<label>
+		<title>文章標題</title>
+		<content>文章內容</content>
+		<from>文章來源 (垂直線 | 右側部分自動作為鏈接)</from>
+		<from1>
+			<net>來自網絡</net>
+			<originality>原創</originality>
+		</from1>
+		<path>目錄路徑 (文章列表的目錄)</path>
+		<list>文章所屬列表</list>
+		<newlist>目標列表</newlist>
+		<listtemplate1>列表頁外部模板</listtemplate1>
+		<listtemplate2>列表頁內部模板 inside/article[list]</listtemplate2>
+		<pagetemplate1>內容頁外部模板</pagetemplate1>
+		<pagetemplate2>內容頁內部模板 inside/article[page]</pagetemplate2>
+	</label>
+
+	<check>
+		<title>標題不能為空</title>
+		<content>內容不能為空</content>
+		<from>來源不能為空</from>
+		<path>路徑不能為空</path>
+		<path1>目錄路徑格式錯誤</path1>
+		<path2>目錄路徑重複，請另取名</path2>
+		<listname>列表名不能為空</listname>
+	</check>
+
+	<flo>
+		<select>請選擇一個項目</select>
+		<deleteok>刪除成功</deleteok>
+		<invalid>請不要重複刪除已刪除的項目</invalid>
+		<createok>成功生成</createok>
+		<moveok>成功移動指定的文章</moveok>
+		<createlistok>成功生成指定的欄目列表</createlistok>
+		<createpageok>成功生成指定的欄目列表及文章</createpageok>
+		<unionok>成功合並指定的欄目文章</unionok>
+		<createmaplist>成功生成文章Sitemaps總索引</createmaplist>
+		<createmappage>成功生成指定文章的Sitemaps列表</createmappage>
+	</flo>
+
+	<alert>
+		<saveok>保存成功，若添加新的列表，請按確定！ </saveok> 
+		<saveokart>保存成功，若添加新的文章，請按確定！ </saveokart>
+	</alert>
+
+	<error>
+		<listid>請指定欄目ID</listid>
+		<notlist>沒有列表，請先添加列表</notlist>
+	</error>
+
+</kingcms>

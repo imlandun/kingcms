@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<title>自定义发布模块</title>
+	<author memo="模块作者">Sin.CS</author>
+	<source memo="作者来自哪里？">KingCMS.com</source>
+	<mail memo="作者常用邮箱，以便联系">KingCMS@Gmail.com</mail>
+	<version memo="程序版本，默认为1.0">1.0</version>
+
+	<common>
+		<list>模块列表</list>
+		<add>添加模块</add>
+		<field>字段管理</field>
+		<fieldedt>添加字段</fieldedt>
+		<ooedt>模块属性</ooedt>
+		<show0>隐藏</show0>
+		<show1>显示</show1>
+	</common>
+
+	<list>
+		<id>ID</id>
+		<name>模块名称</name>
+		<manage>操作</manage>
+		<column>表名</column>
+		<folder>目录名</folder>
+		<about>关于</about>
+		<fname>字段名称</fname>
+		<ftitle>表单标题</ftitle>
+		<istype>字段类型</istype>
+		<version>数据库版本</version>
+	</list>
+	
+	<label>
+		<name>模块名称</name>
+		<fname>字段名称 (必须为英文或数字，对应标签 king:[fname]) (1-50)</fname>
+		<ftitle>表单标题 (注释部分用小括号括起来;1-100)</ftitle>
+		<about>关于 (仅作为模块的信息输出用)</about>
+		<column>表名 (必须以英文和数字构成)</column>
+		<istype>表单类型</istype>
+		<fcheck>表单验证 (多个验证之间用回车分开)</fcheck>
+		<fdefault>预设值 (多个预设值之间用逗号分开)</fdefault>
+		<foption>预置选项 (多个选项之间用回车分开,每个选项不能超过250字)</foption>
+		<fdefault1>预设值 (默认选择的项目，必须为预置选项中的一个项目值)</fdefault1>
+		<fdefault2>预设值 (默认选择的项目，多个值之间用英文逗号分开)</fdefault2>
+		<fwidth>录入框尺寸 (长x宽 尺寸:px)</fwidth>
+		<fsize>录入框尺寸</fsize>
+		<help>模块帮助</help>
+		<fuptype>上传文件类型 (多个文件扩展名之间用斜杠/分开)</fuptype>
+		<attrib>搜索选项</attrib>
+		<search>加入到搜索</search>
+		<iskeywords>是否显示关键字</iskeywords>
+		<isdescription>是否显示简述</isdescription>
+		<ispath>是否显示路径</ispath>
+	</label>
+
+	<form>
+		<obj1>单行文本</obj1>
+		<obj2>多行文本(不支持编辑器)</obj2>
+		<obj3>多行文本(支持编辑器)</obj3>
+		<obj4>单选(下拉列表)</obj4>
+		<obj5>单选(按钮)</obj5>
+		<obj6>多选(多选列表)</obj6>
+		<obj7>多选(复选按钮)</obj7>
+		<obj8>文件上传框</obj8>
+		<obj9>日期时间</obj9>
+	</form>
+
+	<check>
+		<name>模块名称长度不正确</name>
+		<column>表名的长度不正确</column>
+		<column1>表名的格式不正确</column1>
+		<column2>表名不能重复</column2>
+		<column3>表名中包含有保留字</column3>
+		<fname>字段名称不能为空</fname>
+		<fname1>字段名称中包含有保留字</fname1>
+		<fname2>字段名称有重复</fname2>
+		<fname3>字段名称只能由英文字母和数字组成</fname3>
+		<ftitle>表单标题不能为空</ftitle>
+		<fwidth>宽度必须为数字</fwidth>
+		<fheight>高度必须为数字</fheight>
+		<fuptype>必须指定上传文件类型</fuptype>
+		<foption>预置选项不能为空</foption>
+		<fdefault1>必须指定一个预设值</fdefault1>
+	</check>
+
+	<flo>
+		<select>请选择一个项目</select>
+		<invalid>请不要重复删除已删除的项目</invalid>
+		<deleteok>成功删除指定的模块</deleteok>
+		<createok>成功创建指定的模块</createok>
+	</flo>
+
+	<alert>
+		<saveok>保存成功，若要继续添加对应模块的字段，请按确定!</saveok>
+		<saveok1>保存成功，若要继续添加新的字段，请按确定!</saveok1>
+	</alert>
+
+	<error>
+		<createtable0>创建数据库表的时候出现了意外错误!</createtable0>
+		<createtable1>创建数据库表的时候出现了意外错误，请检查您的数据库帐号是否有创建数据库权限!</createtable1>
+	</error>
+	
+
+</kingcms>

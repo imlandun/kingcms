@@ -1,0 +1,1 @@
+﻿case"easyarticle" str=king_tag_easyarticle(tag,invalue)
