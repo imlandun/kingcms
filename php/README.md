@@ -160,4 +160,4 @@ system/lib/kc_skin_class.php
 # 版权声明
 + 此代码修改仅供学习，请保留kingcms版权说明
 + 商业应用请购买正版(www.kingcms.com)
-+ 原版下载: https://www.kingcms.com/download/asp/
++ 原版下载: https://www.kingcms.com/download/php/611641Sp2/
