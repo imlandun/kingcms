@@ -19,7 +19,7 @@ kingcms 官方的UI是很简单的，木有美可言~不述
   百度网盘：https://pan.baidu.com/s/1Lxq7wXBVN4iM9qI3MXldmQ 
   提取码：n6ok
 
-+ 执行安装 http://127.0.0.1/install.php (安装完后INSTALL.asp会被自动删除)
++ 执行安装 http://127.0.0.1/install.php (安装完后install.php会被自动删除)
 
   安装了上面的wampserver版本，只能用127.0.0.1访问
   
