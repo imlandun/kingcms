@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>读取并调用数据源的数据</h1>
+
+<p>利用数据源功能，可以调用远程MySQL数据源或本地SQLite库，以及当前KingCMS数据库中的数据，并且以KingCMS标签形式在模板里调用其数据。</p>
+
+<h2 id="count">返回记录总数 {king:dbquery.count/}</h2>
+
+<p>返回查询对应的记录总数。结构为：<br/>
+	{king:dbquery.count table="数据表名称" where="查询条件" name="数据源名称"/}<br/>
+	若调用当前KingCMS数据库时，数据库表前缀可以使用 <strong>%s_</strong> 。<br/>
+	当不指定name值的时候，读取的是当前KingCMS系统数据库。</p>
+<code class="example">
+	[p]文章总数 : {king:dbquery.count table="%s__article" where="kid1=0"/}篇[/p]<br/>
+	[p]论坛主题贴 : {king:dbquery.count table="%s__bbs" where="kid1=0"/}[/p]<br/>
+	[p]论坛回复贴 : {king:dbquery.count table="%s__bbs" where="kid1<>0"/}[/p]<br/>
+	[p]注册会员总数 : {king:dbquery.count table="%s_user" /}人[/p]
+</code>
+
+<p>支持属性</p>
+<table>
+	<tr><th class="w150 l">标签属性</th><th class="w150 l">数据类型</th><th class="l">说明</th></tr>
+	<tr><td>table</td><td>字符串</td><td>数据库表名称，这个参数是必须的。</td></tr>
+	<tr><td>where</td><td>字符串</td><td>查询条件，限制查询范围，属性值开头不用写where</td></tr>
+	<tr><td>name</td><td>字符串</td><td>当指定name值的时候，从数据源管理里定义的数据源名称对应的数据库中进行查询</td></tr>
+</table>
+
+<p>组合应用<br/>
+	循环调用所有模型下面的记录总数。</p>
+<code class="example">
+	{king:portal.model}/*循环读取模型*/<br/>
+		____[p]{king:modelname/} : {king:dbquery.count table="%s__(king:modeltable/)" where="kid1=0"/}[/p]<br/>
+	{/king:portal.model}
+</code>
+
+<p>调用已定义的数据源总记录集统计的时候，需要指定name值</p>
+<code class="example">
+	[p]文章总数 : {king:dbquery.count name="test" table="king__article" where="kid1=0"/}篇[/p]<br/>
+</code>
+
+<h2 id="select">简单查询 {king:dbquery.select/}</h2>
+
+<p>简单的对数据库进行查询，支持属性有数据表(table)、调用数量(number=10)、条件检索(where)、字段集(sql=*)、排序(orderby)、跳过前几项(skip=0)</p>
+<code class="example">
+	{king:dbquery.select table="%s__article" sql="kpath,ktitle" number="5" orderby="kid desc" }<br/>
+		____[p][a href="{king:kpath/}"]标题:{king:ktitle/}[/a][/p]<br/>
+	{/king:dbquery.select}
+</code>
+<span>
+	table属性是必须的。<br/>
+	循环体内的标签为字段名称，内容调用标签中的稍有不同，注意区别。
+</span>
+
+<p>支持属性</p>
+
+<table>
+	<tr><th class="w150 l">标签属性</th><th class="w150 l">数据类型</th><th class="l">说明</th></tr>
+	<tr><td>table</td><td>字符串</td><td>数据库表名称，这个参数是必须的。</td></tr>
+	<tr><td>sql</td><td>字符串</td><td>数据表下面的字段列表，不填写默认为*，即全部字段</td></tr>
+	<tr><td>where</td><td>字符串</td><td>查询条件，限制查询范围，属性值开头不用写where</td></tr>
+	<tr><td>orderby</td><td>字符串</td><td>排序，根据orderby指定的参数进行排序，属性值开头不用写order by</td></tr>
+	<tr><td>number</td><td>数字</td><td>调用记录的数量</td></tr>
+	<tr><td>skip</td><td>数字</td><td>跳过skip属性里指定数量的记录后开始显示</td></tr>
+	<tr><td>name</td><td>字符串</td><td>当指定name值的时候，从数据源管理里定义的数据源名称对应的数据库中进行查询</td></tr>
+</table>
+
+
+<h2 id="full">完整查询 {king:dbquery/}</h2>
+
+<p>直接利用完整的SQL查询语句，对数据库进行查询，只有一个必须属性：query。</p>
+
+<code class="example">
+	{king:dbquery query="select ktitle,kpath from %s__Article where kid1=0 order by kid desc limit 0,3 "}<br/>
+	____[p][a href="{king:kpath/}"]{king:ktitle/}[/a][/p]<br/>
+	{/king:dbquery}
+</code>
+
+<p>支持属性</p>
+
+<table>
+	<tr><th class="w150 l">标签属性</th><th class="w150 l">数据类型</th><th class="l">说明</th></tr>
+	<tr><td>query</td><td>字符串</td><td>数据库查询SQL语句</td></tr>
+	<tr><td>name</td><td>字符串</td><td>当指定name值的时候，从数据源管理里定义的数据源名称对应的数据库中进行查询</td></tr>
+</table>
+
+<h2 id="example">使用示例</h2>
+<ul>
+	<li>.select方式读取远程Discuz论坛最新帖子列表的方法
+		<code class="example">
+		{king:dbquery.select name="[数据源名称]" table="[数据库表前缀]_posts" sql="tid,subject as title" where="fid=[栏目id] and first=1" orderby="dateline desc" number="[数量]"}<br/>
+		____[p][a href="http://[论坛地址]/viewthread.php?tid={king:tid/}"]{king:title/}[/p]<br/>
+		{/king:dbquery.select}
+		</code>
+	</li>
+
+	<li>完整方法调用示例,效果同上
+		<code class="example">
+		{king:dbquery name="[数据源名称]" query="select tid,subject as title FROM [数据库表前缀]_posts where fid=[栏目id] and first=1 order by dateline desc limit [数量]"}<br/>
+			[p][a href="http://[论坛地址]/viewthread.php?tid={king:tid/}"]{king:title/}[/p]<br/>
+		{/king:dbquery}
+		</code>
+	</li>
+
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>默认输出的样式</h1>
+<p>系统会自动生成一些固定的样式，在做模板的时候，应避免使用同名的样式。</p>
+<pre>.l{text-align:left}
+.r{text-align:right}
+.c{text-align:center}
+.fl{float:left}
+.fr{float:right}
+.block{display:block}
+.none{display:none}
+
+.w0{width:100%}
+
+.w1{width:5%}
+.w2{width:10%}
+...
+<em>.w[X]{width: [X]*5 %} ... 1 ≤ [X] ≤ 19</em>
+...
+.w18{width:90%}
+.w19{width:95%}
+
+.w50{width:50px}
+.w100{width:100px}
+...
+<em>.w[Y]{width: [Y]px} ... 50 ≤ [Y] ≤ 800 整除于50</em>
+...
+.w750{width:750px}
+.w800{width:800px}
+
+input.transparent{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";filter:alpha(opacity=40);/*IE*/opacity:0.4;}
+img.white{width:16px;height:16px;vertical-align:middle;margin:0px;margin-right:3px;padding:2px;}
+
+</pre>
+
+</body>
+</html>

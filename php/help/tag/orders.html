@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>订单标签</h1>
+<p>用户订单显示，可以在任何有调用用户权限的动态页面上使用，但建议还是在template/inside/user/orders.html上调用.</p>
+
+<code class="example">
+
+{king:portal.orders}/*开始调用订单*/<br/>
+
+	[table class="k_table_list" cellspacing="0" style="margin-bottom:10px;"]<br/>
+	____[caption]订单号: {king:no/}  成交时间:{king:date formatdate="Y-m-d g:i:s A"/}[/caption]<br/>
+	____[tr]<br/>
+	________[td]<br/>
+
+	________{king:content}/*content是数组类型,可以循环调用*/<br/>
+
+	____________{king:portal.shop kid="(king:kid/)"}/*调用商品模型*/<br/>
+	________________{king:kid/}) {king:title/}<br/>
+	____________{/king:portal.shop}<br/>
+
+
+	____________[br/]<br/>
+	________{/king:content}<br/>
+		
+	________[/td]<br/>
+	________[td][a href="index.php?action=orders_show&oid={king:oid/}"]产品名称: {king:title/}[/a][/td]<br/>
+	________[td]产品数量: {king:number/}[/td]<br/>
+	________[td]总费用: ￥{king:alltotal/} 元[/td]<br/>
+	________[td]{king:status/}[/td]<br/>
+	________[td class="w50 c"][a href="javascript:;" class="k_ajax" rel="{URL:'../portal/shoppingcart.php',CMD:'payment',oid:{king:oid/}}"]详情[/a][/td]<br/>
+	____[/tr]<br/>
+
+	[/table]<br/>
+{/king:portal.orders}<br/>
+
+</code>
+
+<h2>Orders标签对应的输出值</h2>
+
+<table>
+	<tr><td>oID</td><td>订单的id</td></tr>
+	<tr><td>NO</td><td>订单编号</td></tr>
+	<tr><td>Title</td><td>所购物品名称</td></tr>
+	<tr><td>nTotal</td><td>产品费用总计，原始模式</td></tr>
+	<tr><td>Total</td><td>产品费用总计，货币格式化</td></tr>
+	<tr><td>nExpress</td><td>物流费用，原始模式</td></tr>
+	<tr><td>Express</td><td>物流费用，货币格式化</td></tr>
+	<tr><td>nAllTotal</td><td>合计费用</td></tr>
+	<tr><td>AllTotal</td><td>合计费用，货币格式化</td></tr>
+	<tr><td>Number</td><td>所购产品数量</td></tr>
+	<tr><td>Date</td><td>成交日期</td></tr>
+	<tr><td>nStatus</td><td>交易状态<br/>
+		
+		2 创建交易,收获地址填写完毕<br/>
+		3 买家付款成功<br/>
+		4 卖家发货成功<br/>
+		5 买家收货确认，交易成功<br/>
+		6 交易关闭，未完成超时关闭<br/>
+		7 修改交易价格成功<br/>
+		8 买家发起退款<br/>
+		9 退款成功<br/>
+		10 退款关闭
+
+	</td></tr>
+	<tr><td>Status</td><td>交易状态和操作，完整的HTML代码</td></tr>
+</table>
+
+</body>
+</html>

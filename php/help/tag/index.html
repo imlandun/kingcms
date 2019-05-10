@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>标签</h1>
+
+<p>标签是把复杂的PHP语言转换为容易编写和容易记忆的另一种形式的语言。<br/>
+KingCMS标签和HTML标签有异曲同工之处，写起来就像HTML代码一样简单，也很容易掌握。<br/>
+KingCMS标签是以大括号括起来，和模板HTML代码做区分。见下面的对照表：
+</p>
+
+<table>
+	<tr><td><strong>HTML标签</strong></td><td><strong>KingCMS标签</strong></td></tr>
+	<tr><td>&lt;br/&gt;</td><td>{King:Title/}</td></tr>
+	<tr><td>&lt;img src="images/logo.gif" alt="图片" /&gt;</td><td>{King:Title size="3" /}</td></tr>
+	<tr><td>&lt;span class="cls" &gt;<br/>&nbsp; &nbsp; &nbsp; &nbsp; KingCMS</br>&lt;/span&gt;</td><td>{king:portal.article listid='3'}<br/>&nbsp; &nbsp; &nbsp; &nbsp; {king:title/}<br/>{/king:portal.article}</td></tr>
+</table>
+
+<h2 id="mode">标签的编写模式</h2>
+
+<dl>
+	<dd>单一对应模式，如：
+		<code class="example">{king:TAG size="18"/}/*必须以 /} 结束，若少了 /，则不会被解析。*/</code>
+	</dd>
+
+	<dd>循环对应模式：
+		<code class="example">
+		{king:TAG ATTRIB='VALUE'}/*VALUE值可以用双引号，也可以用单引号*/<br/>
+		____INNER/*循环显示部分*/<br/>
+		{/king:TAG}/*结束标记，必须和开始标记大小写一致，前面加个/*/
+		</code>
+	</dd>
+</dl>
+
+<h2 id="language">语言标签</h2>
+
+<p>用做调用各模块下面的language/LANG.xml语言包中的内容。格式如：</p>
+<code class="example">{Lang:system.common.submit /}</code>
+<p>其中，lang代表是语言标签，system是代表system模块，common.submit为语言包中的节点路径。</p>
+
+<h2 id="config">参数标签</h2>
+<p>参数标签为管理系统参数设置里的各个参数对应的标签，格式如：</p>
+<code class="example">{config:system.inst /}</code>
+<p>其中config代表是参数标签，system是代表系统模块的参数，inst是对应的安装路径标签，参数标签可在后台看到。<br/>
+	<img src="images/configtag.jpg"/>
+</p>
+
+<h2 id="get">URL参数标签</h2>
+
+<p>直接从URL参数中获取值，不区分大小写，写法如下：</p>
+<code class="example">{GET:title validate="1"/}/* 如页面地址是 *.php?title=string 的时候，对应的值为"string" */</code>
+<p>此标签支持validate属性，即为数据验证。对应关系如下：</p>
+<table>
+	<tr><td>1</td><td>字母和数字，a-zA-Z0-9</td></tr>
+	<tr><td>2</td><td>邮件类型,匹配电子邮件地址</td></tr>
+	<tr><td>3</td><td>数字和逗号的组合，如：2,3,4</td></tr>
+	<tr><td>4</td><td>字母、数字和下划线，不支持中划线</td></tr>
+	<tr><td>5</td><td>邮件类型,匹配电子邮件地址</td></tr>
+	<tr><td>6</td><td>网址类型</td></tr>
+	<tr><td>7</td><td>完整http图片地址或本地图片完整路径</td></tr>
+	<tr><td>8</td><td>日期+时间类型，如: 2008-04-12 11:15:18</td></tr>
+	<tr><td>9</td><td>日期类型，无时间，如：2009-04-12</td></tr>
+	<tr><td>13</td><td>6-7位的颜色值，如：FFFFFF或#0000FF</td></tr>
+	<tr><td>22</td><td>可以带有符号的数字，如：-100</td></tr>
+	<tr><td>23</td><td>第一个字符是字母，后面是由数字、字符和下划线构成的字符串</td></tr>
+	<tr><td>其他</td><td>也可以直接写正则表达式进行验证</td></tr>
+</table>
+
+
+
+<h2 id="post">POST参数标签</h2>
+<p>直接从POST参数中获取值,用法同上，支持validate属性</p>
+<code class="example">{POST:title/}</code>
+
+<h2 id="property">通用属性</h2>
+
+<dl>
+	<dt id="property_size">调用文本长度设置(Size)</dt>
+	<dd>长度设置，比如调用一个标题中的前20个字符(一个中文单词算2个字符)，则设置size="20"。<br/>
+使用范围：支持几乎所有的标签。<br/>
+{king:title size="20"/}	从左侧截取指定长度的文本，一个中文字符按两个字符计算</dd>
+
+	<dt id="property_cache">指定缓存设置(Cache)</dt>
+	<dd>用cache="缓存名称"来指定重复调用的标签，需要注意的是，cache的值一样的话，就算标签不一样，输出的内容是一样的。<br/>
+恰当的运用Cache属性是提高模板解析效率的一个捷径。<br/>
+使用范围：所有标签。</dd>
+
+	<dt id="property_fun">利用PHP函数进行格式化(fun)</dt>
+	<dd>对标签返回值，调用PHP函数进行转换，如{king:title/}对应的是值是" &nbsp; 中国 &nbsp; "，调用PHP函数trim进行格式化，<br/>
+	如：{king:title fun='trim'/}，输出结果为"中国"(即去掉两侧的空格)。<br/>
+	若用多个函数进行格式化，几个函数之间用逗号分开：{king:description fun='htmlspecialchars,kc_clsnl'/}</dd>
+
+	<dt id="property_formatstr">编码格式化(FormatStr)</dt>
+	<dd>在HTML代码中调用标签的时候，不能直接输出，如：
+		<code class="example">
+		[script]    alert('{king:title/}');[/script]
+		</code>
+		这样调用，大部分情况下会正常，但标题中含有单引号的时候，则javascript代码不能正常工作，就需要用FormatStr属性来转换：
+		<code class="example">
+		[script]    alert ('{king:title formatstr="javascript"/}');[/script]
+		</code>
+	</dd>
+	<dd>
+	FormatStr属性有如下几种值：<br/>
+	javascript	转换成为javascript代码中可以用的字符<br/>
+	urlencode   转换为URL地址中传递的格式
+	addslashes  使用反斜线引用字符串
+	md5  用32位md5对字符串进行加密
+	</dd>
+
+	<dt id="property_replace">值替换(replace)</dt>
+	<dd>代码中查找并替换为新值，格式如下：
+		<code class="example">{king:title replace="[FIND]|[NEW STRING]" /}</code>
+		FIND为查找的值，NEW STRING为替换值，中间用垂直线分开，若无垂直线，则查找删除符合查询条件的值。<br/>
+		多个替换之情况，多写replace属性。
+		<code class="example">{king:title replace="[FIND1]|[NEW STRING1]" replace="[FIND2]|[NEW STRING2]" /}</code>
+	</dd>
+	<dd>应用举例：
+		<code class="example">
+		{king:title/}/*海尔洗衣机*/<br/>
+		{king:title replace="洗衣机 | 冰箱" /}/*通过replace属性替换后输出的结果为：海尔冰箱*/<br/>
+		{king:title replace="海尔"/}/*输出结果为：洗衣机*/
+		</code>
+	</dd>
+
+	<dt id="property_none">空值代替(none)</dt>
+	<dd>当输出的值为空值的时候，则输出none指定的值
+		<code class="example">
+		{king:image/}/*NULL*/
+		{king:image none='images/none.gif' /}/*images/none.gif*/
+		</code>
+	</dd>
+
+	<dt id="property_number">调用数量设置(number)</dt>
+	<dd>调用文章标题的数量，默认值为10。<br/>
+		使用范围：自定义模型的标签，比如文章系统中调用文章标题的数量。
+	</dd>
+
+	<dt id="property_split">输出值拆分为数组(split)</dt>
+	<dd>输出值拆分为数组<br/>
+		如作者、来源等加链接的时候。<br/>
+		例子中的{king:_source/}是来源，其值为 KingCMS | http://www.kingcms.com/
+		<code class="example">
+			{king:_source split="|" }<br/>
+			____[a href="{king:_author_2}"]{king:_author_1/}[/a]<br/>
+			{/king:_author}<br/><br/>
+			/*<br/>
+			最后输出值为<br/>
+			[a href="http://www.kingcms.com"]KingCMS[/a]<br/>
+			*/
+		</code>
+		通过split拆分后，值对应关系如下：
+		<table>
+			<tr><td>{king:_author/}</td><td>KingCMS | http://www.kingcms.com/</td></tr>
+			<tr><td>{king:_author_1/}</td><td>KingCMS</td></tr>
+			<tr><td>{king:_author_2/}</td><td>http://www.kingcms.com/</td></tr>
+		</table>
+		新模板标签为：原模板标签名{king:_author/}后面加一个下划线和数字。
+	</dd>
+
+	<dt id="property_explode">输出值拆分为循环数组(explode)</dt>
+	<dd>输出值拆分为数组，并循环调用<br/>
+	这个功能多用在Tag、关键字等地方
+	<code class="example">
+		{king:tag explode=","}/*对应的结果假设为：中国,日本,美国 */<br/>
+		____[a href="{king:root/}index.php/tag-{king:tag fun='urlencode'/}{config:system.rewriteend/}"]<br/>
+		________{king:tag/}<br/>
+		____[/a]<br/>
+
+		{/king:tag}<br/><br/>
+		/*
+		最后输出值为：<br/>
+		[a href="/index.php/tag-%E4%B8%AD%E5%9B%BD.html"]中国[/a]<br/>
+		[a href="/index.php/tag-%E6%97%A5%E6%9C%AC.html"]日本[/a]<br/>
+		[a href="/index.php/tag-%E7%BE%8E%E5%9B%BD.html"]美国[/a]<br/>		
+		*/
+	</code>
+	注意的是，当标签{king:tag/}被explode拆分为循环数组后，循环体内依然是用{king:tag/}来调用，但其值是拆分后的值。
+	</dd>
+	
+
+	<dt id="property_after">输出值后插入内容(After)</dt>
+	<dd>当当前的标签有值的时候，在输出值之后插入after属性中指定的内容
+		<code class="example">
+			{king:title after=" 你好！ "/}/*当title输出值为CHINA的时候，实际输出的值是：CHINA 你好！ */
+		</code>
+	</dd>
+
+	<dt id="property_before">输出值前插入内容(Before)</dt>
+	<dd>当当前的标签有值的时候，在输出值之后插入Before属性中指定的内容
+		<code class="example">
+			{king:title Before=" 你好！ "/}/*当title输出值为CHINA的时候，实际输出的值是： 你好！CHINA */
+		</code>
+	</dd>
+
+	<dt id="property_image">生成缩略图属性(width,height)</dt>
+	<dd>若指定其中任何一个值，则生成对应尺寸的缩略图，并输出缩略图路径。<br/>
+若同时指定两个值，但不和原图比例一致时，则缩小图片后，取中裁减多余的位图，生成原始比例的图片。<br/>
+使用范围：图片路径输出标签
+
+	<table>
+	<tr><td>Border</td><td>预定义值</td><td>边框形状，矩形(rectangle)|圆角矩形(fillet)|斜切矩形(chamfer)</td></tr>
+	<tr><td>Border-Size</td><td>整数</td><td>边框宽度</td></tr>
+	<tr><td>Border-Color</td><td>颜色值</td><td>边框颜色，默认为黑色(#000000)</td></tr>
+	<tr><td>Border-Margin</td><td>整数</td><td>边框到图片的边距</td></tr>
+	<tr><td>Border-R</td><td>整数</td><td>圆角半径，默认为0</td></tr>
+	<tr><td>Empty</td><td>预定义值</td><td>图片外置空的部分形状<br/>
+	矩形(rectangle)|圆角矩形(fillet)|斜切矩形(chamfer)</td></tr>
+	<tr><td>Empty-Color</td><td>颜色值</td><td>填充置空部分的颜色，默认为白色(#FFFFFF)</td></tr>
+	<tr><td>Empty -Size</td><td>整数</td><td>置空的部分尺寸</td></tr>
+	<tr><td>Empty -R</td><td>整数</td><td>半径,当圆角的时候生效</td></tr>
+	<tr><td>Empty-Filter</td><td>预定义值</td><td>滤镜类型：阴影(shadow)</td></tr>
+	<tr><td>Empty-Filter-color</td><td>颜色</td><td>滤镜相关的颜色，默认值为灰色(#666666)</td></tr>
+	<tr><td>WaterMark</td><td>图片路径</td><td>设置水印图片地址，相对于安装目录</td></tr>
+	<tr><td>WaterMark-X</td><td>整数</td><td>插入图像的X轴的坐标，默认为10</td></tr>
+	<tr><td>WaterMark-Y</td><td>整数</td><td>插入图像的Y轴的坐标，默认为10</td></tr>
+	<tr><td>WaterMark-Opacity</td><td>整数</td><td>不透明度，0-100区间值，默认为100，即为不透明</td></tr>
+	<tr><td>Watermark-Color</td><td>颜色值</td><td>定义水印图中的某个颜色为透明色</td></tr>
+	<tr><td>Text</td><td>文本</td><td>文本内容</td></tr>
+	<tr><td>Text-X</td><td>整数</td><td>插入文本的X轴坐标，默认为10</td></tr>
+	<tr><td>Text-Y</td><td>整数</td><td>插入文本的Y轴坐标，默认为20</td></tr>
+	<tr><td>Text-Size</td><td>整数</td><td>文本大小，默认为12</td></tr>
+	<tr><td>Text-Font</td><td>字体路径</td><td>文本调用的字体，特别是中文，必须指定字体，否则为乱码</td></tr>
+	<tr><td>Text-Color</td><td>颜色值</td><td>文本颜色，默认为 黑色(#000000)</td></tr>
+	<tr><td>Text-angle</td><td>整数</td><td>倾斜度，默认为0，即不倾斜</td></tr>
+	<tr><td>Position</td><td>预定义值或坐标值</td><td>缩略图截取方式，其值有以下几种表现方式
+		<ul>
+		<li>默认为从中间截图</li>
+		<li>top: 从顶部开始截图</li>
+		<li>left: 从左侧开始截图</li>
+		<li>right: 从右侧开始截图</li>
+		<li>bottom: 从底部开始截图</li>
+		<li>topleft or lefttop: 从左上角开始截图</li>
+		<li>topright or righttop: 从右上角开始截图</li>
+		<li>leftbottom or bottomleft: 从左下角开始截图</li>
+		<li>rightbottom or bottomright: 从右下角开始截图</li>
+		<li>X,Y: 指定值方式，即Position='-10,-20'</li>
+		</ul>
+	</td></tr>
+	</table>
+
+	<code class="example">
+	{king:portal.article type="new" number="5"}<br/>
+	&lt;img src="{king:image/*图片标签开始*/<br/>
+	____border='fillet'/*指定为圆角边框*/<br/>
+	____border-color='666666'/*圆角边框的颜色*/<br/>
+	____empty='fillet'/*外部填充部分形状*/<br/>
+	____Empty-Color='#FFFFFF'/*填充颜色*/<br/>
+	____Empty-R='5'/*填充半径*/<br/>
+	____width='100' height='100'/*长宽指定*/<br/>
+	/}"/&gt;<br/>
+	{/king:portal.article}
+	</code>
+
+
+
+
+	<dt id="property_formatdate">日期格式化(formatDate)</dt>
+
+	<dd>格式为：{king:DATE formatdate="Ymd"/}<br/>参数对应表如下：
+
+		<table>
+			<tr>
+				<th>format 字符</th><th>说明</th><th>返回值例子</th>
+			</tr>
+			<tr>
+				<th>日</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>d</td>
+				<td>月份中的第几天，有前导零的 2 位数字</td>
+				<td>01</var> 到 31</td>
+			</tr>
+			<tr>
+				<td>D</td>
+				<td>星期中的第几天，文本表示，3 个字母</td>
+				<td>Mon</var> 到 Sun</td>
+			</tr>
+			<tr>
+				<td>j</td>
+				<td>月份中的第几天，没有前导零</td>
+				<td>1</var> 到 31</td>
+			</tr>
+			<tr>
+				<td>l</var>（&ldquo;L&rdquo;的小写字母）</td>
+				<td>星期几，完整的文本格式</td>
+				<td>Sunday</var> 到 Saturday</td>
+			</tr>
+			<tr>
+				<td>N</td>
+				<td>ISO-8601 格式数字表示的星期中的第几天（PHP 5.1.0 新加）</td>
+				<td>1</var>（表示星期一）到 7</var>（表示星期天）</td>
+			</tr>
+			<tr>
+				<td>S</td>
+				<td>每月天数后面的英文后缀，2 个字符</td>
+				<td>st</var>，nd</var>，rd</var> 或者 th</var>。可以和 j</var> 一起用</td>
+			</tr>
+			<tr>
+				<td>w</td>
+				<td>星期中的第几天，数字表示</td>
+				<td>0</var>（表示星期天）到 6</var>（表示星期六）</td>
+			</tr>
+			<tr>
+				<td>z</td>
+				<td>年份中的第几天</td>
+				<td>0</var> 到 366</td>
+			</tr>
+			<tr>
+				<th>星期</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>W</td>
+				<td>ISO-8601 格式年份中的第几周，每周从星期一开始（PHP 4.1.0 新加的）</td>
+				<td>例如：42</var>（当年的第 42 周）</td>
+			</tr>
+			<tr>
+				<th>月</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>F</td>
+				<td>月份，完整的文本格式，例如 January 或者 March</td>
+				<td>January</var> 到 December</td>
+			</tr>
+			<tr>
+				<td>m</td>
+				<td>数字表示的月份，有前导零</td>
+				<td>01</var> 到 12</td>
+			</tr>
+			<tr>
+				<td>M</td>
+				<td>三个字母缩写表示的月份</td>
+				<td>Jan</var> 到 Dec</td>
+			</tr>
+			<tr>
+				<td>n</td>
+				<td>数字表示的月份，没有前导零</td>
+				<td>1</var> 到 12</td>
+			</tr>
+			<tr>
+				<td>t</td>
+				<td>给定月份所应有的天数</td>
+				<td>28</var> 到 31</td>
+			</tr>
+			<tr>
+				<th>年</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>L</td>
+				<td>是否为闰年</td>
+				<td>如果是闰年为 1</var>，否则为 0</td>
+			</tr>
+			<tr>
+				<td>o</td>
+				<td>ISO-8601 格式年份数字。这和 Y</var> 的值相同，只除了如果 ISO 的星期数（W</var>）属于前一年或下一年，则用那一年。（PHP 5.1.0 新加）</td>
+				<td>Examples: 1999</var> or 2003</td>
+			</tr>
+			<tr>
+				<td>Y</td>
+				<td>4 位数字完整表示的年份</td>
+				<td>例如：1999</var> 或 2003</td>
+			</tr>
+			<tr>
+				<td>y</td>
+				<td>2 位数字表示的年份</td>
+				<td>例如：99</var> 或 03</td>
+			</tr>
+			<tr>
+				<th>时间</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>a</td>
+				<td>小写的上午和下午值</td>
+				<td>am</var> 或 pm</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>大写的上午和下午值</td>
+				<td>AM</var> 或 PM</td>
+			</tr>
+			<tr>
+				<td>B</td>
+				<td>Swatch Internet 标准时</td>
+				<td>000</var> 到 999</td>
+			</tr>
+			<tr>
+				<td>g</td>
+				<td>小时，12 小时格式，没有前导零</td>
+				<td>1</var> 到 12</td>
+			</tr>
+			<tr>
+				<td>G</td>
+				<td>小时，24 小时格式，没有前导零</td>
+				<td>0</var> 到 23</td>
+			</tr>
+			<tr>
+				<td>h</td>
+				<td>小时，12 小时格式，有前导零</td>
+				<td>01</var> 到 12</td>
+			</tr>
+			<tr>
+				<td>H</td>
+				<td>小时，24 小时格式，有前导零</td>
+				<td>00</var> 到 23</td>
+			</tr>
+			<tr>
+				<td>i</td>
+				<td>有前导零的分钟数</td>
+				<td>00</var> 到 59</var>&gt;</td>
+			</tr>
+			<tr>
+				<td>s</td>
+				<td>秒数，有前导零</td>
+				<td>00</var> 到 59</var>&gt;</td>
+			</tr>
+			<tr>
+				<th>时区</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>e</td>
+				<td>时区标识（PHP 5.1.0 新加）</td>
+				<td>例如：UTC</var>，GMT</var>，Atlantic/Azores</td>
+			</tr>
+			<tr>
+				<td>I</td>
+				<td>是否为夏令时</td>
+				<td>如果是夏令时为 1</var>，否则为 0</td>
+			</tr>
+			<tr>
+				<td>O</td>
+				<td>与格林威治时间相差的小时数</td>
+				<td>例如：+0200</td>
+			</tr>
+			<tr>
+				<td>T</td>
+				<td>本机所在的时区</td>
+				<td>例如：EST</var>，MDT</var>（【译者注】在 Windows 下为完整文本格式，例如&ldquo;Eastern Standard Time&rdquo;，中文版会显示&ldquo;中国标准时间&rdquo;）。</td>
+			</tr>
+			<tr>
+				<td>Z</td>
+				<td>时差偏移量的秒数。UTC 西边的时区偏移量总是负的，UTC 东边的时区偏移量总是正的。</td>
+				<td>-43200</var> 到 43200</td>
+			</tr>
+			<tr>
+				<th>完整的日期／时间</th>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<tr>
+				<td>c</td>
+				<td>ISO 8601 格式的日期（PHP 5 新加）</td>
+				<td>2004-02-12T15:19:21+00:00</td>
+			</tr>
+			<tr>
+				<td>r</td>
+				<td>RFC 822 格式的日期</td>
+				<td>例如：Thu, 21 Dec 2000 16:01:07 +0200</td>
+			</tr>
+			<tr>
+				<td>U</td>
+				<td>从 Unix 纪元（January 1 1970 00:00:00 GMT）开始至今的秒数</td>
+				<td>参见 <a href="http://192.168.0.111/function.time.html"><strong class="function">time()</strong></a></td>
+			</tr>
+		</table>
+
+	</dd>
+
+	<dt id="property_formatnumber">数字格式化(formatNumber)</dt>
+	<dd>指定保留小数点后的数字，如：<br/>
+	{king:price/} =&gt; 1003.0<br/>
+	{king:price formatNumber='2'/} =&gt; 1,003.00<br/>
+	{king:price formatNumber='4'/} =&gt;1,003.0000</dd>
+
+
+	<dt id="property_conn">跨站通信(conn)</dt>
+	<dd>在应用conn先，首先到工具-&gt;跨站通讯下面添加通信。<br/>
+	调用链接的站的链接名称和通信密钥必须和目标站一致，目标站的URL地址可以不写，也可以填写当前的站，这样可以实现互相调用。<br/>
+	需要注意的是通信密钥一定要填写，否则可以通过标签进行数据注入。<br/>
+	可以用在大部分模板标签里，只要指定conn属性值，可以到目标站调用指定的数据。
+	<code class="example">
+		{king:portal.article type="new" conn="[TEST]"}<br/>
+			____[p][a href="{king:path/}"]{king:title/}[/a][/p]<br/>
+		{/king:portal.article}<br/><br/>
+
+		{config:system.sitename conn='[TEST]'/}
+	</code>
+	
+	
+	</dd>
+
+
+
+</dl>
+
+
+<h2 id="pagelist">分页标签(pagelist)</h2>
+
+<p>分页标签均支持两种模式，第一种模式是{king:pagelist/}，等效于</p>
+<code class="example">
+{king:pagelist}<br/>
+	____{king:standard/}<br/>
+	____{king:Next/}<br/>
+	____{king:jump/}<br/>
+{/king:pagelist}
+</code>
+<p>第二种模式是直接写完整的形式，内部标签的对应值如下：</p>
+<code class="example">
+{king:pagelist}<br/>
+	____{king:standard/}	/*12…345..78形式的分页,自动补充省略符*/<br/>
+	____{king:select/}	/*下拉菜单式*/<br/>
+	____{king:Prev/}	/*上一页,输出字符为英文Previous，要替换成中文，则用replace属性：{king:prev replace='Previous|上一页'}*/<br/>
+	____{king:Next/}	/*下一页,英文为Next，同上替换*/<br/>
+	____{king:First/}	/*第一页,英文为First，同上替换*/<br/>
+	____{king:Last/}	/*最后一页,英文为Last*/<br/>
+	____{king:full/}	/*123456 形式的全部分页,无省略*/<br/>
+	____{king:jump/}	/*文本框输入指定页面后回车跳转*/<br/>
+	____{king:pagecount/}	/*分页总数*/<br/>
+	____{king:count/}	/*记录总数*/<br/>
+	____{king:pid/}	/*当前页*/<br/>
+	____{king:rn/}	/*每页显示数*/<br/>
+{/king:pagelist}
+</code>
+
+
+
+<h2 id="Tags">特殊参数{Tags}</h2>
+
+<p>输出循体内可用的标签及其对应的值</p>
+<code class="example">
+{king:portal.Article type="list"}<kbd><i rel="F00">{Tags}</i></kbd>/*特殊参数紧跟着标签开始标记结束后*/<br/>
+[a href="{king:path/}"]{king:title/}[/a]<br/>
+{/king:portal.Article}
+</code>
+
+<span>{Tags}区分大小写，头字母必须为大写，前面不能有多余的空格、换行或Tab等。<br/>
+此参数标签没有实用价值，仅限于设计模板时，输出循环体内的可用标签及对应值。</span>
+
+
+
+</body>
+</html>

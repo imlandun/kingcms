@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>KingCMS开发入门</h1>
+<p>说起开发，很多人就有恐惧心里，其实没有必要对它产生恐惧，因为编写程序其实很简单，只要你有一定的PHP代码的阅读能力和PHP手册，基本可以动工并加入到开发行列了。<br/>
+KingCMS的开发其实是一个个模块的构成，大部分的基础工作我们已经完成，你要做的仅仅是扩展功能，当然我们也欢迎你加入到更深层次的开发。</p>
+<p>从模块构成开始说吧。<br/>
+一个简单的模块是由一个模块目录、core.class.php、manage.php构成，模块目录是放在程序所在目录下，和system目录是一个级别。可以参照自定义发布模型：portal目录或用户系统：user目录。<br/>
+建议管理相关的文件命名是以`manage.`开头。</p>
+
+<h2>PHP页面执行</h2>
+<p>为实现最少的文档数，KingCMS的执行页面是封装在一个个函数中。</p>
+<p>例如：创建一个test.php文件到system目录，内容如下：</p>
+<code class="php" file="//system/test.php">
+	
+	function king_def(){<br/>
+	____echo "这个是默认页";<br/>
+	}<br/><br/>
+
+	function king_add(){<br/>
+	____echo "这个是 test.php?action=add 页面";<br/>
+	}<br/><br/>
+
+	function king_edit(){<br/>
+	____echo "这个是 test.php?action=edit 页面";<br/>
+	}
+
+</code>
+<p>当访问 http://localhost/system/test.php 的时候，执行的是king_def()；<br/>
+当访问 http://localhost/system/test.php?action=add 的时候，执行的是king_add()；<br/>
+当访问 http://localhost/system/test.php?action=edit 的时候，执行的是king_edit()</p>
+
+<h2>Ajax页面执行</h2>
+<p>首先要了解一下Ajax页面的调用方法：<br/>
+KingCMS的Ajax操作是由样式类class="k_ajax"来指定的，如：</p>
+<code class="example">[a href="#" class="k_ajax" rel="{URL:'ajax.php',CMD:'del',var1:'值1',var2:'值2'}"]<br/>
+<a href="javascript:;" onClick="alert('您POST到ajax.php页面的参数有：\n\nCMD=del&var1=值1&var2=值2\n\n请用PHP全局变量$_POST来获得这些参数')">
+____点击这里删除</a><br/>[/a]
+</code>
+
+<p>当点击执行后，rel中的值将提交到 http://localhost/system/ajax.php 页面，对应的处理函数为king_ajax_del()。<br/>
+函数的名称是由rel属性中指定的CMD参数来决定的，假设CMD:'delete'，则对应函数为king_ajax_delete()，以此类推。<br/>
+下面就编写king_ajax_del()内容：</p>
+<code class="php" file="//system/ajax.php">
+	function kiing_ajax_del(){<br/>
+	____$val1 = $_POST['var1'];<br/>
+	____$val2 = $_POST['var2'];<br/>
+	____$s = "您POST到ajax.php页面的参数有 var1=$val1 ; var2=$val2 ";<br/><br/>
+	____kc_ajax('Ajax标题栏' , $s , 0 , NULL , 320 , 60);<br/>
+	}
+</code>
+
+<span>上述函数中用到函数kc_ajax()，具体的参数解释请见 <a href="ajax.html">Ajax交互</a>部分。</span>
+
+<!-- ____global $king;/*因为我们要在这里用到KingCMS类中的函数，所以需要把全局变量$king引入到函数中*/  --->	
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>自定义模型数据库结构</h1>
+
+
+<table class="table2">
+	<tr>
+		<td>
+			<code class="sql" rel="%s__{$modeltable},kid">
+			kid1 int not null default 0,/*所属主题*/
+			ncount int not null default 1,/*kid1为0的时候,下属项目总数*/
+			listid int not null default 0,/*所属列表Listid*/
+			ktitle varchar(100) null,/*主题*/
+			ksubtitle varchar(20) null,/*副标题*/
+			nsublength tinyint(2) not null default 0,/*副标题的长度*/
+			norder int not null default 0,/*排序*/
+			isstar tinyint(1) not null default 0,/*星标，标注星标的内容不允许删除*/
+			ndate int(10) not null default 0,/*创建时间*/
+			nlastdate int(10) not null default 0,/*最后更新时间*/
+			kkeywords varchar(100) null,/*关键字*/
+			ktag varchar(100) null,/*Tag*/
+			kdescription varchar(255) null,/*简述*/
+			kimage varchar(255) null,/*缩略图*/
+			kcontent text null,/*主体内容*/
+			kpath varchar(255) UNIQUE not null,/*路径*/
+			nshow tinyint(1) not null default 1,/*是否显示*/
+			nhead tinyint(1) not null default 0,/*是否为头条*/
+			ncommend tinyint(1) not null default 0,/*是否为推荐*/
+			nup tinyint(1) not null default 0,/*是否为置顶*/
+			nfocus tinyint(1) not null default 0,/*是否为焦点*/
+			nhot tinyint(1) not null default 0,/*是否为热门*/
+			nprice real not null default 0,/*价格*/
+			nweight int not null default 0,/*重量，单位(克)*/
+			nnumber int(10) not null default 0,/*可出售数量*/
+			nbuy int(10) not null default 0,/*出售数量*/
+			ncomment int not null default 0,/*评论总数*/
+			krelate varchar(255) null,/*相关文章的id列表*/
+			ndigg1 int not null default 0,/*可以理解为：顶、好*/
+			ndigg0 int not null default 0,/*可以理解为：踩、差*/
+			ndigg int not null default 1,/*ndigg1 PK ndigg0 计算公式：(ndigg1+20*100)/(ndigg0+20) */
+			nfavorite int not null default 0,/*被收藏次数*/
+			nhit int not null default 0,/*总访问数*/
+			nhitlate int not null default 0,/*最近访问率比较高的*/
+			userid int not null default 0,/*发表的用户id*/
+			ulock tinyint(1) not null default 0,/*锁定、以免用户再次去编辑*/
+			adminid int not null default 0,/*管理员发表的时候记录管理员id*/
+			isok tinyint(1) not null default 0,/*爱问等地方，被选为好的答案的*/
+			nip int(10) not null default 0,/*用户的IP*/
+			aid int not null default 0,/*所属存档的id*/
+			INDEX(kid1),/*索引kid1*/
+			INDEX(aid),/*索引aid*/
+			INDEX(nshow),/*索引nshow*/
+			INDEX(nhead),/*索引nhead*/
+			INDEX(nfocus),/*索引nfocus*/
+			INDEX(nhot),/*索引nhot*/
+			INDEX(userid),/*索引userid*/
+			INDEX(adminid),/*索引adminid*/
+			INDEX(ndigg),/*索引ndigg*/
+			INDEX(listid)/*索引listid*/
+			</code>
+
+			<code class="sql" rel="%s_model,modelid">
+			modelname char(50) not null,/*自定义模型名称*/
+			modeltable char(50) not null,/*自定义模型的数据表*/
+			norder int not null default 0,/*排序*/
+			klanguage char(30) null,/*模型所属语言，搜索时用得上*/
+			issearch tinyint(1) not null default 0,/*是否加入到搜索*/
+			klistorder char(255) null,/*列表页的排序*/
+			kpageorder char(255) null,/*内容页的排序*/
+			nlocktime int not null default 0,/*指定时间内允许编辑*/
+			nshowtime int not null default 0,/*指定时间内显示，0永远显示*/
+
+			ispublish1 tinyint(1) not null default 0,/*主题页的发表 0不允许发布;1直接发布;2验证后发布*/
+			ispublish2 tinyint(1) not null default 0,/*次页，论坛等可以理解为回帖，参数同上*/
+			nlistnumber int not null default 20,/*列表页每页显示数*/
+			npagenumber int not null default 1,/*内容页每页显示数*/
+
+			ktemplatepublish char(255) null,/*会员发帖页内部模板*/
+			ktemplatesearch char(255) null,/*会员搜索页的内部模板*/
+			isid tinyint(1) not null default 0/*是否在管理列表中显示内容id*/
+			</code>
+
+			<code class="sql" rel="%s_field,kid">
+			modelid int not null default 0,/*字段所属模型*/
+			kid1 int not null default 0,/*如果当前字段属于某个组的时候有值,默认0*/
+			istitle tinyint(1) not null default 0,/*组下面的表单的标题是否显示*/
+			norder int not null default 0,/*排序*/
+			ktitle char(100) not null,/*字段标题*/
+			kfield char(30) not null,/*字段名*/
+			ntype tinyint(2) not null default 0,/*字段类型*/
+			issearch tinyint(1) not null default 0,/*是否加入到搜索*/
+			nvalidate tinyint(2) not null default 0,/*数据验证*/
+			nsizemin int not null default 0,/*输入值长度最小值*/
+			nsizemax int not null default 0,/*输入值长度最大值*/
+			kdefault char(255) null,/*默认值*/
+			koption text null,/*选项*/
+			nstylewidth int not null default 0,/*文本长度*/
+			nstyleheight int not null default 0,/*文本高度*/
+			isadmin1 tinyint(1) not null default 1,/*是否对管理员显示*/
+			isadmin2 tinyint(1) not null default 1,/*是否在次页面显示*/
+			isuser1 tinyint(1) not null default 1,/*是否在用户界面显示*/
+			isuser2 tinyint(1) not null default 1,/*是否在次页面显示*/
+			islist tinyint(1) not null default 0,/*是否在列表页显示*/
+			isrelate tinyint(1) not null default 0,/*关联字段*/
+			khelp text null,/*填写表单的完整弹出式帮助*/
+			nupfile tinyint(1) not null default 0,/*字段类型为上传类的时候，可上传的文件类型*/
+			INDEX(modelid),/*索引modelid*/
+			INDEX(ntype),/*索引ntype*/
+			INDEX(isadmin1),/*索引isadmin1*/
+			INDEX(isadmin2),/*索引isadmin2*/
+			INDEX(isuser1),/*索引isuser1*/
+			INDEX(isuser2)/*索引isuser2*/
+			</code>
+
+			<code class="sql" rel="%s_tag,kid">
+			ktag char(100) UNIQUE not null,/*标签名称*/
+			kimage char(255) null,/*缩略图*/
+			kkeywords char(120) null,/*META关键字*/
+			kdescription char(255) null,/*META简述*/
+			kcolor char(7) not null,/*颜色*/
+			nsize tinyint(2) not null default 12,/*文字大小（px）*/
+			isbold tinyint(1) not null default 0,/*1粗体 0非粗体*/
+			nhit int not null default 0,/*访问量*/
+			nhitlate int not null default 0,/*近期热门*/
+			iscommend tinyint(1) not null default 0,/*是否推荐*/
+			norder int not null default 0,/*随机*/
+			ktemplate1 char(255) null,/*外部模板路径*/
+			ktemplate2 char(255) null,/*内部模板路径*/
+			INDEX(iscommend)/*索引iscommend*/
+			</code>
+
+			<code class="sql" rel="%s_comment,cid">
+			kid int not null default 0,/*所属主题ID*/
+			listid int not null default 0,/*主题所属列表ID*/
+			username char(12) null,/*用户名*/
+			kcontent text null,/*主体内容*/
+			nip int(10) not null default 0,/*发布评论人的IP地址*/
+			ndate int(10) not null default 0,/*评论发布时间*/
+			isshow tinyint(1) not null default 0,/*是否显示评论1显示*/
+			INDEX(kid),/*索引kid*/
+			INDEX(modelid),/*索引modelid*/
+			INDEX(isshow),/*索引isshow*/
+			INDEX(ndate),/*索引ndate*/
+			INDEX(nip)/*索引nip*/
+			</code>
+		</td>
+
+		<th>&nbsp;</th>
+
+		<td>
+			<code class="sql" rel="%s_site,siteid">
+			sitename char(100) not null,/*站点名称*/
+			siteurl char(100) null/*绑定的URL地址*/
+			</code>
+
+			<code class="sql" rel="%s_list,listid">
+			listid1 int not null default 0,/*父级列表ID，根为0*/
+			modelid int not null default 0,/*所应用模型的ID*/
+			siteid int not null default 1,/*所绑定站点id*/
+			norder int not null default 0,/*排序*/
+			ncount int not null default 0,/*可见主题总数*/
+			ncountall int not null default 0,/*所有的主题数*/
+			ktitle char(100) not null,/*栏目标题*/
+			klistname char(100) not null,/*栏目名称*/
+			kkeywords char(100) null,/*META关键字*/
+			kdescription char(255) null,/*META简述*/
+			kimage char(255) null,/*栏目缩略图,也可用做栏目按钮*/
+			isblank tinyint(1) not null default 0,/*是否在新窗口打开*/
+
+			iscontent tinyint(1) not null default 0,/*有内容*/
+			kcontent text null,/*内容*/
+
+			klistpath char(255) null,/*列表路径*/
+			ktemplatelist1 char(255) null,/*列表外部模板*/
+			ktemplatelist2 char(255) null,/*列表内部模板*/
+			nlistnumber tinyint(3) not null default 20,/*分页每页显示数*/
+
+			kpathmode char(255) null,/*路径格式*/
+			ktemplatepage1 char(255) null,/*列表外部模板*/
+			ktemplatepage2 char(255) null,/*列表内部模板*/
+			npagenumber tinyint(3) not null default 1,/*分页每页显示数*/
+
+			ispublish1 tinyint(1) not null default 0,/*主题，0不允许发布|1直接发布|2验证后发布*/
+			ispublish2 tinyint(1) not null default 0,/*跟帖，0不允许发布|1直接发布|2验证后发布*/
+			norder1 int not null default 0,/*列表分页的时候用到的排序*/
+			norder3 int not null default 0,/*菜单3的排序*/
+			norder4 int not null default 0,/*菜单4的排序*/
+			norder5 int not null default 0,/*菜单5的排序*/
+			nupdatelist int(10) not null default 0,/*列表相关最后更新时间*/
+			nupdatepage int(10) not null default 0,/*列表的项目最后更新时间*/
+			isexist tinyint(1) not null default 0,/*判断是否存在下级栏目*/
+
+			nlist tinyint(1) not null default 0,/*菜单列表:0生成HTML;1动态;2伪静态;3不显示*/
+			npage tinyint(1) not null default 0,/*菜单路径:0生成HTML;1动态;2伪静态;3不显示*/
+			gid int not null default 0,/*绑定的用户组ID,若被指定的话其他用户组成员无法访问 -1:开放;0会员*/
+			gidpublish int not null default 0,/* 101 发布权限设置 */
+
+
+			ismenu1 tinyint(1) not null default 0,/*是否在菜单1中显示*/
+			ismenu2 tinyint(1) not null default 0,/*菜单2*/
+			ismenu3 tinyint(1) not null default 0,/*菜单3*/
+			ismenu4 tinyint(1) not null default 0,/*菜单4*/
+			ismenu5 tinyint(1) not null default 0,/*菜单5*/
+			ismap tinyint(1) not null default 0,/*是否在站点地图中显示*/
+			klanguage char(30) null,/*指定栏目的语言*/
+
+			INDEX(listid1),/*索引listid1*/
+			INDEX(modelid)/*索引modelid*/
+			</code>
+
+			<code class="sql" rel="%s_list_editor,kid">
+			listid int not null default 0,/*listID*/
+			userid int not null default 0,/*栏目上绑定的USER*/
+			issub tinyint(1) not null default 0,/*是否为栏目总编,总编可以管理附属栏目*/
+			INDEX(listid)/*索引listid*/
+			</code>
+
+			<code class="sql" rel="%s_user,userid">
+			username char(15) UNIQUE not null,/*用户名*/
+			gid int not null default 0,/*所属用户组ID*/
+			uid int not null default 0,/*当使用UCenter的时候的UID*/
+			userpass char(32) not null,/*密码=md5(ksalt,postpass)*/
+			usermail char(32) not null,/*注册用户的邮件*/
+			userask char(30) null,/*找回密码的问题*/
+			useranswer char(16) null,/*答案*/
+			userhead char(255) not null,/*用户头像*/
+			userpoint int not null default 0,/*会员积分*/
+			regip int(10) not null default 0,/*注册时候的IP*/
+			regdate int(10) not null default 0,/*会员注册时间*/
+			lastloginip int(10) not null default 0,/*最后一次登陆IP*/
+			isdelete tinyint(1) not null default 0,/*是否被删除 1删除*/
+			islock tinyint(1) not null default 0,/*1锁定，（请多关照状态）*/
+			lastlogindate int(10) not null default 0,/*最后一次登陆时间*/
+			ksalt char(6) null,/*随机数*/
+			nickname varchar(15) null,/*呢称*/
+
+			realname char(30) null,/*收件人姓名*/
+			usertel char(30) null,/*联系电话*/
+			useraddress char(250) null,/*收货地址*/
+			userpost char(10) null,/*邮政编码*/
+
+			kremark text null,/*只有管理员可见的对用户的备注*/
+			INDEX(islock),/*索引islock*/
+			INDEX(gid),/*索引islock*/
+			INDEX(isdelete)/*索引isdelete*/
+			</code>
+
+			<code class="sql" rel="%s_usergroup,gid">
+			kname char(30) not null,/*用户组名称*/
+			norder int not null default 0,/*排序*/
+			kaccess text null,/*用户组权限*/
+			kremark varchar(255) null,/*组备注*/
+			kmenu text null/*用户组的菜单?*/
+			</code>
+
+			<code class="sql" rel="%s_favorite,fid">
+			kid int not null default 0,/*被收藏的主题id*/
+			userid int not null default 0,/*用户id*/
+			listid int not null default 0,/*列表ID*/
+			INDEX(kid),/*索引kid*/
+			INDEX(userid)/*索引userid*/
+			</code>
+
+
+			<code class="sql" rel="%s_orders,oid">
+			ono char(16) not null,/*订单号 格式为 2008 02 14 ******** */
+
+			nstatus tinyint(2) not null default 2,/*交易状态*/
+			kname varchar(30) not null,/*产品名称，若是多个，则只写第一个外加等*/
+			userid int not null default 0,/*下订单的用户ID*/
+			kcontent text null,/*订单内容*/
+			nnumber int not null default 0,/*购物数量*/
+			nip int(10) not null default 0,/*IP*/
+			ndate int(10) not null default 0,/*下单时间*/
+			npaydate int(10) not null default 0,/*付款时间*/
+			nsenddate int(10) not null default 0,/*发货时间*/
+			eid int not null default 0,/*物流公司代号*/
+			expressnumber char(30) null,/*运单号*/
+
+			realname char(30) not null,/*收件人*/
+			useraddress char(250) null,/*收件地址*/
+			userpost char(10) null,/*邮编*/
+			usertel char(30) null,/*电话*/
+			usermail char(32) null,/*邮箱地址*/
+
+			kremark text null,/*备注,对外不可见*/
+			kfeedback char(255) null,/*邮箱地址*/
+			ntotal real not null default 0,/*产品总费用，不包括运费*/
+			nexpress real not null default 0,/*运费*/
+			nweight int not null default 0,/*总重量*/
+
+			paymethod varchar(32) null,/*付款方式 支付宝ALIPAY 财付通TENPAY 银行BANK*/
+			tid varchar(32) null,/*网银系统生成的交易单号*/
+			buyer_id varchar(65) null,/*买家付款帐号*/
+			seller varchar(65) null,/*收款用的帐号*/
+
+			INDEX(userid)/*索引userid*/
+			</code>
+
+			<code class="sql" rel="%s_express,eid">
+			kname char(50),/*快递公司名称*/
+			nsprice int not null default 0,/* 起始价*/
+			niprice int not null default 0,/*递增价*/
+			kremark text null,/*管理员可见的备注，比如留个快递公司联系电话之类的*/
+			norder int not null default 0,/*排序*/
+			isdefault tinyint(1) not null default 0,/*是否为默认*/
+			kaddress char(255)/*物流公司运单查询地址*/
+			</code>
+
+		</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

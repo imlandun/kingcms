@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>获得KingCMS程序</h1>
+<p>从官方网站 http://www.kingcms.com/download/ 里下载得到。<br/>
+除了官方网站直接可以下载得到外，还可以通过SVN中获取。</p>
+
+<h2>从SVN中获取</h2>
+<p>开发中的KingCMS程序是存储在GoogleCode代码仓库中，通过SVN工具可以获得最及时的更新代码。<br/>
+建议使用ToroiseSVN，开发中的项目导出地址填写 http://kingcms.googlecode.com/svn/trunk/<br/>
+稳定版本的项目导出地址为：http://kingcms.googlecode.com/svn/tags/
+</p>
+
+<h2>SVN目录结构说明</h2>
+<pre>// trunk /			保存有当前最新的代码。但是主干分支并不是稳定的
+// trunk / upload /		WEB程序文件，开发中的文件
+// trunk / userguide /		用户使用指南
+
+// tags /			冻结的代码库
+// tags / tag_X.X.XXXX /	可用的代码，版本为X.X.XXXX
+
+// branches /			对冻结的代码进行修改的时候，建立分支到此目录下面进行修改
+
+// attachment /			附件
+// attachment / png /		图片文件
+// attachment / doc /		Word文件
+</pre>
+
+</body>
+</html>

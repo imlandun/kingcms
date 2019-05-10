@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+<script type="text/javascript" charset="UTF-8">
+<!--
+$(document).ready(function(){
+	//补充a的title值
+	$('table.dir td[rel]').each(function(){
+		var rel=$(this).attr('rel');
+		$(this).css('paddingLeft',rel*50);
+		
+		var htm=$(this).text();
+		if (htm.substr(0,1)=='['){
+			htm=htm.substr(1,htm.length-2);
+			$(this).html('<img src="../images/folder.png" class="os"/>'+htm);
+		}else if(htm=='...'){
+			
+		}else{
+			$(this).prepend('<img src="../images/page.png" class="os"/>');
+			
+		}
+	});
+});
+
+//-->
+</script>
+
+</head>
+<body>
+
+
+<h1>目录结构及文件作用</h1>
+<p>了解和熟悉KingCMS目录结构，有利于进一步发掘更多的功能。</p>
+<table class="dir">
+	<tr><td><strong>目录</strong></td><td><strong>说明</strong></td></tr>
+	<tr><td rel="1">[Root]</td><td>网站根目录</td></tr>
+
+	<tr><td rel="1">[_cache]</td><td>缓存目录,可以在config.php中指定</td></tr>
+
+	<tr><td rel="1">[api]</td><td>API接口</td></tr>
+	<tr><td rel="2">uc.php</td><td>UCenter的API接口</td></tr>
+
+	<tr><td rel="1">[images]</td><td>前台模板目录</td></tr>
+
+	<tr><td rel="1">[portal]</td><td>自定义发布模型</td></tr>
+	<tr><td rel="2">[faq]</td><td>自定义模型的常见问题</td></tr>
+	<tr><td rel="3">zh-cn.xml</td><td>简体中文的常见问题</td></tr>
+	<tr><td rel="2">[language]</td><td>语言包文件夹</td></tr>
+	<tr><td rel="3">zh-cn.xml</td><td>简体中文语言包文件</td></tr>
+	<tr><td rel="2">_model.inc.php</td><td>默认的模型表构成，可以删除</td></tr>
+	<tr><td rel="2">core.class.php</td><td>自定义模型核心类</td></tr>
+	<tr><td rel="2">index.php</td><td>前台用户发布功能页面</td></tr>
+	<tr><td rel="2">manage.content.php</td><td>内容管理页面</td></tr>
+	<tr><td rel="2">manage.field.php</td><td>字段管理页面</td></tr>
+	<tr><td rel="2">manage.model.php</td><td>模型管理页面</td></tr>
+	<tr><td rel="2">manage.php</td><td>管理首页</td></tr>
+	<tr><td rel="2">manage.tag.php</td><td>Tag管理页面</td></tr>
+	<tr><td rel="2">shoppingcart.php</td><td>购物车及相关处理页</td></tr>
+	<tr><td rel="2">tenpay.php</td><td>财付通通知结果显示页</td></tr>
+	<tr><td rel="2">tenpay_remote.php</td><td>财付通付款结果通知页</td></tr>
+
+	<tr><td rel="1">[system]</td><td>主系统目录</td></tr>
+	<tr><td rel="2">[editor]</td><td>编辑器目录</td></tr>
+	<tr><td rel="3">[nicEdit]</td><td>nicEdit编辑器目录</td></tr>
+	<tr><td rel="2">[faq]</td><td>主系统的常见问题</td></tr>
+	<tr><td rel="3">zh-cn.xml</td><td>简体中文的常见问题</td></tr>
+	<tr><td rel="2">[images]</td><td>系统所需图片</td></tr>
+	<tr><td rel="3">[lnk]</td><td>快捷方式所需图片，图片大小必须为 32 x 32 px</td></tr>
+	<tr><td rel="4">err.gif</td><td>错误提示图片</td></tr>
+	<tr><td rel="4">loading.gif</td><td>加载过程中的16px图片</td></tr>
+	<tr><td rel="4">...</td><td>...</td></tr>
+	<tr><td rel="4">white.gif</td><td>空的透明图片</td></tr>
+	<tr><td rel="2">[js]</td><td>系统所需的javascript文件</td></tr>
+	<tr><td rel="3">jquery.js</td><td>jQuery核心文件</td></tr>
+	<tr><td rel="3">jquery.kc.js</td><td>KingCMS所需的jQuery扩展</td></tr>
+	<tr><td rel="2">[language]</td><td>主系统所需的语言包</td></tr>
+	<tr><td rel="3">zh-cn.xml</td><td>主系统的简体中文语言包</td></tr>
+	<tr><td rel="2">[lib]</td><td>KingCMS类库</td></tr>
+	<tr><td rel="3">Cache.class.php</td><td>缓存类</td></tr>
+	<tr><td rel="3">DateBase.class.php</td><td>数据库操作类</td></tr>
+	<tr><td rel="3">KingCMS.class.php</td><td>KingCMS系统类</td></tr>
+	<tr><td rel="3">KingCMS.function.php</td><td>KingCMS基础函数</td></tr>
+	<tr><td rel="3">Language.class.php</td><td>XML语言包解析类</td></tr>
+	<tr><td rel="3">Skin.class.php</td><td>管理系统的界面标签解析类</td></tr>
+	<tr><td rel="2">template.class.php</td><td>模板解析类</td></tr>
+	<tr><td rel="3">verify.class.php</td><td>验证码解析类</td></tr>
+	<tr><td rel="3">xml.class.php</td><td>XML文件解析类</td></tr>
+	<tr><td rel="2">[skins]</td><td>管理界面皮肤目录</td></tr>
+	<tr><td rel="2">[default]</td><td>默认皮肤文件夹，制作个性化的后台管理界面就靠这个了</td></tr>
+	<tr><td rel="3">default.htm</td><td>默认html模板</td></tr>
+	<tr><td rel="3">system.home.htm</td><td>管理首页的模板，这是后台皮肤制作里必须的</td></tr>
+	<tr><td rel="3">system.login.htm</td><td>登录页的模板</td></tr>
+	<tr><td rel="3">ajax.png</td><td>ajax界面图片</td></tr>
+	<tr><td rel="3">...</td><td>图片部分省略</td></tr>
+	<tr><td rel="3">style.css</td><td>管理界面样式表文件</td></tr>
+	<tr><td rel="2">[verify_font]</td><td>验证码所需的字库目录</td></tr>
+	<tr><td rel="3">MilkCocoa.TTF</td><td>英文字体文件，若要制作中文验证码，则删除此英文字库<br/>拷贝中文字库到此目录下面，系统自己辨认</td></tr>
+	<tr><td rel="2">index.htm</td><td>空页面</td></tr>
+	<tr><td rel="2">login.php</td><td>管理登陆页</td></tr>
+	<tr><td rel="2">manage.php</td><td>管理首页</td></tr>
+	<tr><td rel="2">verify.php</td><td>显示验证码</td></tr>
+
+	<tr id="template"><td rel="1">[template]</td><td>前台模板文件夹，仅是用来存储html模板，图片建议放到Root/images目录里</td></tr>
+	<tr><td rel="2">[inside]</td><td>KingCMS特色的内部模板目录</td></tr>
+	<tr><td rel="3">[user]</td><td>用户模块的动态页模板</td></tr>
+	<tr><td rel="4">index.htm</td><td>用户中心页模板</td></tr>
+	<tr><td rel="4">login.htm</td><td>用户登录页模板</td></tr>
+	<tr><td rel="4">...</td><td></td></tr>
+	<tr><td rel="3">[tag]</td><td>Tag页面模板</td></tr>
+	<tr><td rel="4">default.htm</td><td>默认的Tag页面模板</td></tr>
+	<tr><td rel="3">[article[list]]</td><td>文章模型的列表页模板</td></tr>
+	<tr><td rel="3">[article[page]]</td><td>文章模型的内容页模板</td></tr>
+	<tr><td rel="3">...</td><td></td></tr>
+	<tr><td rel="3">[bbs[list]]</td><td>论坛模型的列表页模板</td></tr>
+	<tr><td rel="3">[bbs[page]]</td><td>论坛模型的内容页，即帖子页模板</td></tr>
+	<tr><td rel="2">default.htm</td><td>默认外部模板</td></tr>
+	<tr><td rel="2">home.htm</td><td>首页外部模板</td></tr>
+
+	<tr><td rel="1">[user]</td><td>用户模块</td></tr>
+	<tr><td rel="2">[client]</td><td>UCenter的终端</td></tr>
+	<tr><td rel="2">[language]</td><td>用户系统的语言包</td></tr>
+	<tr><td rel="2">core.class.php</td><td>用户系统核心类</td></tr>
+	<tr><td rel="2">index.php</td><td>用户中心</td></tr>
+	<tr><td rel="2">login.php</td><td>用户登录页</td></tr>
+	<tr><td rel="2">manage.php</td><td>用户管理中心</td></tr>
+
+</table>
+
+</body>
+</html>

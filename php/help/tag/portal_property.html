@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>内容调用类型</h1>
+
+<p>以文章为举例：</p>
+<code class="example">
+{king:portal.article type="new" number='10'}/*指定调用类型为最新文章，调用数量为十篇*/<br/>
+	____{king:title size="32"/}[br/]/*调用标题*/<br/>
+{/king:portal.article}
+</code>
+
+<h2>内容调用标签属性</h2>
+<table>
+	<tr><td class="w150">number</td><td class="w150">数字</td><td>调用数量</td></tr>
+	<tr><td>zebra</td><td>数字</td><td>斑马线隔行，整除于指定值的时候输出1，否则输出0</td></tr>
+	<tr><td>skip</td><td>数字</td><td>跳过指定数量的记录后开始调用</td></tr>
+	<tr><td>type</td><td>预设的字符串</td><td>调用预置类型
+		<ul>
+			<li>new 最新</li>
+			<li>relate 关联</li>
+			<li>hot 热门</li>
+			<li>focus 焦点</li>
+			<li>commend 推荐</li>
+			<li>head 头条</li>
+			<li>good 好评多的</li>
+			<li>bad 差评多的</li>
+			<li>hit 热点(浏览次数排序)</li>
+			<li>lately 最近热门点击</li>
+			<li>comment 热评</li>
+			<li>chill 浏览少的排前</li>
+			<li>rand 随机</li>
+			<li>list 列表，必须有listid值</li>
+			<li>pagelist 当前内容页的分页列表，分页数==1的时候有效</li>
+			<li>page 当前内容页的分页列表，分页数>1的时候有效</li>
+			<li>recent 用户最近访问过的页面，静态页失效</li>
+			<li>irregular 不规则新闻 调用的是副标题<br/>
+			这个属性有附带的属性length，为每行字符长度值，<br/>
+			中文按2个字符，length最大值为40<br/>
+			调用数量number舍去法取整，<br/>
+			即number=3的时候，调用2个内容，在一行显示。<br/>
+			此功能建议少量应用。</li>
+			<li>其他值,包括空值 和new有区别，当有orderby属性的时候，根据orderby属性走，若无，则根据最新norder倒序</li>
+		</ul>
+		</td></tr>
+	<tr><td>kid</td><td>可分段数字</td><td>指定内容id调用，指定方法有如下两种
+		<ul>
+			<li>kid='KID'</li>
+			<li>kid='KID1,KID2,KID3'</li>
+		</ul>
+		</td></tr>
+	<tr><td>listid</td><td>可分段数字</td><td>指定列表listid调用，如:listid="LISTID" 和listid="LISTID1,LISTID2"<br/>
+		支持排除，即指定不等于值，listid!="LISTID" 或 listid!="LISTID1,LISTID2"</td></tr>
+	<tr><td>kid1</td><td>可分段数字</td><td>指定所属id调用，方法同上<br/>支持排除</td></tr>
+	<tr><td>userid</td><td>可分段数字</td><td>指定用户调用 方法同上<br/>支持排除</td></tr>
+	<tr><td>siteid</td><td>可分段数字</td><td>指定绑定的域名,方法同上</td></tr>
+	<tr><td>预设的关联</td><td>字符串</td><td>指定字符串调用<br/>在模型管理里设置字段的时候，可以选择'设置为关联字段'，如我们指定文章作者字段是author，则指定某个作者下面的所有文章，则属性设置为：_author="某某某"，需要注意的是，自定义的字段前面必须加下划线，以便和系统字段做区别。<br/>支持排除</td></tr>
+	<tr><td>where</td><td>字符串</td><td>where后面的SQL语法</td></tr>
+	<tr><td>orderby</td><td>字符串</td><td>order by 后面的SQL语法，当指定orderby属性的时候，上面的type属性中的排序将失效</td></tr>
+	<tr><td>ispublish1</td><td>1/0</td><td>主题页的发表 0验证后发布;1直接发布;2不允许发布</td></tr>
+	<tr><td>ispublish2</td><td>1/0</td><td>详细页的发表 0验证后发布;1直接发布;2不允许发布</td></tr>
+	<tr><td>isexist</td><td>1/0</td><td>是否有子栏目,指定1则只调用带有子栏目的，0只调用无子栏目的</td></tr>
+	<tr><td>nlist</td><td>数字</td><td>调用栏目的列表生成类型:0生成HTML;1动态;2伪静态;3不显示</td></tr>
+	<tr><td>npage</td><td>数字</td><td>调用栏目的页面生成类型,参数同上</td></tr>
+	<tr><td>gid</td><td>数字</td><td>栏目指定的用户组</td></tr>
+</table>
+
+<h2>内容页特殊标签</h2>
+<table>
+	<tr><td>{king:hit/}</td><td>输出统计当前页访问次数的javascript代码，其他页面直接输出访问次数</td></tr>
+	<tr><td class="w200">{king:add/}</td><td>添加新主题</td></tr>
+	<tr><td>{king:edit/}</td><td>编辑</td></tr>
+	<tr><td>{king:reply/}</td><td>回复主题，也叫添加分页，在不同的应用有不同的说法</td></tr>
+</table>
+</body>
+</html>

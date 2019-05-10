@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="{king:keywords/}" />
+<meta name="description" content="{king:description/}" />
+<title>{king:title/} - {config:system.sitename/}</title>
+<link rel="stylesheet" type="text/css" href="/template/ygj/css/style.css">
+</head>
+<body>
+<div class="header">
+    {king:block name='header' /}
+</div>
+<!--banner-->
+<div class="banner">
+	<div id="full-screen-slider">
+        <ul id="slides">
+        	{king:portal.images listid='27'}
+            	<li style="background:url('{king:_bigImage/}') no-repeat center top"><a href="{king:_link/}"></a></li>
+            {/king:portal.images}
+        </ul>
+	</div>
+</div>
+<!--catetory-->
+<div class="category m clearfix">
+	<div style="width:1200px;">
+	{king:portal.List listid='23'}
+    <div class="category-item">
+    	<h2 class="title"><a href="{king:Path/}">{king:ListName/}</a></h2>
+        <a href="{king:Path/}" class="category-img"><img src="{king:Image/}"/></a>
+        <div class="category-text">
+        	<p>fish care文字</p>
+        </div>
+        <a href="{king:Path/}" class="category-btn">开始{king:ListName replace="计划|　"/}</a>
+    </div>
+    {/king:portal.List}
+    {king:portal.List listid='20'}
+    <div class="category-item">
+    	<h2 class="title"><a href="{king:Path/}">{king:ListName/}</a></h2>
+        <a href="{king:Path/}" class="category-img"><img src="{king:Image/}"/></a>
+        <div class="category-text">
+        	<p>fish care文字</p>
+        </div>
+        <a href="{king:Path/}" class="category-btn">开始{king:ListName replace="计划|　"/}</a>
+    </div>
+    {/king:portal.List}
+    {king:portal.List listid='21'}
+    <div class="category-item">
+    	<h2 class="title"><a href="{king:Path/}">{king:ListName/}</a></h2>
+        <a href="{king:Path/}" class="category-img"><img src="{king:Image/}"/></a>
+        <div class="category-text">
+        	<p>fish care文字</p>
+        </div>
+        <a href="{king:Path/}" class="category-btn">开始{king:ListName replace="计划|　"/}</a>
+    </div>
+    {/king:portal.List}
+    {king:portal.List listid='22'}
+    <div class="category-item">
+    	<h2 class="title"><a href="{king:Path/}">{king:ListName/}</a></h2>
+        <a href="{king:Path/}" class="category-img"><img src="{king:Image/}"/></a>
+        <div class="category-text">
+        	<p>fish care文字</p>
+        </div>
+        <a href="{king:Path/}" class="category-btn">开始{king:ListName replace="计划|　"/}</a>
+    </div>
+    {/king:portal.List}
+    </div>
+</div>
+<!--about\wiki-->
+<div class="index-mid clearfix m">
+	<div class="index-about">
+    	<h3 class="title">鱼管家介绍<span>about</span></h3>
+    	{king:portal.List listid='4'}
+        	{king:content size="600"/}
+    	{/king:portal.List}
+    </div>
+    <div class="index-wiki">
+    	<h3 class="title">养鱼百科<span>Wiki</span></h3>
+    	<ul>
+            {king:portal.article type="new" number='8' listid1="16"}
+                <li><i>◆</i><span>{king:DATE formatdate="Y-m-d"/}</span><a href="{king:path/}">[{king:dbqueryquery="select klistname from %s_list where listid=(king:listid/) "}{king:klistname/}{/king:dbquery}]{king:title size="25"/}</a></li>
+            {/king:portal.article}
+        </ul>
+    </div>
+</div>
+<!--case-->
+<div class="index-case clearfix m">
+	<h4 class="title">客户案例<span>Case</span></h4>
+	<ul>
+    {king:portal.article type="new" number='6' listid1="12"}
+        <li>
+        <a href="{king:path/}">
+        	<span class="img"><img src="{king:image/}" /></span>
+            <span class="text">{king:title/}</span>
+            </a>
+        </li>
+    {/king:portal.article}
+    </ul>
+</div>
+<!--footer-->
+<div class="footer">
+	<div class="footer-nav clearfix m">
+		<div class="footer-list">
+        	{king:block name='footer-nav' /}
+        </div>
+        <div class="footer-contact">
+        	{king:block name='footer-tel' /}
+        </div>
+	</div>
+</div>
+<div class="copyright">
+	{king:block name='footer-copyright' /}
+</div>
+<script type="text/javascript" src="/template/ygj/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/template/ygj/js/jquery.jslides.js"></script>
+<script type="text/javascript" src="/template/ygj/js/ygj.js"></script>
+</body>
+</html>

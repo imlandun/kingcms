@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="{king:keywords/}" />
+<meta name="description" content="{king:description/}" />
+<title>{king:title/} - {config:system.sitename/}</title>
+<link rel="stylesheet" type="text/css" href="/template/ygj/css/style.css">
+</head>
+<body>
+<div class="header">
+    {king:block name='header' /}
+</div>
+<!--banner-->
+<div class="m banner n-banner"><img src="/template/ygj/img/banner/about.gif" /></div>
+<!--main-->
+<div class="m n-main clearfix">
+	<div class="m-side">
+    	<h2 class="m-side-title">Wiki</h2>
+        <ul class="m-side-nav sub-menu" data-id="{king:listid/}">
+            {king:portal.List listid1='16'}
+            <li data-id="{king:listid/}"><a href="{king:listpath/}">{king:listname/}</a></li>
+            {/king:portal.List}
+        </ul>
+    </div>
+    <div class="m-main">
+    	<div class="m-crumb">
+        	<h2>{king:listname/}{king:listid/}{king:listid1/}</h2>
+			<div class="m-crumb-nav">{king:portal.List listid='1'}<a href="{king:listpath/}">{king:listname/}</a>{/king:portal.List}<span>></span><a href="/{king:listpath/}"><strong>{king:listname/}</strong></a></div>
+        </div>
+    	<div class="m-content m-list">
+            {king:portal.article type="list" none='<div class="m-none">Sorry,此栏目暂未发布内容</div>'}
+            <!--此处必须换行-->
+            {/king:portal.article}
+        	<ul>
+                {king:portal.article type="list"}
+                <li><span>{king:DATE formatdate="Y-m-d"/}</span><a href="{king:path/}" title="{king:title/}">[{king:dbqueryquery="select klistname from %s_list where listid=(king:listid/) "}{king:klistname/}{/king:dbquery}]{king:title size="70"/}</a></li>
+                {/king:portal.article}
+            </ul>
+            <div class="m-page">
+            {king:pagelist}
+            		{king:First replace="First|第一页"/}
+                    {king:standard/}
+                    {king:Next/}
+            		<p>共<b>{king:pagecount/}</b>页 <b>{king:count/}</b>条</p>
+            {/king:pagelist}
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<div class="footer">
+	<div class="footer-nav clearfix m">
+		<div class="footer-list">
+        	{king:block name='footer-nav' /}
+        </div>
+        <div class="footer-contact">
+        	{king:block name='footer-tel' /}
+        </div>
+	</div>
+</div>
+<div class="copyright">
+	{king:block name='footer-copyright' /}
+</div>
+<script type="text/javascript" src="/template/ygj/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/template/ygj/js/jquery.jslides.js"></script>
+<script type="text/javascript" src="/template/ygj/js/ygj.js"></script>
+</body>
+</html>

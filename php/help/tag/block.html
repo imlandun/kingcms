@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>碎片</h1>
+
+<p>碎片是模板中应用的代码片段。<br/>
+把重复调用的代码片段写到碎片内容里，直接用碎片调用标签来调用。<br/>
+这样可以减少模板数量，并且更新更为及时。</p>
+
+<h2>碎片调用标签 {king:block name="NAME"/}</h2>
+
+<p>安装并进入碎片管理里，添加碎片，碎片名称取值为test，内容填写：</p>
+
+<code class="example">
+	{king:portal.article type='new' number='6'}<br/>
+	____[p][a href="{king:path/}"]{king:title/}[/p]<br/>
+	{/king:portal.article}
+</code>
+
+<p>模板里调用的是下面的代码：</p>
+
+<code class="example">
+{king:block name="test"/}
+</code>
+
+<p>最终结果为，在模板标签{king:block name="test"/}标签处输出的是6篇最新文章。</p>
+
+<span>
+	name属性为必须的属性，不能为空。
+</span>
+</body>
+</html>

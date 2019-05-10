@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>自定义模型标签</h1>
+<p>自定义模型的标签比较多，看起来也比较复杂，其实各个模型之间，有很多共同点。
+<br/>自定义模型的标签是均以king:portal开始，如：</p>
+<code class="example">
+	{king:portal.list listid1='0'}<br/>
+		____[a href="{king:listpath/}"]{king:listname/}[/a]<br/>
+	{/king:portal.list}
+</code>
+<span>
+	以上Example代码中的listid1='0'为属性，其作用是调用上级列表为0的所有栏目，详细的说明请见下面的<a href="#portal_list">列表调用</a>。
+</span>
+
+<h2 id="portal_list">列表调用</h2>
+<p>从上面的例子中，你可能对列表调用有了一点了解，但这仅仅是一小部分应用，除了listid1外，还有其他属性。</p>
+
+<table>
+	<tr><td><strong>{king:portal.list/}标签属性</strong></td><td><strong>作用</strong</td></tr>
+	<tr><td>listid</td><td>要调用的列表ID,若调用多个，则用逗号分开，如：listid="2,3"<br/>
+	支持排除，如：listid!='2' 即不显示listid为2的栏目。多个指定可以逗号分开: listid!='3,4'</td></tr>
+	<tr><td>listid1</td><td>调用所属列表,即下级列表,当取值为0的时候是调用根目录,如:listid1='0'，调用多个列表的下级列表，则也可以用逗号分开<br/>支持排除</td></tr>
+	<tr><td>siteid</td><td>调用指定站点的列表<br/>支持排除</td></tr>
+	<tr><td>modelid</td><td>调用所属模型的列表；如调用所有文章列表：modelid="6"<br/>支持排除</td></tr>
+	<tr><td>gid</td><td>调用指定用户组的栏目列表<br/>支持排除</td></tr>
+	<tr><td>nlist</td><td>调用指定列表生成方式的栏目列表 0静态1动态2伪静态<br/>支持排除</td></tr>
+	<tr><td>npage</td><td>调用指定内容生成方式的栏目列表 0静态1动态2伪静态<br/>支持排除</td></tr>
+	<tr><td>language</td><td>调用所用语言的列表；若调用所有中文列表：language='zh-cn'</td></tr>
+	<tr><td>orderby</td><td>排序</td></tr>
+	<tr><td>number</td><td>调用数量</td></tr>
+</table>
+
+<span>
+	以上属性可以结合使用，如调用所有根目录下面的文章列表时，设置的属性为： listid1='0' modelid='6'
+</span>
+
+<h3>示例：一二级栏目列表的调用</h3>
+<code class="example">
+
+	{king:portal.list listid1='0'}<br/>
+		[dl]<br/>
+		____[dt][a href="{king:listpath/}"]{king:listname/}[/a][/dt]/*调用一级栏目，(循环一)*/<br/>
+
+		____{king:portal.List listid1='(king:listid/)'}/*注意，这里的portal.List和上面的有区别，L用的是大写，(循环二)*/<br/>
+		____[dd][a href="{king:listpath/}"]{king:listname/}[/a][/dd]/*调用二级栏目*/<br/>
+		____{/king:portal.List}<br/>
+		[/dl]<br/>
+	{/king:portal.list}
+	
+</code>
+
+<span>
+	你会发现在(循环二)中的属性listid1的值是(king:listid/)，这个值是(循环一)中的{king:listid/}，当传递到属性值的时候，需改用小括号。<br/>
+	这两层循环，都用的是portal.list，可他们没有出现(循环一)开始代码和(循环二)结束代码匹配的错误，避开这种问题的方法是，设置不同的大小写字符来做区分，这点特别关键！！<br/>
+	同样的方法，可以扩展到三层列表调用或者更深层次的列表循环。
+</span>
+
+<h3>示例：一二级栏目列表及下面文章的调用</h3>
+<code class="example">
+
+	{king:portal.list listid1='0' modelid="6"}/*你可以指定任何一个栏目开始，我们在这里就指定了根目录，指定modelid='6'是为了只调用文章列表*/<br/>
+		[dl]<br/>
+		____[dt][a href="{king:listpath/}"]{king:listname/}[/a][/dt]/*调用一级栏目标题及链接*/<br/>
+
+		____{king:portal.article listid='(king:listid/)'}/*调用文章*/<br/>
+		____[dd][a href="{king:path/}"]{king:title/}[/a][/dd]/*调用文章列表*/<br/>
+		____{/king:portal.article}/*结束标记*/<br/>
+		[/dl]<br/>
+	{/king:portal.list}
+	
+</code>
+
+<span>
+	你能做的不止是这些，以上的仅仅是常见的应用例子，更复杂的应用也并不复杂，KingCMS标签的值传递是一级一级往下传的，可以到无穷。
+</span>
+
+
+<h2 id="portal_menu">列表调用</h2>
+<p>{king:portal.menu/}的用法相似于{king:portal.list/}，不同的是{king:portal.menu/}不支持{king:portal.list/}那样丰富的属性。</p>
+<code class="example">
+		{king:portal.menu3}<br/>
+			____[a href="{king:listpath/}"]{king:listname/}[/a]<br/>
+		{/king:portal.menu3}
+</code>
+
+<h2 id="portal_tag">标签调用</h2>
+<p>TAG标签页和循环调用中,可用标签如下：</p>
+
+<table>
+	<tr><td><strong>可用标签</strong></td><td><strong>说明</strong></td></tr>
+	<tr><td>{king:tag/}</td><td>TAG标题</td></tr>
+	<tr><td>{king:title/}</td><td>TAG标题，上面{king:tag/}的别名</td></tr>
+	<tr><td>{king:image/}</td><td>缩略图</td></tr>
+	<tr><td>{king:keywords/}</td><td>META关键字</td></tr>
+	<tr><td>{king:color/}</td><td>颜色</td></tr>
+	<tr><td>{king:size/}</td><td>文字大小</td></tr>
+	<tr><td>{king:hit/}</td><td>访问次数</td></tr>
+	<tr><td>{king:commend/}</td><td>推荐的时候输出1，否则0</td></tr>
+	<tr><td>{king:bold/}</td><td>加粗显示的时候输出1，否则0</td></tr>
+	<tr><td>{king:path/}</td><td>TAG链接地址</td></tr>
+</table>
+
+<p>{king:portal.tag/}属性</p>
+<table>
+	<tr><td>number</td><td>数字</td><td>调用数量</td></tr>
+	<tr><td>skip</td><td>数字</td><td>跳过N条后调用的内容</td></tr>
+	<tr><td>iscommend</td><td>1/0</td><td>1的时候是仅调用推荐标签</td></tr>
+	<tr><td>isbold</td><td>1/0</td><td>1的时候是仅调用加粗标签</td></tr>
+	<tr><td>orderby</td><td>字符串</td><td>排序标签，直接写SQL代码中ORDER BY 后面的代码</td></tr>
+</table>
+
+<p></p>
+<code class="example">
+	[style type="text/css"]<br/>
+	____.bold_1{font-weight:bold;}<br/>
+	[/style]<br/>
+	[p]<br/>
+	____{king:portal.tag number="50"}<br/>
+	________[a href="{king:path/}" style="font-size:{king:size/}px;color:{king:color/}" class="bold_{king:bold/}"]{king:title/}[/a]<br/>
+	____{/king:portal.tag}<br/>
+	[/p]
+
+</code>
+
+<!--
+<table>
+	<tr><td><strong>{king:portal.tag/}标签属性</strong></td><td><strong>作用</strong</td></tr>
+	<tr><td>listid</td><td>要调用的列表ID,若调用多个，则用逗号分开，如：listid="2,3"<br/>
+	支持排除，如：listid!='2' 即不显示listid为2的栏目。多个指定可以逗号分开: listid!='3,4'</td></tr>
+	<tr><td>listid1</td><td>调用所属列表,即下级列表,当取值为0的时候是调用根目录,如:listid1='0'，调用多个列表的下级列表，则也可以用逗号分开<br/>支持排除</td></tr>
+	<tr><td>siteid</td><td>调用指定站点的列表<br/>支持排除</td></tr>
+	<tr><td>modelid</td><td>调用所属模型的列表；如调用所有文章列表：modelid="6"<br/>支持排除</td></tr>
+	<tr><td>gid</td><td>调用指定用户组的栏目列表<br/>支持排除</td></tr>
+	<tr><td>nlist</td><td>调用指定列表生成方式的栏目列表 0静态1动态2伪静态<br/>支持排除</td></tr>
+	<tr><td>npage</td><td>调用指定内容生成方式的栏目列表 0静态1动态2伪静态<br/>支持排除</td></tr>
+	<tr><td>language</td><td>调用所用语言的列表；若调用所有中文列表：language='zh-cn'</td></tr>
+</table>
+-->
+<h2 id="nav">Portal.Nav的用法</h2>
+<p>Portal.Nav是用户导航，支持line属性，作为分割线。</p>
+<code class="example">{king:portal.nav line=' &gt;&gt; '/}/*输出结果：  新闻动态 &gt;&gt; 正文*/</code>
+
+
+</body>
+</html>

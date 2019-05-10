@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>使用操作</h1>
+
+<p>第一次使用KingCMS的人，可能并不一定习惯这种菜单式管理，毕竟国内的大部分CMS都是框架形式。慢慢习惯就好。</p>
+
+<h2 id="loginpath">管理员登录地址</h2>
+<p>登录地址，当第一次安装成功后，会自动跳转到登录页面：http://localhost/system/login.php</p>
+
+<h2 id="#notdefined">登陆时出现$ is not defined错误提示</h2>
+<p>完整的错误提示如下：</p>
+<span>
+$ is not defined<br/>
+http://localhost/system/login.php<br/>
+Line 33
+</span>
+<p>这种错误出现的原因是安装路径填写错误，或原缓存引起。<br/>
+删掉系统目录下面的缓存目录(_cache)后再访问。<br/>
+若问题依然不能解决，则可能是当前安装路径错误造成的问题。<br/>
+这种错误很少出现，一般出现在调整目录深度的时候，需要修改路径深度前，先修改安装路径后再移动即可解决。</p>
+
+<h2 id="conditions">登录管理所需条件</h2>
+<ol>
+	<li>启用Cookies读写，KingCMS验证会话是存储在Cookies里的，必须保证您的浏览器已经开启了Cookies读写。</li>
+	<li>浏览器支持JavaScript，若您的浏览器不支持JavaScript，则无法打开登录窗口，当然无法正常登录。</li>
+</ol>
+
+
+
+</body>
+</html>

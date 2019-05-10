@@ -1,0 +1,15 @@
+<ul>
+{king:feedback}
+		<li>
+			<p class="lbms">{king:id/}
+			    <b>{king:username/}</b>
+			</p>
+			<p class="lbtxt">{king:content/}<?php if('{king:isreply/}'){
+				echo '<fieldset><legend>admin reply:</legend>'.{king:reply/}.'</fieldset>';
+			    }?></p>
+			<p class="lbxm">发表时间： {king:DATE formatdate="Y-m-d H:i:s"/}</p>
+		</li>
+{/king:feedback}
+</ul>
+{king:pagelist/}
+{king:content/}

@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8">
+<!--
+$(document).ready(function(){
+	//补充a的title值
+	$('dd>a , dt>a').each(function(){
+	var htm=$(this).html();
+	htm=htm.replace(/\[([^\[]+?)\]/ig,"<strong style=\"color:#F36\">$1</strong>");//注释
+	$(this).html(htm);
+	var tit=$(this).text();
+	$(this).attr('title',tit);
+	});
+	//表格长度设置
+	$('table tr td').attr('width','25%');
+});
+
+//-->
+</script>
+</head>
+<body>
+
+
+<h6><strong>KingCMS 用户指南(UserGuide) - Version 1.0</strong><a href="http://bbs.kingcms.com/" target="_blank">技术论坛</a><a href="http://www.kingcms.com/" target="_blank">官方网站</a></h6>
+
+<h1>目录 (Table of Contents)</h1>
+
+<noscript><span>本用户指南需要在您的浏览器支持JavaScript时才能正常阅读!</span></noscript>
+
+<table class="table4">
+	<tr>
+		<td>
+			<dl>
+				<dt><a href="about/index.html">了解KingCMS</a></dt>
+				<dd><a href="about/index.html#features">系统特色</a></dd>
+				<dd><a href="about/index.html#module">模块 (Module)</a></dd>
+				<dd><a href="about/index.html#plugin">插件 (Plugin)</a></dd>
+				<dd><a href="about/directory.html">目录结构</a></dd>
+				<dd><a href="about/index.html#cell">模块功能拓扑图</a></dd>
+				<dd><a href="about/license.html">使用许可协议</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="basic/index.html">基础部分</a></dt>
+				<dd><a href="basic/download.html">下载程序</a><dd>
+				<dd><a href="basic/index.html#platforms">建立本地调试环境</a></dd>
+				<dd><a href="basic/index.html#install">安装KingCMS</a></dd>
+				<dd><a href="basic/index.html#sqlite3">扩展支持SQLite3</a></dd>
+				<dd><a href="basic/index.html#installerror">安装过程出现了错误?</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="basic/login.html">登录</a></dt>
+				<dd><a href="basic/login.html#loginpath">管理员登录地址</a><dd>
+				<dd><a href="basic/login.html#notdefined">$ is not defined错误解决</a><dd>
+				<dd><a href="basic/login.html#conditions">登录后台管理所需条件</a><dd>
+				<dd><a href="basic/login.html#logout">退出系统</a><dd>
+			</dl>
+
+			<dl>
+				<dt><a href="basic/system.html">主系统</a></dt>
+				<dd><a href="basic/system.html#admin">配置管理员</a><dd>
+				<dd><a href="basic/system.html#msg">管理员互动</a><dd>
+				<dd><a href="basic/index.html#module">安装扩展模块</a></dd>
+				<dd><a href="basic/system.html#upfile">上传文件管理</a></dd>
+				<dd><a href="basic/system.html#editor">配置更多HTML编辑器</a></dd>
+				<dd><a href="basic/system.html#lang">配置语言包</a></dd>
+				<dd><a href="basic/system.html#skins">制作后台样式(skins)</a></dd>
+				<dd><a href="basic/system.html#verifycode">制作中文验证码</a></dd>
+				<dd><a href="basic/editor.html">HTML WYSIWYG 编辑器的扩展</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="basic/portal.html">自定义模型(内容管理)</a></dt>
+				<dd><a href="basic/portal.html#publish">定制发布模型</a></dd>
+				<dd><a href="basic/portal.html#retainname">保留模型名称(缺省值)</a></dd>
+				<dd><a href="basic/portal.html#feedback">定制留言反馈、订单模型</a></dd>
+				<dd><a href="basic/portal.html#get">留言反馈、订单模型的值传递实现</a></dd>
+				<dd><a href="basic/portal.html#rewrite">伪静态设置</a>
+				<dd><a href="basic/portal.html#domain">多域名绑定</a></dd>
+
+				<dd><a href="basic/portal.html#systemmodel">系统模型</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="basic/user.html">用户系统</a></dt>
+				<dd><a href="basic/user.html#ucenter">整合UCenter</a></dd>
+			</dl>
+
+		</td>
+		<td>
+			<dl>
+				<dt><a href="template/index.html">模板的制作</a></dt>
+				<dd><a href="template/index.html#basic">模板基础</a></dd>
+				<dd><a href="template/index.html#template">外部模板和内部模板</a></dd>
+				<dd><a href="template/style.html">固定样式(Style)</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="tag/index.html">模板标签</a></dt>
+				<dd><a href="tag/index.html#mode">标签的编写</a></dd>
+				<dd><a href="tag/index.html#get">URL参数标签 {[url]:KEY/}</a></dd>
+				<dd><a href="tag/index.html#post">POST参数标签 {[post]:KEY/}</a></dd>
+				<dd><a href="tag/index.html#language">语言包标签 {[lang]:MODULE.FIELD/}</a></dd>
+				<dd><a href="tag/index.html#config">参数设置标签 {[config]:MODULE.FIELD/}</a></dd>
+				<dd>
+					<a href="tag/index.html#property">常用属性 {King:Tags [ATTRIB='VALUE']/}</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_size">Size</a>,
+					<a class="attrib" href="tag/index.html#property_cache">Cache</a>,
+					<a class="attrib" href="tag/index.html#property_fun">Fun</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_replace">Replace</a>,
+					<a class="attrib" href="tag/index.html#property_none">None</a>,
+					<a class="attrib" href="tag/index.html#property_number">Number</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_split">Split</a>,
+					<a class="attrib" href="tag/index.html#property_explode">Explode</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_after">After</a>,
+					<a class="attrib" href="tag/index.html#property_before">Before</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_formatstr">FormatStr</a>,
+					<a class="attrib" href="tag/index.html#property_formatnumber">FormatNumber</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_formatdate">FormatDate</a>,
+					<a class="attrib" href="tag/index.html#property_image">缩略图</a>
+					<br/>
+					<a class="attrib" href="tag/index.html#property_conn">跨站通信(Conn)</a>
+				</dd>
+				<dd><a href="tag/index.html#Tags">[特殊参数 : {Tags}]</a></dd>
+				<dd><a href="tag/evalphp.html">PHP可执行代码 &lt;php [PHPCODE] ?&gt;</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="tag/portal.html">自定义模型标签 {King:[PORTAL]/}</a></dt>
+				<dd><a href="tag/portal_property.html">内容调用 {King:portal.[(ModelName)]/}</a></dd>
+				<dd>
+					<a href="tag/portal.html#portal_list">列表调用 {King:portal.[LIST]/}</a>
+					<br/>
+					<a href="tag/portal.html#portal_menu">列表调用 {King:portal.[MENU]/}</a>
+				</dd>
+				<dd><a href="tag/portal.html#portal_tag">标签调用 {King:portal.[TAG]/}</a></dd>
+				<dd><a href="tag/index.html#pagelist">分页标签 {King:portal.[PAGELIST]/}</a></dd>
+				<dd><a href="tag/portal_model.html">模型调用 {King:portal.[MODEL]/}</a></dd>
+				<dd><a href="tag/orders.html">用户订单标签 {King:portal.[ORDERS]/}</a></dd>
+				<dd><a href="tag/portal.html#nav">用户导航 {King:portal.[NAV]/}</a></dd>
+				<dd><a href="tag/user.html">用户信息标签 {King:[USER]/}</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="tag/block.html">碎片 {King:[BLOCK]/}</a></dt>
+				<dd><a href="tag/block.html">调用代码段 {King:block name="[NAME]"/}</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="tag/dbquery.html">数据源 {King:[DBQUERY]/}</a></dt>
+				<dd><a href="tag/dbquery.html#count">返回总数 {King:dbquery.count/}</a></dd>
+				<dd><a href="tag/dbquery.html#select">简单查询 {King:dbquery.select/}</a></dd>
+				<dd><a href="tag/dbquery.html#full">完整查询 {King:dbquery/}</a></dd>
+				<dd><a href="tag/dbquery.html#example">使用示例</a></dd>
+			</dl>
+			<dl>
+				<dt><a href="tag/example.html">综合应用举例</a></dt>
+				<dd><a href="tag/example.html#sublist">显示当前栏目的下级栏目名称</a></dd>
+				<dd><a href="tag/example.html#listname">调用文章列表的时候，同时调用所属栏目</a></dd>
+			</dl>
+		</td>
+		<td>
+
+			<dl>
+				<dt><a href="development/index.html">开发部分</a></dt>
+				<dd><a href="development/getting.html">开发入门</a></dd>
+				<dd><a href="development/index.html#retainname">保留模块名</a></dd>
+				<dd><a href="#development/dbtable.html">数据库表的调用</a></dd>
+				<dd><a href="#development/newmodule.html">模块的制作</a></dd>
+				<dd><a href="#development/newplugin.html">插件的制作</a></dd>
+				<dd><a href="#development/template.html">User前台动态页模板对应</a></dd>
+				<dd><a href="#development/userajax.html">AJAX交互</a></dd>
+				<dd><a href="development/cache.html">Cache路径对应</a></dd>
+				<dd><a href="development/cookies.html">Cookies会话</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="#library/index.html">PHP Class Library</a></dt>
+				<dd><a href="#library/kingcmsclass.html">KC系统类</a></dd>
+				<dd><a href="#library/kingcmsfunction.html">KC系统函数</a></dd>
+				<dd><a href="#library/database.html">数据操作类(KC_DataBase_class)</a></dd>
+				<dd><a href="#library/language.html">语言包读取类(KC_Language_class)</a></dd>
+				<dd><a href="#library/xml.html">XML数据操作类(KC_XML_class)</a></dd>
+				<dd><a href="#library/verify.html">验证码显示类(KC_Verify_class)</a></dd>
+				<dd><a href="#library/template.html">模板解析类(KC_Template_class)</a></dd>
+				<dd><a href="#library/skin.html">界面制作类(KC_Skin_class)</a></dd>
+				<dd><a href="#library/cache.html">数据缓存类(KC_Cache_class)</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="#javascript/index.html">JavaScript Functions</a></dt>
+				<dd><a href="#javascript/jquery.html">jQuery扩展函数</a></dd>
+			</dl>
+
+			<dl>
+				<dt><a href="datastructure/index.html">数据库表结构</a></dt>
+				<dd><a href="datastructure/system.html">主系统(system)</a></dd>
+				<dd><a href="datastructure/portal.html">自定义模型(portal)</a></dd>
+				<dd><a href="datastructure/block.html">碎片管理(block)</a></dd>
+				<dd><a href="datastructure/dbquery.html">数据源管理(dbquery)</a></dd>
+			</dl>
+		</td>
+	</tr>
+
+</table>
+
+<em id="zcount" style="display:none;"><script src="http://s34.cnzz.com/stat.php?id=1328992&web_id=1328992" language="JavaScript" charset="gb2312"></script></em>
+</body>
+</html>

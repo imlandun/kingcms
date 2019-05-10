@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>调用用户信息</h1>
+
+<p>会员信息调用分为用户信息、组信息和用户登录状态调用</p>
+
+<h2>用户登录状态 {king:user.state/}</h2>
+<code class="example">
+
+{king:user.state id="userstat"}/*开始用户状态*/<br/>
+	[a href="#" class="k_user_login"]登录[/a]/*用户未登陆的时候显示*/<br/>
+	[a href="#" class="k_user_register"]注册[/a]<br/>
+{?king:user.state}/*特殊的分割标签*/<br/>
+	[a href="{config:system.inst/}user/index.php"]用户中心[/a]/*用户已登录的时候显示*/<br/>
+	[a href="#" class="k_user_logout"]退出[/a]<br/>
+{/king:user.state}
+
+
+</code>
+
+<h2>用户组调用</h2>
+<p>参数：用户组(gid)</p>
+<code class="example">
+{king:user.group gid="(king:gid/)"}<br/>
+	您当前所属用户组：{king:name/}/*输出用户组*/<br/>
+	菜单：{king:menu/}/*实现不同用户组的用户，显示不同的菜单列表*/<br/>
+{/king:user.group}
+</code>
+
+<h2>用户信息</h2>
+<p>参数userid，可以指定userid调用。<br/>
+	若不指定userid则调用当前用户的信息</p>
+
+<code class="example">
+{king:user.info userid="(king:userid/)"}<br/>
+	您当前所属用户组：{king:name/}/*输出用户组*/<br/>
+{/king:user.info}
+</code>
+
+<span>不指定userid的时候，不要在静态页面中使用。<br/>
+伪静态页面和动态页面可以用。</span>
+
+</body>
+</html>

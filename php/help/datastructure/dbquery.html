@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>数据源管理模块的数据库结构</h1>
+
+
+<table class="table2">
+	<tr>
+		<td>
+			<code class="sql" rel="%s_dbquery,kid">
+			kname char(100) not null,/*数据源名称*/
+			ntype tinyint not null default 0,/*数据源类型 MySQL or SQLite*/
+			dbhost char(50) null,/*数据库地址*/
+			dbname char(50) null,/*数据库名称*/
+			dbuser char(50) null,/*数据库帐号*/
+			dbpass char(50) null,/*数据库密码*/
+			dbfile char(100) null,/*数据库文件 SQLite时候*/
+			dbcharset char(20) null,/*数据库编码*/
+			norder int not null default 0/*排序*/
+			</code>
+
+
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+
+</body>
+</html>

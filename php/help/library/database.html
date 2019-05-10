@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>数据操作类(DataBase.class.php)</h1>
+
+<h2>update($_table,$_array,$_where=null)</h2>
+<p>	@param string $_table 数据表<br/>
+	@param array  $_array 要更新的数据 (若要更新的数据中包含sql代码，如+1运算，则用双中括号区分。)<br/>
+	@param string $_where 条件语句
+</p>
+
+<code class="php">
+	$kid=11;/*设置要更新的内容kid为11*/
+	$array=array(/*数组形式设置更新的内容*/
+		____'ktitle'=>'新的标题',<br/>
+		____'nhit'=>'[[nhit+1]]',/*nhit++运算，这样就无需数据查询后再赋值，直接在sql中进行运算，要以两层的中括号做区分*/
+	____);<br/>
+	$king->db->update('%s__article',$array,"kid=$kid");
+</code>
+
+
+</body>
+</html>

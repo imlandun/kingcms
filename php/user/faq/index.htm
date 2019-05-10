@@ -1,0 +1,110 @@
+002E:zh-cn.xml:021E:1:14=4D9FD39A:16=47d21313:<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+
+	<item>
+		<title>验证码太难录入?</title>
+		<body><![CDATA[KingCMS默认的验证码可能很难看懂，那是因为我们在选择默认字体的时候看重的是其小巧的体积。
+		你完全可以删掉它们，并拷贝喜欢的字体到字体目录里。
+		系统会自动认出来。
+		若要改成中文验证码，也可以拷贝中文字体库进去。具体方法见KingCMS指南。
+		字体库路径：//system/verify_font/]]></body>
+	</item>
+
+
+
+</kingcms>0023:.:0:3:14=48041e4b:16=47d21313:002F:index.php:061BB:1:14=4E80243C:16=47d21313:<?php require_once '../global.php';
+
+/* ======= >>> KingCMS <<< ========================== *
+
+ *   @License      http://www.KingCMS.com/license/    *
+
+ *   @Link         http://www.KingCMS.com/            *
+
+ *   @E-Mail       KingCMS@Gmail.com                  *
+
+ *   Copyright (c) KingCMS.com All Rights Reserved.   *
+
+ * ================================================== */
+
+function king_ajax_login(){
+	global $king;
+
+	/*
+	if($GLOBALS['ismethod']){//POST过程
+	}
+	*/
+	$data=kc_data(array('username','userpass','expire'));
+
+	if($king->config('blackuser','user')){
+		$array_black=explode('|',$king->config('blackuser','user'));
+		$array_black=array_diff($array_black,array(null));
+	}else{
+		$array_black=array();
+	}
+
+	//username
+	$_array=array(
+		array('username',0,3,15),
+		array('username',14,$king->lang->get('portal/check/reg/u-1'),array('*','\\',':','?','<','>','|',';',',','\'','!','~','$','#','@','^','(',')','{','}','=','+','%','/')),
+		//array('
+		array('username',14,$king->lang->get('portal/check/reg/u-2'),$array_black),
+	);
+	$s=$king->htmForm($king->lang->get('portal/user/name'),
+		'<input class="k_in w150" type="text" name="username" value="'.htmlspecialchars($data['username']).'" maxlength="15" />',
+		$_array,
+		null,
+		"<tt><a href=\"#\" class=\"k_user_register\">".$king->lang->get('portal/user/reg')."</a></tt>");
+
+	//pass
+	$_array=array(
+		array('userpass',0,6,30),
+	);
+	if($data['userpass'] && $GLOBALS['ischeck']){//有密码 并 账号验证成功的时候进行验证
+
+		$username=$data['username'];
+		$is=False;
+
+		if($king->user->isuc){//如果有UC
+
+			if($array_uc=uc_user_login($data['username'],$data['userpass'])){//链接成功
+				if((int)$array_uc[0]<0){//用户名不存在或密码错误
+					if($res=$king->db->getRows_one("select usermail,userpass,ksalt,userid from %s_user where username='".$king->db->escape($username)."' and uid=0")){//判断本地是否存在这个用户并且未同步到uc
+						$userid=$res['userid'];
+						if(md5($res['ksalt'].$data['userpass'])==$res['userpass']){//检测密码
+							$uid=uc_user_register($username,$data['userpass'],$res['usermail']);//注册用户到uc
+							$king->db->update('%s_user',array('lastlogindate'=>time(),'uid'=>($uid>0?$uid:0),'isdelete'=>'0'),'username=\''.$king->db->escape($username).'\'');
+							uc_user_login($data['username'],$data['userpass']);
+						}else{
+							$is=True;
+							$errId=-2;
+						}
+					}else{
+						$is=True;
+						$errId=$array_uc[0];
+					}
+				}else{//登录成功的时候，检查一下本地是否有这个账号
+
+					$uid=$array_uc[0];//UC中的UID
+
+					if($res=$king->db->getRows_one("select userpass,ksalt,userid,isdelete from %s_user where username='".$king->db->escape($username)."'")){//如果有这么个账号
+						$userid=$res['userid'];
+						if(md5($res['ksalt'].$data['userpass'])!=$res['userpass']){//若不一致，则进行更新
+							$userpass=md5($res['ksalt'].$data['userpass']);
+							$king->db->update('%s_user',array('userpass'=>$userpass,'lastlogindate'=>time(),'isdelete'=>'0'),'username=\''.$king->db->escape($username).'\'');
+						}else{
+							$king->db->update('%s_user',array('lastlogindate'=>time(),'isdelete'=>'0'),'username=\''.$king->db->escape($username).'\'');
+						}
+					}else{//如果本地没有这个账号，则添加
+						$usermail=$array_uc[3];
+						$ksalt=kc_random(6);
+						$array=array(
+							'username'=>$username,
+							'userpass'=>md5($ksalt.$data['userpass']),
+							'usermail'=>$usermail,
+							'ksalt'=>$ksalt,
+							'uid'=>$uid,
+							'regdate'=>time(),
+							'lastlogindate'=>time(),
+						);
+						$king->db->insert('%s_user',$array);
+						$r

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>HTML WYSIWYG 编辑器的扩展</h1>
+
+<p>HTML WYSIWYG 编辑器，即为即见即所得编辑器的扩展，KingCMS默认的编辑器为nicEdit，可以扩展流行的FCKEditor和还可以支持视频等比较全面的功能的TinyMCE编辑器。</p>
+<ul>
+	<li><a href="editor.html#fckeditor">FCKEditor</a></li>
+	<li><a href="editor.html#tinymce">TinyMCE</a></li>
+	<li><a href="editor.html#ewebeditor">eWebEditor</a></li>
+	<li><a href="editor.html#editarea">Edit area</a></li>
+</ul>
+
+<h2 id="fckeditor">FCKEditor的支持</h2>
+<p>到 http://www.fckeditor.net/ 下载最新版的编辑器，winrar等工具打开压缩包，把压缩包里的fckeditor目录直接拖动到system/editor/目录下面。<br/>
+进入管理系统，设置->清理主系统缓存后，再展开设置，即可看到可以选择fckeditor编辑器。</p>
+<p>仅下载安装编辑器是不够的，需要对其进行进一步的配置。<br/>
+先删除不必要的文件和目录：</p>
+<ol>
+	<li>删除fckeditor目录下面的_samples目录</li>
+	<li>删除fckeditor_php5.php、fckconfig.js、fckeditor.js、fckstyles.xml、fcktemplates.xml外的全部文件</li>
+	<li>删除fckeditor/_source目录</li>
+	<li>删除fckeditor/lang/目录下面的zh-cn.js外的全部文件</li>
+	<li>删除fckeditor/skins/目录下面的default外的全部文件</li>
+	<li>删除fckeditor/editor/filemanager/connectors/目录下面的php目录外的全部文件</li>
+	<li>删除fckeditor/plugins/下面的所有目录及文件，我们在这里不配置插件</li>
+</ol>
+
+<p>配置fckeditor/fckconfig.js文件<br/>
+这个文件是FCKEditor编辑器设置界面相关的选项。</p>
+
+<ul>
+	<li>修改 FCKConfig.DefaultLanguage 值为zh-cn，默认的是en，因为我们在上面删掉了zh-cn外的所有的语言包，万一操作系统是非简体中文的时候，会找不到默认文件en.js，则会出错。</li>
+	<li>修改 FCKConfig.ContentLangDirection 值为zh-cn</li>
+	<li>最后一个是最重要的界面控件 FCKConfig.ToolbarSets 的配置：<br/>
+	工具组都是用[]开包含的，若是换行显示工具栏，即为'/'。<br/>
+	可以把你不需要的编辑器工具栏给删掉，注意的是，同时删掉右侧的逗号。<br/>
+	下面是对应关系表<br/>
+	<table>
+		<tr><th class="w150">参数</th><th class="w300">作用</th><th>建议</th></tr>
+		<tr><td>Source</td><td>HTML源码编辑</td><td>保留</td></tr>
+		<tr><td>DocProps</td><td>页面属性</td><td>删除</td></tr>
+		<tr><td>Save</td><td>保存</td><td>删除</td></tr>
+		<tr><td>NewPage</td><td>新建</td><td>删除</td></tr>
+		<tr><td>Preview</td><td>预览</td><td>自便</td></tr>
+		<tr><td>Templates</td><td>格式模板</td><td>自便，若删除的话，可以删除fckeditor/fcktemplates.xml文件</td></tr>
+		<tr><td>Cut</td><td>剪切</td><td>删除</td></tr>
+		<tr><td>Copy</td><td>复制</td><td>删除</td></tr>
+		<tr><td>Paste</td><td>粘贴</td><td>删除</td></tr>
+		<tr><td>PasteText</td><td>粘贴为无格式文本</td><td>保留</td></tr>
+		<tr><td>PasteWord</td><td>从 MS Word 粘贴</td><td>保留</td></tr>
+		<tr><td>Print</td><td>打印</td><td>删除</td></tr>
+		<tr><td>SpellCheck</td><td>拼写检查</td><td>删除，中文编辑用不上这个</td></tr>
+		<tr><td>Undo</td><td>撤消</td><td>保留</td></tr>
+		<tr><td>Redo</td><td>重做</td><td>保留</td></tr>
+		<tr><td>Find</td><td>查找</td><td>保留</td></tr>
+		<tr><td>Replace</td><td>替换</td><td>保留</td></tr>
+		<tr><td>SelectAll</td><td>全选</td><td>删除</td></tr>
+		<tr><td>RemoveFormat</td><td>清除格式</td><td>保留</td></tr>
+		<tr><td>Form</td><td>表单</td><td>删除</td></tr>
+		<tr><td>Checkbox</td><td>复选框</td><td>删除</td></tr>
+		<tr><td>Radio</td><td>单选按钮</td><td>删除</td></tr>
+		<tr><td>TextField</td><td>单行文本</td><td>删除</td></tr>
+		<tr><td>Textarea</td><td>多行文本</td><td>删除</td></tr>
+		<tr><td>Select</td><td>隐藏域</td><td>删除</td></tr>
+		<tr><td>Button</td><td>按钮</td><td>删除</td></tr>
+		<tr><td>ImageButton</td><td>列表/菜单</td><td>删除</td></tr>
+		<tr><td>HiddenField</td><td>图像域</td><td>删除</td></tr>
+		<tr><td>Bold</td><td>加粗</td><td>删除 建议用快捷键 CTRL + B</td></tr>
+		<tr><td>Italic</td><td>斜线</td><td>删除 CTRL + I</td></tr>
+		<tr><td>Underline</td><td>下划线</td><td>删除 CTRL + U</td></tr>
+
+		<tr><td>StrikeThrough</td><td>删除线</td><td>删除</td></tr>
+		<tr><td>Subscript</td><td>下标</td><td>删除</td></tr>
+		<tr><td>Superscript</td><td>上标</td><td>删除</td></tr>
+		<tr><td>OrderedList</td><td>有序列表</td><td>保留</td></tr>
+		<tr><td>UnorderedList</td><td>无序列表</td><td>保留</td></tr>
+		<tr><td>Outdent</td><td>减少缩进量</td><td>保留</td></tr>
+		<tr><td>Indent</td><td>增加缩进量</td><td>保留</td></tr>
+		<tr><td>Blockquote</td><td>块引用</td><td>自便</td></tr>
+		<tr><td>CreateDiv</td><td>插入 Div 标签</td><td>自便</td></tr>
+		<tr><td>JustifyLeft</td><td>左对齐</td><td>保留</td></tr>
+		<tr><td>JustifyCenter</td><td>居中对齐</td><td>保留</td></tr>
+		<tr><td>JustifyRight</td><td>右对齐</td><td>保留</td></tr>
+		<tr><td>JustifyFull</td><td>两端对齐</td><td>保留</td></tr>
+		<tr><td>Link</td><td>插入/编辑超链接</td><td>保留</td></tr>
+		<tr><td>Unlink</td><td>取消超链接</td><td>保留</td></tr>
+		<tr><td>Anchor</td><td>插入/编辑锚点链接</td><td>删除</td></tr>
+		<tr><td>Image</td><td>插入图片</td><td>保留</td></tr>
+		<tr><td>Flash</td><td>插入Flash动画</td><td>保留</td></tr>
+		<tr><td>Table</td><td>插入表格</td><td>保留</td></tr>
+		<tr><td>Rule</td><td>水平线 &lt;hr&gt;</td><td>保留</td></tr>
+		<tr><td>Smiley</td><td>插入表情</td><td>删除</td></tr>
+		<tr><td>SpecialChar</td><td>特殊符号</td><td>保留</td></tr>
+		<tr><td>PageBreak</td><td>分页标签</td><td>保留</td></tr>
+		<tr><td>Style</td><td>套用样式</td><td>若不用，可以删掉fckeditor/fckstyle.xml，若修改样式，就修改这文件</td></tr>
+		<tr><td>FontFormat</td><td>文字预置样式</td><td>保留</td></tr>
+		<tr><td>FontName</td><td>选择字体</td><td>保留</td></tr>
+		<tr><td>FontSize</td><td>文字大小</td><td>保留</td></tr>
+		<tr><td>TextColor</td><td>文字颜色</td><td>保留</td></tr>
+		<tr><td>BGColor</td><td>文字背景色</td><td>保留</td></tr>
+		<tr><td>FitWindow</td><td>全屏编辑</td><td>保留</td></tr>
+		<tr><td>ShowBlocks</td><td>显示区块</td><td>保留,辅助性的显示，挺不错</td></tr>
+		<tr><td>About</td><td>关于编辑器信息</td><td>尊重开发者的劳动，还是保留吧。</td></tr>
+	</table>
+	</li>
+</ul>
+
+<p>KingCMS FCKEditor编辑器工具栏优化</p>
+<code>
+FCKConfig.ToolbarSets["Default"] = [<br/>
+	['Source','Preview'],<br/>
+	['PasteText','PasteWord'],<br/>
+	['Undo','Redo','-','Find','Replace','RemoveFormat'],<br/>
+	['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote','CreateDiv'],<br/>
+	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],<br/>
+	['Link','Unlink'],<br/>
+	['Image','Flash','Table','Rule','SpecialChar','PageBreak'],<br/>
+	'/',<br/>
+	['Style','FontFormat','FontName','FontSize'],<br/>
+	['TextColor','BGColor'],<br/>
+	['FitWindow','ShowBlocks','-','About']<br/>
+] ;
+</code>
+
+<p>删掉Default下面的Basic部分代码</p>
+
+<code>
+FCKConfig.ToolbarSets["Basic"] = [<br/>
+	['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']<br/>
+] ;
+</code>
+
+<p>FCKEditor自带的文件浏览器的设置</p>
+
+<p>打开fckeditor/editor/filemanager/connectors/php/config.php文件，参数设置如下：</p>
+<ul>
+	<li>在第一行&lt;?php代码下一行增加
+	<code>define('KC_INDEX',True);<br/>
+	define('KC_CALL_FUNC',True);<br/>
+	require_once '../../../../../../../global.php';<br/>
+	!defined('KC_IN') && exit('No direct script access allowed');<br/>
+	$king->access('#brow');
+	</code></li>
+	<li>$Config['Enabled']=true;//即开启文件浏览器功能。</li>
+	<li>$Config['UserFilesPath']='/'.$king->config('uppath').'/';//默认的上传目录</li>
+	<li>$Config['AllowedExtensions']['File']=explode('|',$king->config('upfile'));//可上传文件类型，可以保留不改，改成这个后，可以和系统参数里的可上传文件类型保持一致</li>
+	<li>$Config['AllowedExtensions']['Image']=explode('|',$king->config('upimg'));//可上传图片类型，功能同上</li>
+</ul>
+
+<h2 id="tinymce">TinyMCE的支持</h2>
+<p>TinyMCE从 http://tinymce.moxiecode.com/ 里下载得到。<br/>
+下载解压后，把jscripts目录下面的tiny_mce文件夹放到system/editor/目录下面，并清理缓存即可从设置菜单下面看到。</p>
+<p>TinyMCE编辑器的文件管理插件MCFileManager和图片编辑插件MCImageManager比较不错，只可惜是收费的。</p>
+<p>相比FCKEditor，TinyMCE没有多少删除的地方，指南里就不多陈述。</p>
+
+<h2 id="ewebeditor">eWebEditor的支持</h2>
+<p>国内最强HTML可视化编辑器eWebEditor的功能比较全面，虽说2.8版有安全性问题，并不是软件本身的问题，而是使用者配置不当造成的原因比较多。下面以4.60精简版本为基础，进行配置。</p>
+<ul>
+	<li>在system/editor/下面创建目录eWebEditor，注意大小写</li>
+	<li>从eWebEditor下载得到的压缩包解压，释放到上面的目录里。</li>
+	<li>删掉eWebEditor/eWebEdior简体中文精简版使用说明(V4.6).txt</li>
+	<li>删除eWebEditor/_example目录</li>
+	<li>删除eWebEditor/buttonimage/blue目录</li>
+	<li>删除eWebEditor/css/light目录外的其他目录</li>
+	<li>删除eWebEditor/style/目录下面的light.js外的全部文件</li>
+</ul>
+
+<p>菜单编辑<br/>
+打开eWebEditor/style/light.js文件的showToolbar()函数是输出菜单结构的内容，根据自己的需求删除对应的菜单即可。</p>
+
+<h2 id="editarea">Edit area</h2>
+<p>这并不是我们所熟悉的HTMLArea编辑器，而是Edit area，纯代码编辑器，此编辑器仅适用于SEO有苛刻要求的高手，对SEO不感兴趣的站长，可以回避。<br/>
+官方网站: http://www.cdolivet.com/<br/>
+项目托管于: http://sourceforge.net/projects/editarea/</p>
+
+<p>此编辑器功能比较有限，<a href="file/edit_area.7z">点击这里下载</a>。</p>
+
+<h2>进行优化后的编辑器下载链接</h2>
+
+<table>
+	<tr><th class="l">编辑器名称及版本</th><th class="l">精简后的程序</th></tr>
+	<tr><td>FCKEditor 2.6.4</td><td><img src="../images/link.png" class="os"/><a href="file/fckeditor.7z">下载</a></td></tr>
+	<tr><td>TinyMCE 3.2.2.1</td><td><img src="../images/link.png" class="os"/><a href="file/tiny_mce.7z">下载</a></td></tr>
+	<tr><td>eWebEditor简体中文精简版 4.6</td><td><img src="../images/link.png" class="os"/><a href="file/eWebEditor.7z">下载</a></td></tr>
+	<tr><td>Edit area 0.7.3</td><td><img src="../images/link.png" class="os"/><a href="file/edit_area.7z">下载</a></td></tr>
+	<tr><td>7z解压软件7zip下载</td><td><img src="../images/link.png" class="os"/><a target="_blank" href="http://www.onlinedown.net/soft/3610.htm">下载</a></td></tr>
+</table>
+
+</body>
+</html>

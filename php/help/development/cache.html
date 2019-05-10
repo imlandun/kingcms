@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+</script>
+
+</head>
+<body>
+
+
+<h1>Cache缓存文件对应表</h1>
+<p>缓存文件是存储在 <kbd>//config.php</kbd> 文件中定义的 <kbd>KC_CACHE_PATH</kbd> 常量对应的目录里，默认路径为 <kbd>//_cache/</kbd> 。</p>
+
+<h2>主系统</h2>
+<table>
+	<tr><td>system/module.php</td><td>所安装的模块</td></tr>
+	<tr><td>system/admins.php</td><td>所有管理员列表</td></tr>
+	<tr><td>system/config/{module}.php</td><td>主系统和模块的参数设置</td></tr>
+	<tr><td>system/message/{adminid}.php</td><td>管理员聊天</td></tr>
+	<tr><td>system/cache/{cachename}.php</td><td>模板标签的cache值对应的缓存</td></tr>
+	<tr><td>system/lnk/flo_{adminid}.php</td><td>快捷菜单，浮动的</td></tr>
+	<tr><td>system/lnk/{adminid}.php</td><td>快捷菜单，首页的</td></tr>
+	<tr><td>system/mainmenu/{adminid}/{language}.php</td><td>后台的管理菜单，主要的</td></tr>
+	<tr><td>system/getrows_number/{DBtable}/{where}.php</td><td>缓存内容分页总页数,DBtable为数据表名称</td></tr>
+	<tr><td>system/tagmenu/{adminid}/{language}.php</td><td>Tag标签方式显示最近访问的地址</td></tr>
+	<tr><td>system/modulever.php</td><td>记录各个模块的版本</td></tr>
+	<tr><td>system/filemanage/{path}index.php</td><td>文件管理器目录缓存</td></tr>
+</table>
+
+<h2>自定义模型</h2>
+<table>
+	<tr><td>portal/list/id.php</td><td>所有的栏目列表</td></tr>
+	<tr><td>portal/list/menu1~menu5.php</td><td>对前台调用的5个菜单的缓存</td></tr>
+	<tr><td>portal/list/sitemap.php</td><td>站点地图缓存</td></tr>
+	<tr><td>portal/list/{listid}.php</td><td>对栏目列表的缓存</td></tr>
+	<tr><td>portal/model.php</td><td>对所有模型名称的缓存</td></tr>
+	<tr><td>portal/model/model{modelid}.php</td><td>模型信息的缓存</td></tr>
+	<tr><td>portal/model/table.php</td><td>modelid=>modeltable</td></tr>
+	<tr><td>portal/model/name.php</td><td>modelid=>modelname</td></tr>
+	<tr><td>portal/site/id.php</td><td>SiteUrl和SiteID的对应</td></tr>
+	<tr><td>portal/site/home.php</td><td>首页集合，SiteID=>ListID</td></tr>
+	<tr><td>portal/site/info.php</td><td>完整的Site对照，portal:infoSite($siteid)</td></tr>
+	<tr><td>portal/express.php</td><td>完整的物流对照</td></tr>
+	<tr><td>portal/listeditor/{listid}.php</td><td>栏目编辑，即列表管理员</td></tr>
+	<tr><td>portal/hit.php</td><td>访问统计缓存，数据并不是直接更新，而是缓存一定数量后一并更新</td></tr>
+</table>
+
+<h2>用户系统</h2>
+<table>
+	<tr><td>user/groups.php</td><td>用户组索引</td></tr>
+	<tr><td>user/info/{userid}.php</td><td>用户信息[非整合UCenter]</td></tr>
+</table>
+
+<h2>碎片管理</h2>
+<table>
+	<tr><td>cache/info/{kid}.php</td><td>碎片信息</td></tr>
+</table>
+
+</body>
+</html>

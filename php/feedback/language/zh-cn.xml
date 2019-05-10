@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kingcms>
+	<name>留言反馈</name>
+	<ACCESS>
+		<feedback>查看</feedback>
+		<feedback_edt>编辑</feedback_edt>
+		<feedback_delete>删除</feedback_delete>
+		<feedback_updown>排序</feedback_updown>
+		<feedback_reply>回复</feedback_reply>
+	</ACCESS>
+
+	<CHANNEL>
+		<center access="feedback" href="../feedback/manage.php" img="p7">留言管理</center>
+	</CHANNEL>
+
+	<const>
+	</const>
+
+	<list>
+		<title>留言标题</title>
+		<company>公司名称</company>
+		<fax>传真</fax>
+		<service>服务类型</service>
+		<origin>货运起点</origin>
+		<destination>货运终点</destination>
+		<cargo_description>货物描述</cargo_description>
+		<measurement>货物尺寸</measurement>
+		<weight>货物重量</weight>
+		<name>姓　　名</name>
+		<email>邮箱地址</email>
+		<date>发布日期</date>
+		<status>状  态</status>
+		<nshow>显示</nshow>
+		<read>标记为已读</read>
+		<unread>标记为未读</unread>
+		<show>标记为显示</show>
+		<unshow>标记为隐藏</unshow>
+		<sendmail>发邮件给</sendmail>
+		<reply>回复此留言</reply>
+		
+	</list>
+
+	<label>
+		<title>留言标题</title>
+		<company>公司名称</company>
+		<name>姓　　名</name>
+		<email>邮箱地址</email>
+		<phone>联系电话</phone>
+		<fax>传真</fax>
+		<service>服务类型</service>
+		<origin>货运起点</origin>
+		<destination>货运终点</destination>
+		<cargo_description>货物描述</cargo_description>
+		<measurement>货物尺寸</measurement>
+		<weight>货物重量</weight>
+		<qq>QQ或MSN</qq>
+		<content>留言内容</content>
+		<date>发布日期</date>
+		<country>国　　家</country>
+	</label>
+
+	<title>
+		<center>留言管理</center>
+	</title>
+
+	<error>
+		<name>标题长度不正确(2-50)!</name>
+		<name>姓名长度不正确(2-30)!</name>
+		<name>请正确填写您的邮箱地址,以便与您联络(6-100)!</name>
+		<name>留言内容长度不正确(10-1000)!</name>
+		<name>请选择要进行操作的留言!</name>
+		<name>您刚刚发表了一个留言反馈,如果还有其他问题，请稍等片刻再发,谢谢!</name>
+	</error>
+
+	<ok>
+		<add>留言成功! </add>
+		<del>成功删除留言 </del>
+		<reply>成功回复留言</reply>
+	</ok>
+
+	<help>
+	</help>
+
+</kingcms>

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>模板的制作</h1>
+
+<p>
+模板制作是整个系统中最核心的应用部分，如果对模板制作不了解，很难做好一个优秀的KingCMS网站。<br/>
+KingCMS模板支持非XHTML模式，但是建议制作XHTML模式的模板。</p>
+
+<h2 id="basic">基础知识</h2>
+
+<dl>
+	<dt>模板文件命名</dt>
+	<dd>模板文件名不能用中文，必须由英文和数字构成，扩展名为html|htm|shtml，为安全考虑，不推荐用php扩展名。</dd>
+
+	<dt>模板文件夹目录</dt>
+	<dd>默认的模板文件夹目录是<a href="../about/directory.html#template">template</a>，但考虑到模板被盗问题，可以在 工具-&gt;网站参数设置 下面，修改其默认目录。<br />
+	需要注意的是，修改这个值的同时，需要同步重命名服务器网站根目录下的template目录名称为上面修改的新的名称。</dd>
+
+	<dt>默认调用页</dt>
+	<dd>系统默认调用模板是default.htm，可以在 工具-&gt;网站参数设置 中重新定义，但需要注意的是，必须保证模板目录(Template)里存在这个文件。包括inside目录下面的每一个文件夹下面必须有这个模板。<br />
+	即，default.htm被修改为new.htm的时候，必须要保证Ttemplate/new.htm文件的存在。</dd>
+
+	<dt>图片、CSS及javascript文件链接</dt>
+	<dd>不同于以往版本，PHP版的模板图片是放在网站根目录下面的images目录下面，在制作模板的时候，无需用完整路径，可以用  ../images/logo.gif 形式的相对路径链接来指定HTML连接对象，KingCMS模板解析引擎会自动对路径进行替换处理。<br />
+	如，模板中调用一个logo图片为：&lt;img src=”../images/logo.png/&gt;<br />
+	经过系统解析后为&lt;img src=”/images/logo.png”/&gt;或&lt;img src=<a href="http://localhost/images/logo.png">http://localhost/images/logo.png</a>/&gt;<br />
+	当工具-&gt;网站参数设置中，网站首页地址设置为空的时候，出现前者；当地址设置为<a href="http://localhost的时候/">http://localhost的时候</a>，出现后者，需要注意的是，不能以/结尾。</dd>
+
+	<dt>文件编码</dt>
+	<dd>KingCMS默认的编码为UTF-8，模板进行保存的时候，编码类型必须选择为UTF-8，操作如下：<br />
+	用记事本打开模板页面，在另存的时候，请注意图示中的编码。<br/>
+	<img src="images/coding.jpg" width="353" height="137" /></dd>
+
+
+</dl>
+
+<h2 id="template">内部模板和外部模板</h2>
+<p>关系图如下：<br/>
+<img src="images/templates.gif"/></p>
+<dl>
+	<dt>外部模板</dt>
+	<dd>即框架模板，网站中不经常改动的地方，如TopBanner和底部的Copyright等信息部分，以及&lt;html&gt;&lt;head&gt;……&lt;/head&gt;&lt;body&gt;部分和结束标记&lt;/body&gt;&lt;/html&gt;部分。<br />
+	外部模板中必须有 <strong>{king:inside/}</strong> 标签，作为内部模板的接口代码<br/>
+	外部模板范例如下：
+
+		<code class="example">
+		/* 外部模板开始 */<br/>
+		[html]<br/>
+		[head]<br/>
+		[title]<br/>
+		/*页面标题*/<br/>
+		[/title]<br/>
+		[/head]<br/>
+		[body]<br/>
+		[div id="top"]<br/>
+		/* 这里可以输出头部信息，如Logo等 */<br/>
+		[/div]<br/>
+		[div id="main"]<br/>
+		/* 外部模板结束 */<br/><br/>
+
+		/*内部模板嵌入接口 */<br/>
+		{king:inside/}<br/>
+		/* 内部模板接口代码结束 */<br/><br/>
+
+
+		/*外部模板下面部分开始 */<br/>
+		[/div]
+
+
+		[div id="bottom"]<br/>
+		/*这里可以输出页面底部信息*/<br/>
+		[/div]<br/>
+		[/body]<br/>
+		[/html]<br/>
+		/*结束HTMl模板代码 */
+
+		</code>
+
+	</dd>
+
+	<dt>内部模板</dt>
+	<dd>显示不同应用内容的部分<br/>
+	内部模板以文章列表页为例：
+		<code class="example">
+		{king:portal.article type="list"}/*调用文章标题列表，开始标记*/<br/>
+		____[a href="{king:path/}"]{king:title/}[/a]/*循环调用文章标题及连接*/<br/>
+		{/king:portal.article}/*结束文章列表标记*/<br/><br/>
+		{king:portal.pagelist/}/*分页代码*/<br/>
+		</code>
+	</dd>
+
+	<span>内部模板中无需定义文件头信息等，通过KingCMS模板解析系统，外部模板中的{king:inside/}标签，将由内部模板替换后，成为一个完整的模板。采用内外模板的优点：减少在制作模板中重复制作的部分</span>
+</dl>
+
+
+
+</body>
+</html>

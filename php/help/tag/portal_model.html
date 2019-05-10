@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>模型调用</h1>
+
+<p>模型调用可以用在搜索类型等地方，使用范围有局限。</p>
+<code class="example">
+{king:portal.model issearch='1' language='zh-cn'}/*指定调用的模型类型为搜索类型，语言为中文*/<br/>
+	____{king:modelname size="32"/}[br/]/*调用模型名称*/<br/>
+{/king:portal.model}
+</code>
+
+<h2>内容调用标签属性</h2>
+<table>
+	<tr><td class="w150">modelid</td><td class="w150">可分段数字</td><td>指定模型id调用</td></tr>
+	<tr><td>issearch</td><td>1/0</td><td>1的时候只调用加入搜索的，0只调用不加入搜索的，默认为全部</td></tr>
+	<tr><td>language</td><td>字符串</td><td>语言类型，中文是zh-cn，英文是en</td></tr>
+	<tr><td>ispublish1</td><td>数字</td><td>主题页的发表 0验证后发布;1直接发布;2不允许发布</td></tr>
+	<tr><td>ispublish2</td><td>数字</td><td>详细页的发表 0验证后发布;1直接发布;2不允许发布</td></tr>
+</table>
+
+<h2>内容页特殊标签</h2>
+<table>
+	<tr><td>{king:hit/}</td><td>输出统计当前页访问次数的javascript代码，其他页面直接输出访问次数</td></tr>
+	<tr><td class="w200">{king:add/}</td><td>添加新主题</td></tr>
+	<tr><td>{king:edit/}</td><td>编辑</td></tr>
+	<tr><td>{king:reply/}</td><td>回复主题，也叫添加分页，在不同的应用有不同的说法</td></tr>
+</table>
+</body>
+</html>

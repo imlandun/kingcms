@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>主系统数据库结构</h1>
+
+
+<table class="table2">
+	<tr>
+		<td>
+			<code class="sql" rel="%s_system_caption,cid">
+			kpath char(100) not null,/*XML语言包中caption子节点的名称*/
+			kmodule char(50) not null/*所属模块*/
+			</code>
+
+			<code class="sql" rel="%s_system,kid">
+			cid int(6) not null default 0,/*所属模块id*/
+			isshow tinyint(1) not null default 1,/*是否显示*/
+			issys tinyint(1) not null default 1,/*是否为系统字段，系统参数不允许编辑*/
+			kname char(50) UNIQUE not null,/*变量名成,大写*/
+			norder int not null default 0,/*排序*/
+			kmodule char(50) not null,/*参数所属模块*/
+			kvalue text null,/*参数存储值*/
+			ntype tinyint(1) not null default 0,/*显示的表单类型*/
+			nvalidate tinyint(1) not null default 0,/*数据类型*/
+			nsizemin int(8) not null default 0,/*kvalue值的最小长度值*/
+			nsizemax int(8) not null default 0,/*kvalue值的最大长度值*/
+			koption text null,/*预置的可选选项*/
+			nstylewidth smallint(4) not null default 0,/*input、textarea等的文本框长度*/
+			nstyleheight smallint(4) not null default 0,/*textarea文本框的高度*/
+			khelp char(100) null/*帮助的XML文档节点*/
+			</code>
+			<code class="sql" rel="%a_admin,adminid">
+			adminname char(12) UNIQUE not null,/*管理员名称*/
+			adminpass char(32) not null,/*密码*/
+			adminlevel text not null,/*级别*/
+			adminlanguage char(30) not null,/*语言*/
+			admineditor char(100) null,/*编辑器*/
+			admincount smallint not null default 0,/*登录次数*/
+			adminmode tinyint(1) not null default 1,/*操作模式 2完整模式 1专业录入模式 0简单模式*/
+			adminskins char(50) not null default 'default',/*皮肤目录，也是界面*/
+			adminlogin char(100),/*登陆后跳转的页面*/
+			siteurl char(100),/*管理员绑定的网址,其他网址无权管理*/
+			isdelete tinyint(1) not null default 0,/*是否删掉管理员*/
+			admindate int(10) not null default 0/*创建日期*/
+			</code>
+
+			<code class="sql" rel="%s_module,kid">
+			kid1 int not null default 0,/*是否为子模块 默认0为根模块*/
+			kname char(50) not null,/*模块名称*/
+			kpath char(50) not null,/*模块目录*/
+			islock tinyint(1) not null default 0,/*是否禁用*/
+			kdb text null,/*模块的数据库表名，垂直线分开*/
+			ndate int(10) not null default 0,/*模块安装日期*/
+			ndbver smallint(3) not null default 100,/*模块的版本，实际输出结果要除于100*/
+			norder int not null default 0,/*排序*/
+			INDEX(islock)/*索引islock*/
+			</code>
+
+			<code class="sql" rel="%s_log,kid">
+			adminname char(12) not null,/*管理员名称*/
+			nip int(10) not null default 0,/*管理员IP*/
+			nlog tinyint(2) not null default 0,/*管理员的操作ID*/
+			ktext char(100) null,/*输入或更新的内容*/
+			ndate int(10) not null default 0/*发生操作的时间*/
+			</code>
+
+			<code class="sql" rel="%s_conn,kid">
+				kname char(50) not null,/*通信名称*/
+				ksign char(32) null,/*密钥*/
+				urlpath char(255) not null,/*目标站地址*/
+				connid int not null default 0,/*目标通信ID*/
+				norder int not null default 0,/*排序*/
+				INDEX(connid)/*索引connid*/
+			</code>
+
+
+		</td>
+
+		<th>&nbsp;</th>
+
+		<td>
+
+			<code class="sql" rel="%s_bot,kid">
+			kname char(30) not null,/*爬虫名称*/
+			kmark char(255) not null,/*爬虫标记即useragent代码*/
+			ncount int not null default 0,/*来访次数*/
+			nlastdate int(10) not null default 0,/*最后一次访问时间*/
+			ndate int(10) not null default 0/*开始访问日期*/
+			</code>
+
+
+			<code class="sql" rel="%s_upfile,kid">
+			kpath char(255) not null,/*文件路径*/
+			ndate int(10) not null default 0,/*上传时间*/
+			userid int not null default 0,/*会员上传的时候,会员userid*/
+			adminid int not null default 0,/*管理员上传,adminid*/
+			ntype tinyint(1) not null default 0,/*上传文件类型 0:图片类型;1:zip/rar等文件;2:模板扩展名*/
+			ktitle varchar(100) NULL,/*101 图片说明或Alt属性值*/
+			INDEX(userid),/*索引userid*/
+			INDEX(adminid)/*索引adminid*/
+			</code>
+
+
+			<code class="sql" rel="%s_lnk,kid">
+			kname char(20) null,/*链接名称*/
+			ktitle char(100) null,/*链接标题*/
+			kpath char(100) null,/*链接地址*/
+			konclick char(255) null,/*onClick属性*/
+			adminid int not null default 0,/*所属管理员ID*/
+			kimage char(100) null,/*快捷方式的icon图32×32*/
+			isblank tinyint(1) not null default 0,/*是否在新窗口中打开*/
+			norder int not null default 0,/*排序*/
+
+			isflo tinyint(1) not null default 0,/*是否在后台浮动*/
+			ntop smallint(4) not null default 50,/*漂移的顶部距离*/
+			nleft smallint(4) not null default 300,/*左侧距离*/
+
+			INDEX(adminid)/*索引adminid*/
+			</code>
+
+
+			<code class="sql" rel="%s_message,kid">
+			adminname char(12) not null,/*管理员名称*/
+			kmsg char(100) not null,/*管理员留言主体内容*/
+			ndate int(10) not null default 0,/*发表日期*/
+			adminid int not null default 0,/*管理员名称*/
+			issys tinyint(1) not null default 0,/*是否为系统信息*/
+			klink char(100) null,/*索引*/
+			INDEX(adminid),/*索引*/
+			INDEX(issys)/*索引*/
+			</code>
+
+
+			<code class="sql" rel="%s_event,kid">
+			ntype int(6) not null,/*事件分类*/
+			kmsg text null,/*错误提示*/
+			kfile char(100) not null,/*错误出现文件*/
+			kurl char(255) null,/*脚本执行时候的URL路径*/
+			nline int(5) not null default 0,/*出错行数*/
+			ndate int(10) not null default 0/*出错时间*/
+			</code>
+		
+
+		</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>碎片管理模块数据表结构</h1>
+
+
+<table class="table2">
+	<tr>
+		<td>
+			<code class="sql" rel="%s_block,kid">
+			kid1 int not null default 0,/*所属*/
+			kname char(100) not null,/*碎片代号，调用就靠这个*/
+			kcontent text null,/*碎片内容*/
+			ntype tinyint not null default 0,/*BindType，即绑定类型，1栏目、2模型、3网站*/
+			bid int not null default 0,/*BindID，上述类型的id*/
+			norder int not null default 0,/*排序*/
+			INDEX(kname)/*建立索引*/
+			</code>
+
+
+		</td>
+		<td></td>
+	</tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>PHP可执行代码</h1>
+
+<p>或许你不明白为什么把它放到这里？因为它就是PHP代码。回答是：它是由模板解析引擎去解析的，所以……<br/>
+直接进入实例，没有比实例更有说服力的陈述：</p>
+
+<code class="example">
+[h1]{king:title/}[/h1]/*调用标题，假设这个页面是一个普通的文章详细页*/<br/>
+[div id="content"]{king:content/}[/div]/*调用内容*/<br/>
+[p]作者:{king:_author/}[/p]
+</code>
+
+<p>上面的代码没有什么特别的地方，但客户的要求有了变化，他想在详细页的内容开始前调用缩略图，没有则忽略。<br/>
+所以问题也来了，因为有的文章有缩略图，有的没有，如果直接输出图片，会出现难看的红叉叉。<br/>
+当然，这问题完全可以用javascript去处理，可这个客户就想输出，看来只能用PHP代码了。</p>
+
+<code class="example">
+[h1]{king:title/}[/h1]/*调用标题，假设这个页面是一个普通的文章详细页*/<br/>
+[?php<br/>
+
+$image='{king:image widht="200" height="150"/}';/*获得图片地址并赋值给$image变量,设置长宽，这样获得的值是缩略图地址*/<br/>
+
+if(isset($image)){/*判断图片地址是否为空，当不为空的时候执行下面的语句*/<br/>
+	____echo "&lt;img src=\"{$image}\" alt=\"{king:title/}\"/&gt;";/*用echo输出缩略图*/<br/>
+}<br/>
+
+?]<br/>
+[div id="content"]{king:content/}[/div]/*调用内容*/<br/>
+[p]作者:{king:_author/}[/p]
+</code>
+
+<span>
+	需要注意的是，每个功能都要写在一个个代码块里，不允许分开操作，如下的写法是错误的。
+</span>
+
+<code class="example">
+[h1]{king:title/}[/h1]<br/>
+[?php<br/>
+
+$image='{king:image widht="200" height="150"/}';<br/>
+
+if(isset($image)){/*判断图片地址是否为空*/<br/>
+
+?]<br/>
+	&lt;img src=\"&lt;?php echo $image ?&gt;\" alt=\"{king:title/}\"/&gt;/*PHP代码段不可以断开，每个功能块都要写到一起，输出必须用echo*/<br/>
+[?php<br/>
+}/*因为KingCMS模板引擎是把PHP代码一块块进行解析，遇到这种代码，则无法判断是和上面一段有关联的，所以只能报错！*/<br/>
+
+?]<br/>
+[div id="content"]{king:content/}[/div]<br/>
+[p]作者:{king:_author/}[/p]
+</code>
+
+<span>不仅是不能分开if等语句，跨块传递值也是错误的，如下：</span>
+<code class="example">
+[?php<br/>
+$name='CHINA';<br/>
+?]<br/>
+我爱我的国家:[?php echo $name ?]/*不会正常输出$name变量对应的值 CHINA ，而是出现错误信息！PHP太奇怪了……*/
+</code>
+
+</body>
+</html>

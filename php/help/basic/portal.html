@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>制作中</h1>
+
+<p></p>
+
+
+<h2 id="publish">定制发布模型</h2>
+<p></p>
+
+
+
+<h2 id="retainname">保留模型名称(缺省值)</h2>
+<p>list,pagelist,nav,page,tag,model,menu,menu1,menu2,menu3,menu4,menu5,skin,data</p>
+
+
+
+<h2 id="rewrite">伪静态设置方法</h2>
+<p>下面以Apache为例：</p>
+
+<ul>
+	<li>打开 apache 的配置文件 httpd.conf</li>
+	<li>将#loadmodule rewrite_module modules/mod_rewrite前面的#去掉</li>
+	<li>在 httpd.conf中添加管理后台，内容管理，为静态规则里获得的代码：<br/>
+	
+	<code>
+	&lt;IfModule mod_rewrite.c&gt;<br/>
+		RewriteEngine On<br/>
+		RewriteRule ^(.*)(/(list|page)(-[0-9]+)+\.html)$ $1/index.php$2<br/>
+	&lt;/IfModule&gt;
+	</code>
+	</li>
+	<li>保存httpd.conf并重启Apache</li>
+</ul>
+
+
+<p>IIS下的设置略。</p>
+
+<h2 id="systemmodel">系统模型</h2>
+<dl>
+	<dt>单页模型</dt>
+	<dd>单页即为单一的页面，对应的 modelid=0</dd>
+	<dt>超链接模型</dt>
+	<dd>这是仅做链接的模型，没有自己的页面，对应的 modelid=-1</dd>
+</dl>
+
+
+
+</body>
+</html>

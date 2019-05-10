@@ -1,0 +1,97 @@
+/*
+
+h6 顶部调用
+
+h1 标题
+
+h2 标题
+
+
+p       内容
+
+code    代码
+	strong 加粗
+
+span    Note提示
+
+ul li
+
+dl dt dd  首页目录
+
+kbd   KingCMS标签
+
+*/
+*{font-family:微软雅黑;}
+html{margin-top:0px;border-top:10px solid #0086DB;}
+body{margin:20px 30px 30px 30px;}
+
+img.os{width:16px;height:16px;vertical-align:middle;margin-right:2px;}
+
+a:link,
+a:visited,
+a:active{color:#0086DB;font-size:14px;font-weight:normal;text-decoration:none;}
+a:hover{font-size:14px;text-decoration:none;color:#2292E1;}
+
+table{width:100%;border:1px solid #7FC2ED}
+table td{vertical-align:top}
+table tr.light td{background:#FF0;}
+
+table.table2{border:none;}
+table.table2 td , .table2 th{background:#FFF;}
+
+table.table4{border:none;}
+
+h6{color:#0086DB;font-size:14px;margin:0px;padding:0px;display:block;height:26px;text-indent:5px;border-bottom:1px solid #EEE;}
+	h6 strong{float:left;font-weight:normal;}
+		h6 strong a{float:none;}
+	h6 a{font-size:12px;float:right;color:#0086DB;padding-right:10px;}
+
+h1{color:#0086DB;font-size:20px;margin:30px 0px 10px 0px;padding:0px;border-bottom:#999;display:block;border-bottom:1px solid #AAA;height:36px;text-indent:5px;font-weight:normal;}
+
+h2{color:#0086DB;font-size:16px;margin:20px 0px 10px 0px;padding:0px;border-bottom:#999;display:block;border-bottom:1px solid #AAA;height:26px;text-indent:5px;font-weight:normal;}
+h2.light,dt.light{background:#FF0;color:#F00;font-weight:bold;}/*加亮显示*/
+
+p{font-size:14px;padding:0px;margin:20px 0px;line-height:24px;}
+	p dl{}
+	p dl dt{}
+	p dl dd{background-image:none;text-indent:16px;}
+
+span{display:block;padding:10px;font-size:14px;margin:20px 0px;line-height:24px;border:1px solid #FF7F7F;background:#FFE5E5;}
+
+code{display:block;padding:10px;font-size:14px;margin:10px 0;line-height:22px;border:1px solid #7FC2ED;background:#E5F3FB;color:#000;}
+
+	code i{margin-left:3px;font-size:12px;font-style:normal}
+
+	code.example var{color:#666;font-size:12px;margin-left:8px;}
+	code.example abbr{color:#00F;}
+
+
+span strong , code strong{font-family:Verdana;color:#000;font-weight:normal;display:block;border-bottom:1px solid #FFF;margin-bottom:5px;}
+
+kbd{color:#000;font-size:12px;font-weight:bold;font-family:Verdana}
+	kbd cite{font-weight:bold;color:#F00;font-style:normal;}
+	kbd i{font-style:normal;}
+	kbd var{color:#000;font-style:normal;font-weight:normal;}
+
+ul{display:block;line-height:24px;padding:0px;list-style-type:none;}
+	ul li{font-size:14px;list-style:url(li.gif) outside circle;}
+
+ol{display:block;line-height:24px;padding:0px;}
+	ol li{font-size:14px;list-style-position:outside;}
+
+dl{display:block;line-height:24px;padding:0px;margin:0px;list-style-type:none;}
+	dl dt , dl dt a:visited, dl dt a:link {font-weight:bold;font-size:14px;text-indent:16px;margin-top:20px;}
+	dl dd{background:url(li.gif) no-repeat 3px 6px;font-size:14px;padding-left:16px;margin:0px;}
+		dl a:link,dl a:visited {color:#000;}
+		dl a:hover {color:#666;}
+		dl dd em{color:#49B927;font-weight:bold;font-style:normal}
+		dl dd a.attrib{color:#0086DB;}
+
+div{font-size:14px;padding:0px;margin:20px 0px;line-height:24px;}
+
+
+pre{font-size:14px;padding:0px;margin:20px 0px;line-height:24px;}
+	pre em{color:#002438;}
+
+.zebra{background:#F2F9FD;}
+

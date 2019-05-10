@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+
+<h1>标签综合应用举例</h1>
+
+<p>&nbsp;</p>
+
+
+<p>调用所有的当前栏目下面的栏目</p>
+
+<code class="example">
+	{king:portal.list listid1='(king:listid/)'}<br/>
+	____[span]<br/>
+	________[a href="{king:listpath/}"]{king:listname/}[/a]<br/>
+	____[/span]<br/>
+	{/king:portal.list} 
+</code>
+
+<p>仅调用当前栏目下面的文章栏目</p>
+
+<code class="example">
+	{king:portal.list listid1='(king:listid/)' modelid="6"}/*modelid为模型id，6是文章模型*/<br/>
+	____[span]<br/>
+	________[a href="{king:listpath/}"]{king:listname/}[/a]<br/>
+	____[/span]<br/>
+	{/king:portal.list} 
+</code>
+
+<h2 id="listname">调用文章列表的时候，同时调用文章所属栏目名称</h2>
+<p>这个问题比较复杂，如果用ASP版5.0的话，这个是很简单的问题，但到了PHP却成了难题，因为需要用到两层标签。</p>
+<code class="example">
+{king:portal.article type="new"}
+	[p]<br/>
+	____{king:portal.list listid='(king:listid/)'}<br/>
+	________[a href="{king:listpath/}"]{king:listname/}[/a]<br/>
+	____{/king:portal.list}<br/>
+	____[a href="{king:path/}"]{king:title size="30"/}[/a]<br/>
+	</p>
+{/king:portal.article}
+</code>
+
+</body>
+</html>

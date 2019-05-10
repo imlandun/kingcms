@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>KingCMS UserGuide</title>
+<link href="../images/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.kc.js"></script>
+
+</head>
+<body>
+
+<h1>基础部分</h1>
+
+<p>大体流程如下：<br/><img src="images/install.gif"/></p>
+
+<h2 id="platforms">建立本地调试环境</h2>
+
+<p>APMServ比较适合新手建立本地调试环境，是一款拥有图形界面的快速搭建Apache、PHP 5+、MySQL 5+、SQLite、ZendOptimizer、OpenSSL、phpMyAdmin、SQLiteManager，以及ASP、CGI、Perl网站服务器平台的绿色软件。<br/>
+无需建立IIS环境。</p>
+
+<ol>
+	<li>请先到<a href="http://apmserv.s135.com/">http://apmserv.s135.com/</a> 下载最新版本，解压释放到C:\</li>
+	<li>释放完成后，找到C:\APMServ5.2.X，运行APMServ.exe，Apache工具-&gt;虚拟主机设置<br />
+	虚拟主机域名各填写：localhost<br />
+	指定网页文件根目录为upload目录，如下：<br />
+	<img border="0" width="447" height="48" src="images/apmServ.jpg" /><br />
+	保存此虚拟主机后退出对话框 </li>
+	<li>在APMServ的主面板，点击  启动APMServ，点击访问本地网站。 </li>
+</ol>
+
+<h2>其他软件来设置PHP环境</h2>
+<ul>
+<li>phpStudy来建立本地调试环境：phpStudy的好处是可以选择IIS或Apache，安装方法比较简单，一路下一步就可以完成。</li>
+<li><a href="http://bbs.kingcms.com/thread-121-1-1.html" target="_blank">一分钟用VertrigoServ搭建最新的PHP服务器平台</a></li>
+</ul>
+
+<h2 id="install">安装KingCMS</h2>
+
+<ol>
+	<li>在浏览器中输入：http://localhost/INSTALL.php </li>
+	<li>填写数据库、管理员等参数设置，APMServ环境下，无需多余设置。
+		<ul>
+			<li>暂时仅支持MySQL数据库；</li>
+			<li>默认的管理员帐号和密码为admin和admin888；</li>
+			<li>数据缓存目录必须为英文字符和数字构成，支持部分特殊符号；</li>
+			<li>开启错误记录，将可以在事件查看器中看到程序执行过程中产生的错误提示。<br/>
+			注意：这些错误并不影响程序的正常使用，仅作为程序调试之用。</li>
+		</ul>
+	</li>
+	<li>选择接受协议，点击安装</li>
+	<li>安装成功后自动跳转到管理员登录页面。请记住这个登录地址：http://localhost/system/login.php</li>
+</ol>
+
+<h2 id="sqlite3">扩展支持SQLite3</h2>
+<p>以Windows平台为例，*NIX平台下是直接用命令安装，更简单。</p>
+<ol>
+	<li><a href="http://www.sqlite.org/download.html" target="_blank">下载SQLite3.dll</a></li>
+	<li>拷贝解压得到的sqlite3.dll文件到php5/ext/目录下面</li>
+	<li>打开php.ini文件，找到<br/>
+	extension=php_pdo.dll<br/>
+	extension=php_pdo_sqlite.dll<br/>
+	前面的分号去掉，并补上一行：<br/>
+	extension=sqlite3.dll
+	</li>
+	<li>重启Apache或IIS。</li>
+</ol>
+
+<h2 id="installerror">安装时可能出现的错误提示</h2>
+
+	<code>Parse error: syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR or '}'<br/>
+	 in /public_html/kingcms/system/lib/KingCMS.class.php on line 45</code>
+
+	<p>出现这种错误是空间不支持PHP5以上的版本，因为KingCMS是按照PHP5.0的标准去编写的，低版本，如支持PHP4的空间里会遇到这种错误。</p>
+
+<h2 id="module">安装扩展模块</h2>
+
+<p>安装模块的方法有如下三种： </p>
+<ol>
+	<li>直接访问扩展模块，如：http://localhost/portal/manage.php则出现安装提示，点击安装即可 </li>
+	<li>模块-&gt;模块管理-&gt;添加模块，填写如：portal  则完成安装 </li>
+	<li>查询方式安装：在模块管理里，点击 查找模块 就可以看到可安装的和已安装的模块。点击即可安装。 </li>
+</ol>
+
+<span>建议使用第三种查询方式安装</span>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{king:title/} KingCMS Administrator Panel.</title>
+<link rel="stylesheet" type="text/css" href="../system/style/sys_blue.css"/>
+<script type="text/javascript" src="/system/js/jquery.js"></script>
+<script type="text/javascript" src="/system/js/jquery.kc.js"></script>
+<script type="text/javascript" src="../system/js/common.js"></script>
+</head>
+<body>
+<div class="sys_wrapper">
+  <div class="sys_header">
+    <div class="sys_header_main">
+    	<p class="sys_info"></p>
+    </div>
+  </div>
+  <div class="sys_navigation">
+    <div class="fp_title">菜单导航</div>
+    <div class="fp_left"><a href="/system/manage.php" title="管理台首页" id="back_home">管理台首页</a><span class="sp"></span>
+    <a class="k_ajax" href="javascript:;" rel="{CMD:'clearcache',URL:'../system/manage.php'}">清除缓存</a><span class="sp"></span>{king:skin.mainmenueditor/}<span class="sp"></span><a target="" rel="{CMD:'novice'}" class="k_ajax" href="javascript:;">新手入门</a></div>
+    <div class="fr">
+      	Hi, {king:adminname/} &nbsp;[ {king:resetpwd/} | {king:logout/} ]
+    </div>
+  </div>
+  <div class="sys_container clearfix">
+    <div class="sys_sider" id="top">
+      <ul class="k_menu">
+        {king:skin.module show="1"}
+        <li class="k_menu_i"><a href="javascript:;">{king:name/}</a>
+          <ul>
+            {king:skin.menu module="(king:path/)"}
+            <li class="{king:class/}"{king:rel/}><a href="{king:href/}" {king:onclick/}{king:target/}><img src="../system/images/white.gif" class="os {king:img/}"/>{king:name/}</a></li>
+            {/king:skin.menu}
+          </ul>
+        </li>
+        {/king:skin.module}
+        <li class="k_menu_i"><a href="javascript:;">{lang:system.common.module/}</a> 
+          <ul>
+            {king:skin.module show="0"}
+            <li><a href="../{king:path/}/manage.php"><img src="../system/images/white.gif" class="os k7"/>{king:name/}</a></li>
+            {/king:skin.module}
+          </ul>
+        </li>
+        {king:skin.mainMenu/}
+      </ul>
+    </div>
+    <div class="sys_content" id="sys_content">
+      <div id="main">
+        <h2> <strong id="main_title">{king:title size="20"/}</strong> <span class="left"> {king:leftmenu} <a href="{king:href/}" class="{king:class/}" rel="{king:rel/}"><img src="../system/images/white.gif" class="os {king:ico/}"/>{king:title/}</a> {/king:leftmenu} </span>  </h2>
+        <table class="k_side" width="100%">
+          <tr>
+            <td>{king:skin.info/}</td>
+          </tr>
+        </table>
+        {king:inside/} </div>
+    </div>
+  </div>
+  <div class="sys_footer">Copyright © KingCMS.com All Rights Reserved.&nbsp;&nbsp;&nbsp; UI：<a href="https://www.imqianduan.com" target="_blank">https://www.imqianduan.com</a></div>
+</div>
+{king:skin.float/}
+<script type="text/javascript">
+    $(document).ready(function(){
+		$(".k_menu>li>ul").first().show();
+    });
+</script>
+</body>
+</html>
